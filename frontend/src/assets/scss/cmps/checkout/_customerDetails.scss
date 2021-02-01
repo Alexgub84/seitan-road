@@ -1,0 +1,22 @@
+.details-container {
+  display: flex;
+  flex-direction: row-reverse;
+  form {
+    width: 300px;
+    margin: 0 auto;
+    * {
+      display: flex;
+      justify-content: space-between;
+    }
+    button {
+      margin: 0 auto;
+    }
+  }
+}
+.delivery-container {
+  .delivery-btns {
+    display: flex;
+    justify-content: space-around;
+    height: 30px;
+  }
+}

@@ -1,0 +1,30 @@
+// Setup
+@import "setup/variables.scss";
+@import "setup/functions.scss";
+@import "setup/mixins.scss";
+@import "setup/typography.scss";
+
+// Basics
+@import "basics/helpers.scss";
+@import "basics/layout.scss";
+@import "basics/base.scss";
+@import "basics/links.scss";
+@import "basics/buttons.scss";
+
+//pages
+@import "pages/homePage";
+@import "pages/shopPage";
+@import "pages/controlPage";
+@import "pages/loginPage";
+
+// components
+@import "cmps/header.scss";
+@import "cmps/itemsList.scss";
+@import "cmps/freeShipmentBar.scss";
+@import "cmps/itemPreview.scss";
+@import "cmps/itemPreview/amountBtn";
+@import "cmps/itemPreview/addToCardBtn";
+@import "cmps/itemQuantity.scss";
+@import "cmps/cart.scss";
+@import "cmps/checkout/customerDetails.scss";
+@import "cmps/footer.scss";

@@ -1,0 +1,18 @@
+.control-form {
+  margin-bottom: 30px;
+}
+
+.orders-list {
+  flex-direction: column;
+  .order-preview {
+    span {
+      margin-left: 10px;
+    }
+  }
+}
+
+.orders-table {
+  direction: ltr;
+  height: 400;
+  width: 100%;
+}

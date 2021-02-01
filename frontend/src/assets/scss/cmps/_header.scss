@@ -1,0 +1,15 @@
+header {
+  height: 100px;
+  background-color: lightgoldenrodyellow;
+  > * {
+    margin: auto 0;
+  }
+  .nav-bar {
+    section {
+      width: 130px;
+      justify-content: space-between;
+    }
+    display: flex;
+    justify-content: space-between;
+  }
+}

@@ -1,0 +1,28 @@
+.nav-button {
+  background-color: lightblue;
+  border: 1px solid black;
+  margin: 5px 0;
+  padding: 5px;
+  &:hover {
+    background-color: lightgreen;
+    cursor: pointer;
+  }
+}
+.btn {
+  padding: 5px;
+  margin: auto;
+  &:hover {
+    cursor: pointer;
+  }
+}
+.delivery-choice-btn {
+  padding: 3px;
+  border: 1px solid black;
+  &:hover {
+    box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+    cursor: pointer;
+  }
+  &.clicked {
+    background-color: lightgray;
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "item": [
+    {
+      "_id": "p101",
+      "measure": "gram",
+      "name": "נקניק קורנביף (בשר כבוש)",
+      "description": [
+        "סייטן מבוסס על קמח גלוטן וסלק בעל טעמים עשירים, בזיגוג חרדל ושמן זית"
+      ],
+      "imgUrl": "https://res.cloudinary.com/da6blukms/image/upload/v1608033821/Seitan/kornbeef_preview_desktop_mvnq5o.jpg",
+      "price": 18
+    },
+    {
+      "_id": "p102",
+      "measure": "gram",
+      "name": " נקניק הודו אפוי",
+      "description": [
+        "פרוסות נקניק בעלי טעמים ארומטיים של עשבי תיבול, מבוסס על טופו וגלוטן, בזיגוג חרדל, סילאן ושמן זית"
+      ],
+      "imgUrl": "https://res.cloudinary.com/da6blukms/image/upload/v1608033820/Seitan/turkey_preview_desktop_twkbcb.jpg",
+      "price": 18
+    },
+    {
+      "_id": "p103",
+      "measure": "gram",
+      "name": " נקניק צ'וריסו פיקנטי",
+      "description": ["פרוסות נקניק בעלי טעמים עמוקים של פפריקות ופלפל קאיין"],
+      "imgUrl": "https://loremflickr.com/320/240",
+      "price": 34
+    },
+    {
+      "_id": "p104",
+      "measure": "unit",
+      "unitSize": "320 גרם",
+      "name": " חזה עוף",
+      "description": ["סייטן מבוסס על גלוטן וטופו, בעל טעם בסגנון עוף"],
+      "souses": ["ללא מרינדה", "גריל", "אסייתי", "מעושן", "חרדל ולימון"],
+      "sousePrice": 2,
+      "imgUrl": "https://loremflickr.com/320/240",
+      "price": 33
+    },
+    {
+      "_id": "p105",
+      "measure": "unit",
+      "name": "נגיסי עוף",
+      "description": ["סייטן מבוסס על גלוטן וטופו, בעל טעם בסגנון עוף"],
+      "souses": ["ללא מרינדה", "גריל", "אסייתי", "מעושן", "חרדל ולימון"],
+      "sousePrice": 2,
+      "imgUrl": "https://loremflickr.com/320/240",
+      "price": 33
+    },
+    {
+      "_id": "p106",
+      "measure": "unit",
+      "name": "שניצל",
+      "description": [
+        "סייטן מבוסס על גלוטן וטופו, בעל טעם בסגנון עוף. המוצר מגיע לאחר טיגון ומוכן לאכילה"
+      ],
+      "imgUrl": "https://loremflickr.com/320/240",
+      "price": 35
+    },
+    {
+      "_id": "p107",
+      "measure": "unit",
+      "name": "קרעי עוף",
+      "description": ["סייטן מבוסס על גלוטן וטופו, בעל טעם בסגנון עוף"],
+      "imgUrl": "https://loremflickr.com/320/240",
+      "price": 33
+    },
+    {
+      "_id": "p108",
+      "measure": "unit",
+      "name": "ביס סטייק ",
+      "description": ["סייטן עשיר בטעמי אומאמי, מבושל בציר בקר"],
+      "imgUrl": "https://loremflickr.com/320/240",
+      "price": 33
+    },
+    {
+      "_id": "p109",
+      "measure": "gram",
+      "name": "נקניק בייקון אמריקאי ",
+      "description": [" פרוסות נקניק בעלי טעמים מעושנים ומתקתקים אך גם מלוחים"],
+      "imgUrl": "https://loremflickr.com/320/240",
+      "price": 17
+    }
+  ],
+  "settings": {
+    "supply": {
+      "delivery": [
+        {
+          "name": "משלוח בתוך תל אביב",
+          "price": 30
+        },
+        {
+          "name": "משלוח מחוץ לתל אביב",
+          "citiesList": ["רמת גן", "גבעתיים"],
+          "price": 40
+        }
+      ],
+      "pickup": ["איסוף עצמי מתל אביב", "איסוף עצמי מפתח תקווה"],
+      "specialGroup": [
+        {
+          "name": "ירושלים",
+          "supplyDate": 1709947773651
+        }
+      ]
+    },
+    "supplyDate": 1609927753651,
+    "freeDeliveryPrice": 300,
+    "maxGrams": 2000,
+    "maxOrdersPerWeek": 15
+  }
+}

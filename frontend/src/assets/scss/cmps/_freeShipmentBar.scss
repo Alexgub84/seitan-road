@@ -1,0 +1,20 @@
+.free-shipment-bar {
+  width: 300px;
+  height: 30px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid black;
+  text-align: center;
+  .inner-container {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: yellow;
+    height: inherit;
+    max-width: 100%;
+    width: 0px;
+  }
+  span {
+    position: relative;
+  }
+}
