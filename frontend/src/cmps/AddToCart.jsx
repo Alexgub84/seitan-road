@@ -5,6 +5,7 @@ import { withRouter } from "react-router-dom";
 import { addToCart } from "../store/actions/userActions.js";
 import { AmountBtn } from "./ItemPreview/AmountBtn";
 import { AddToCartBtn } from "./ItemPreview/AddToCartBtn";
+import { MarinadaSelect } from "./ItemPreview/MarinadaSelect";
 
 export class _AddToCart extends Component {
   state = {
@@ -26,9 +27,8 @@ export class _AddToCart extends Component {
     if (this.state.quantity === 0) return;
     this.setState({ quantity: this.state.quantity - 1 });
   };
-  onSouseChange = (ev) => {
-    console.log(ev.target.value);
-    this.setState({ souse: ev.target.value });
+  onSouseChange = (souse) => {
+    this.setState({ souse: souse });
   };
   onAddToCart = (ev) => {
     this.stopAndPrevent(ev);
@@ -55,22 +55,24 @@ export class _AddToCart extends Component {
     const { item } = this.props;
     return (
       <div className="add-to-cart-container flex">
-        <AmountBtn
-          onAdd={this.onAdd}
-          onReduce={this.onReduce}
-          measure={this.props.item.measure}
-          quantity={this.state.quantity}
-        />
-        {/* todo - remove
-         <section className="flex justify-center align-center">
-          <button onClick={this.onAdd}>+</button>
-          <ItemQuantity
+        <section className="add-to-cart-otpions flex justify-evenly ">
+          <AmountBtn
+            onAdd={this.onAdd}
+            onReduce={this.onReduce}
             measure={this.props.item.measure}
             quantity={this.state.quantity}
           />
-          <button onClick={this.onReduce}>-</button> */}
-        {/* </section> */}
-        {item.souses && (
+          {item.souses && (
+            <MarinadaSelect
+              chosenSouse={this.state.souse}
+              souses={item.souses}
+              sousePrice={item.sousePrice}
+              onSouseChange={this.onSouseChange}
+            />
+          )}
+        </section>
+
+        {/* {item.souses && (
           <section className="souses">
             <label forname="souses">מרינדה</label>
             <select
@@ -87,8 +89,9 @@ export class _AddToCart extends Component {
               ))}
             </select>
           </section>
-        )}
+        )} */}
         {/* <button onClick={this.onAddToCart}>הוסף לעגלה</button> */}
+
         <AddToCartBtn onAddToCart={this.onAddToCart} />
       </div>
     );

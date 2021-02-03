@@ -1,47 +1,27 @@
 .amount-container {
   flex-direction: row-reverse;
   background-color: $clr3;
-  height: 39px;
+  height: 34px;
   font-size: 1rem;
   margin-bottom: 24px;
+  vertical-align: middle;
 
   .plus-btn {
-    width: 38px;
+    width: 32px;
     border: solid 1px $clr5;
     border-radius: 45px 0 0 45px;
     text-align: center;
-
-    // .plus-vertical {
-    //   position: absolute;
-
-    //   width: 1.7px;
-    //   height: 9.9px;
-    //   background-color: $clr1;
-    // }
-    // .plus-horisontal {
-    //   position: absolute;
-    //   height: 1.7px;
-    //   width: 9.9px;
-
-    //   background-color: $clr1;
-    // }
   }
   .amount {
-    width: 69px;
-    line-height: 2.5;
+    width: 60px;
+    line-height: 34px;
     border-top: solid 1px $clr5;
     border-bottom: solid 1px $clr5;
   }
   .minus-btn {
-    width: 38px;
+    width: 32px;
     border: solid 1px $clr5;
     border-radius: 0 45px 45px 0;
-
-    // .minus {
-    //   width: 9.9px;
-    //   height: 1.7px;
-    //   background-color: $clr1;
-    // }
   }
   .symbol {
     font-size: 2rem;
@@ -51,6 +31,7 @@
 }
 .amount-btn :hover {
   background-color: $clr2;
+  height: 32px;
   border-radius: inherit;
   border: solid 1px $clr2;
 

@@ -19,9 +19,11 @@ class _ShopApp extends Component {
     const { items } = this.props;
     if (!items) return <h1>Loading...</h1>;
     return (
-      <div className="main-container shop flex">
-        <ItemsList items={items} />
-        <Cart />
+      <div className="main-container">
+        <div className="shop flex">
+          <ItemsList items={items} />
+          <Cart />
+        </div>
       </div>
     );
   }

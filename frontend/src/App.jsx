@@ -8,13 +8,15 @@ import { Home } from "./pages/Home";
 import { Login } from "./pages/Login";
 import { Checkout } from "./pages/Checkout";
 import { ItemDetails } from "./pages/ItemDetails";
-import { NavBar } from "./cmps/NavBar";
+import { NavBar } from "./cmps/Header/NavBar";
+import { Banner } from "./cmps/Header/Banner";
 
 function App() {
   return (
     <div>
-      <header className="main-container">
+      <header>
         <NavBar />
+        <Banner />
       </header>
       <div className="App">
         <Switch>

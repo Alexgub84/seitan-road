@@ -1,11 +1,9 @@
 .nav-button {
-  background-color: lightblue;
-  border: 1px solid black;
-  margin: 5px 0;
-  padding: 5px;
+  border: 2px solid transparent;
+
   &:hover {
-    background-color: lightgreen;
     cursor: pointer;
+    border-bottom: solid 2px $clr4;
   }
 }
 .btn {
