@@ -7,7 +7,7 @@ import { CustomerDetails } from "../cmps/Checkout/CustomerDetails/CustomerDetail
 import { PaymentDetails } from "../cmps/Checkout/PaymentDetails";
 import { OrderCompleteMessage } from "../cmps/Checkout/OrderCompleteMessage";
 
-import { saveCustomerDetails } from "../store/actions/userActions";
+import { saveCustomerDetails, emptyCart } from "../store/actions/userActions";
 import { loadSettings } from "../store/actions/settingsActions";
 import { saveOrder } from "../store/actions/orderActions";
 
@@ -38,15 +38,20 @@ class _Checkout extends Component {
       order.items = this.props.cart.map((item) => {
         const container = {};
         container.itemId = item._id;
+        container.souse = item.souse;
         container.quantity = item.quantity;
         return container;
       });
       order.customerDetails = this.props.customerDetails;
       order.supply = this.props.supply;
+      order.totalPayment = this.props.total + this.props.supply.price;
+      order.paymentType = "מזומן";
       await this.props.saveOrder(order);
+      this.props.emptyCart();
     }
   };
   handleChange = ({ target }) => {
+    console.log(target.field, target.value);
     const field = target.name;
     if (target.type === "number") var value = +target.value;
     else if (target.type === "checkbox") value = target.checked;
@@ -103,6 +108,11 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = { saveCustomerDetails, loadSettings, saveOrder };
+const mapDispatchToProps = {
+  saveCustomerDetails,
+  loadSettings,
+  saveOrder,
+  emptyCart,
+};
 
 export const Checkout = connect(mapStateToProps, mapDispatchToProps)(_Checkout);

@@ -6,6 +6,7 @@ import { loadItems } from "../store/actions/itemActions";
 import { loadSettings } from "../store/actions/settingsActions";
 
 import { ItemsList } from "../cmps/ItemsList";
+import { CartPreview } from "../cmps/CartPreview/CartPreview";
 import { Cart } from "../cmps/Cart";
 
 class _ShopApp extends Component {

@@ -5,7 +5,7 @@ export class FreeShipmentBar extends Component {
     innerStyle: {
       width: `${(this.props.total / this.props.min) * 100}%`,
     },
-    txt: ` עוד ${this.props.min - this.props.total} למשלוח חינם `,
+    txt: ` עוד ${this.props.min - this.props.total} והמשלוח עלינו!  `,
   };
 
   componentDidUpdate(prev) {
@@ -13,7 +13,7 @@ export class FreeShipmentBar extends Component {
     const innerStyle = {};
     let totalPercentage = (this.props.total / this.props.min) * 100;
     this.setState({
-      txt: ` עוד ${this.props.min - this.props.total} למשלוח חינם `,
+      txt: ` עוד ${this.props.min - this.props.total} והמשלוח עלינו!  `,
     });
     if (totalPercentage >= 100) {
       this.setState({ txt: `משלוח חינם!` });
@@ -24,9 +24,16 @@ export class FreeShipmentBar extends Component {
   }
   render() {
     return (
-      <div className="free-shipment-bar">
-        <div className="inner-container" style={this.state.innerStyle}></div>
-        <span> {this.state.txt}</span>
+      <div className="free-shipment-container flex align-center justify-around">
+        <div className="free-shipment-txt1"> {this.state.txt}</div>
+        <div className="free-shipment-bar ">
+          <div className="inner-container" style={this.state.innerStyle}>
+            <img src={require("../assets/icons/delivery.svg")} alt="delivery" />
+          </div>
+        </div>
+        <div className="free-shipment-txt2">
+          סכום המשלוח יקבע סופית לאחר בחירת שיטת המשלוח
+        </div>
       </div>
     );
   }

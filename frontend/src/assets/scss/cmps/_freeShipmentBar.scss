@@ -1,20 +1,44 @@
-.free-shipment-bar {
-  width: 300px;
-  height: 30px;
-  position: relative;
-  overflow: hidden;
-  border: 1px solid black;
-  text-align: center;
-  .inner-container {
-    position: absolute;
-    right: 0;
-    top: 0;
-    background-color: yellow;
-    height: inherit;
-    max-width: 100%;
-    width: 0px;
+.free-shipment-container {
+  flex-direction: column;
+  padding: 32px 0;
+  width: 472px;
+  height: 219px;
+  background-color: $clr7;
+  border-radius: 35px 35px 0 0;
+
+  .free-shipment-txt1 {
+    font-size: rem(24px);
+    font-weight: 500;
+    color: $clr1;
   }
-  span {
+  .free-shipment-bar {
+    width: 90%;
+    height: 64px;
+    background-color: $clr3;
+    border-radius: 35px;
     position: relative;
+    overflow: hidden;
+    margin: 16px 0;
+    .inner-container {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      right: 0;
+      top: 0;
+      background-color: $clr6;
+      border-radius: 35px;
+      height: inherit;
+      max-width: 100%;
+      width: 0px;
+      img {
+        height: 33px;
+        margin-left: 27px;
+      }
+    }
+    .free-shipment-txt2 {
+      font-size: rem(20px);
+      color: $clr8;
+    }
   }
 }

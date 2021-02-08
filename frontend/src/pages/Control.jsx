@@ -3,8 +3,10 @@ import { connect } from "react-redux";
 
 import { loadSettings, saveSettings } from "../store/actions/settingsActions";
 import { loadOrders, removeOrder } from "../store/actions/orderActions";
+import { loadItems } from "../store/actions/itemActions";
 import { OrdersList } from "../cmps/BackOffice/OrdersList";
 import { OrdersTable } from "../cmps/BackOffice/OrdersTable";
+import { XSLExport } from "../cmps/BackOffice/XSLExport";
 
 import { TextField, InputLabel } from "@material-ui/core";
 
@@ -21,11 +23,12 @@ class _Control extends Component {
   };
 
   async componentDidMount() {
-    await this.props.loadSettings();
+    await this.props.loadSettings(this.state.filterBy);
     this.setState({ settings: this.props.settings }, () => {
       this.setState({ date: this._formatDate(this.state.settings.supplyDate) });
     });
     await this.props.loadOrders();
+    await this.props.loadItems();
   }
 
   toggleEdit = (ev, field) => {
@@ -78,12 +81,14 @@ class _Control extends Component {
     return `${year}-${month}-${day}`;
   }
   render() {
-    const orders = this.props.orders;
+    const { orders, items } = this.props;
+
+    window.orders = orders;
+
     if (!this.props.loggedInUser) return <div></div>;
 
     return (
       <div className="main-container">
-        {console.log("settings in control:", this.state.settings)}
         <form className="control-form">
           <section>
             <InputLabel htmlFor="freeDeliveryPrice">
@@ -146,6 +151,7 @@ class _Control extends Component {
         {orders.length !== 0 && (
           <OrdersTable orders={orders} removeOrder={this.props.removeOrder} />
         )}
+        <XSLExport items={items} orders={orders} fileName="Report for 10/2" />
       </div>
     );
   }
@@ -156,6 +162,7 @@ const mapStateToProps = (state) => {
     settings: state.settingsReducer.settings,
     loggedInUser: state.userReducer.loggedInUser,
     orders: state.orderReducer.orders,
+    items: state.itemReducer.items,
   };
 };
 
@@ -164,6 +171,7 @@ const mapDispatchToProps = {
   saveSettings,
   loadOrders,
   removeOrder,
+  loadItems,
 };
 
 export const Control = connect(mapStateToProps, mapDispatchToProps)(_Control);

@@ -5,6 +5,8 @@ header {
     align-items: center;
     background-color: $clr3;
     color: $clr2;
+    font-weight: 500;
+    font-size: rem(22px);
 
     .nav-bar-logo {
       height: inherit;
@@ -25,7 +27,7 @@ header {
       .cart-btn {
         width: 120px;
         height: 49px;
-        background-color: #f9ce40;
+        background-color: $clr6;
         box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.17);
         border-radius: 35px;
         font-size: 22px;
@@ -35,8 +37,11 @@ header {
           height: 22px;
         }
         span {
-          width: 4ch;
+          width: 5ch;
           text-align: center;
+        }
+        &.empty {
+          background-color: $clr3;
         }
       }
     }

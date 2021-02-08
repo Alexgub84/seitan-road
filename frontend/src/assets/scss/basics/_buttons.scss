@@ -5,6 +5,9 @@
     cursor: pointer;
     border-bottom: solid 2px $clr4;
   }
+  .active {
+    border-bottom: solid 2px $clr4;
+  }
 }
 .btn {
   padding: 5px;

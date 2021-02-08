@@ -33,13 +33,7 @@ export class _Cart extends Component {
     // this.setState({ total: this.state.total + totalForItem });
     return `${totalForItem}ש"ח`;
   };
-  onOrder = () => {
-    const order = {
-      cart: this.props.cart,
-      address: this.state.address,
-      customer: this.state.customer,
-    };
-  };
+
   render() {
     if (this.props.cart.length === 0)
       return (

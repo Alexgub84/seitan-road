@@ -86,7 +86,6 @@ export function OrdersTable({ orders, removeOrder }) {
   }
   return (
     <div className="orders-table" style={{ height: 400, width: "100%" }}>
-      {console.log(rows)}
       <DataGrid rows={rows} columns={columns} />
     </div>
   );
