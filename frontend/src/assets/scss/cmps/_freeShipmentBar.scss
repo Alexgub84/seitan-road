@@ -1,13 +1,13 @@
 .free-shipment-container {
   flex-direction: column;
   padding: 32px 0;
-  width: 472px;
-  height: 219px;
+  width: 100%;
+  height: 200px;
   background-color: $clr7;
   border-radius: 35px 35px 0 0;
 
   .free-shipment-txt1 {
-    font-size: rem(24px);
+    font-size: rem(20px);
     font-weight: 500;
     color: $clr1;
   }
@@ -32,13 +32,13 @@
       max-width: 100%;
       width: 0px;
       img {
-        height: 33px;
+        height: 30px;
         margin-left: 27px;
       }
     }
-    .free-shipment-txt2 {
-      font-size: rem(20px);
-      color: $clr8;
-    }
+  }
+  .free-shipment-txt2 {
+    font-size: rem(12px);
+    color: $clr8;
   }
 }

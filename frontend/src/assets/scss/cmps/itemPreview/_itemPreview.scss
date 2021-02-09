@@ -1,18 +1,21 @@
 .item-card {
-  width: 328px;
-  height: 500px;
+  width: 250px;
+  height: 370px;
   margin: 0 0 32px 32px;
   border: solid 3px rgba(216, 216, 216, 0.37);
   border-radius: 35px;
   background-color: $clr3;
   text-align: center;
   flex-direction: column;
+  justify-content: space-between;
+
   position: relative;
 
   img {
-    height: 188px;
-    border-radius: 35px 35px 0 0;
-    margin-bottom: 16px;
+    height: 120px;
+    border-radius: 32px 32px 0 0;
+    margin-bottom: 4px;
+    object-fit: cover;
   }
 
   .item-info {
@@ -20,16 +23,26 @@
     font-family: Heebo-Regular;
 
     h2 {
-      font-size: rem(24px);
+      font-size: rem(22px);
       font-weight: 500;
+      margin: 4px 0 4px 0;
     }
     h3 {
-      font-size: rem(20px);
+      margin: 4px 0 4px 0;
+      font-size: rem(18px);
       font-weight: 100;
       line-height: rem(20px);
-      height: rem(20px);
+      height: rem(18px);
       overflow: hidden;
     }
+  }
+  h3 {
+    margin: 4px 0 4px 0;
+    font-size: rem(20px);
+  }
+  h4 {
+    margin: 4px 0 4px 0;
+    font-size: rem(12px);
   }
   .add-to-cart-container {
     width: 100%;

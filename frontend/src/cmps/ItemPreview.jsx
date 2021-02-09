@@ -10,11 +10,10 @@ export function ItemPreview({ item }) {
         <img src={item.imgUrl} alt="seitan-img" />
         <section className="item-info ">
           <h2>{item.name}</h2>
-          {item.description.map((desc) => (
-            <h3 key={desc}>{desc}</h3>
-          ))}
+          <h3>{item.miniDescription}</h3>
         </section>
-        <h3>{item.price}</h3>
+        <h3>₪{item.price}</h3>
+        <h4>{item.size}</h4>
         <AddToCart item={item} />
       </div>
     </Link>
