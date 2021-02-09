@@ -82,11 +82,12 @@ class _Control extends Component {
   }
   render() {
     const { orders, items } = this.props;
-
+    console.log(items);
     window.orders = orders;
+    window.items = items;
 
     if (!this.props.loggedInUser) return <div></div>;
-
+    if (!items[8] || !items[8].description[0]) return <div>Loading...</div>;
     return (
       <div className="main-container">
         <form className="control-form">
@@ -147,11 +148,11 @@ class _Control extends Component {
             שמור שינויים
           </button>
         </form>
+        <XSLExport items={items} orders={orders} fileName="Report for 10/2" />
 
         {orders.length !== 0 && (
           <OrdersTable orders={orders} removeOrder={this.props.removeOrder} />
         )}
-        <XSLExport items={items} orders={orders} fileName="Report for 10/2" />
       </div>
     );
   }

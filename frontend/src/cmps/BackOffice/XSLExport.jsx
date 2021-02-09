@@ -20,30 +20,90 @@ export function XSLExport({ orders, items, fileName }) {
       "Supply details": order.supply.name,
       Total: order.totalPayment,
     };
-    order.items.map((item) => {
-      obj[_getItemName(item.itemId)] = `${item.quantity} ${
-        item.souse ? +item.souse : ""
-      }`;
+    console.log("items:", items);
+    order.items.map(async (item) => {
+      obj[`${item.name}${item.souse ? "+" + item.souse : ""}`] = item.quantity;
     });
     return obj;
   });
-  const kitchenData = orders.map((order, idx) => {
-    return {
-      "#": idx + 1,
-      "First Name": order.customerDetails.firstName,
-      "Last Name": order.customerDetails.lastName,
-    };
-  });
-  function _getItemName(id) {
-    const name = items.find((item) => {
-      if (item._id === id) return item.name;
-    });
-    console.log(name);
-    return name;
+  function setKitchenData() {
+    const kitchenData = [];
+    const souses = [];
+    //souses names array
+    const isSouses = (item) => "souses" in item;
+    const idx = items.findIndex(isSouses);
+    for (let i = 0; i < items[idx].souses.length; i++) {
+      const souse = items[idx].souses[i];
+      souses.push(souse);
+    }
+    const gramsTitles = [];
+    //grams quantites array
+    for (let i = 0; i < orders.length; i++) {
+      const order = orders[i];
+      order.items.forEach((item) => {
+        if (item.measure === "gram") {
+          gramsTitles.push(item.quantity);
+        }
+      });
+    }
+    gramsTitles.sort((a, b) => a - b);
+
+    for (let i = 0; i < items.length; i++) {
+      const currItem = items[i];
+      const obj = {};
+      obj["Product"] = currItem.name;
+      obj["Total Grams"] = 0;
+      obj["Total Units"] = 0;
+
+      souses.forEach((souse) => {
+        obj[souse] = 0;
+      });
+
+      gramsTitles.forEach((gram) => {
+        obj[`${gram * 100} grams`] = 0;
+      });
+
+      orders.forEach((order) => {
+        order.items.forEach((item) => {
+          if (item.name === currItem.name) {
+            //gramsTitles or units count
+            switch (item.measure) {
+              case "gram":
+                obj["Total Grams"] += item.quantity * 100;
+                gramsTitles.forEach((gram) => {
+                  obj[`${gram * 100} grams`] +=
+                    item.quantity === gram ? item.quantity : 0;
+                });
+                break;
+              case "unit":
+                obj["Total Units"] += item.quantity;
+                souses.forEach((souse) => {
+                  obj[souse] += item.souse === souse ? item.quantity : 0;
+                });
+
+                break;
+              default:
+                break;
+            }
+          }
+        });
+      });
+
+      kitchenData.push(obj);
+    }
+    for (let i = 0; i < kitchenData.length; i++) {
+      const obj = kitchenData[i];
+      for (const key in obj) {
+        if (obj[key] == 0) obj[key] = null;
+      }
+    }
+    console.log(kitchenData);
+    return kitchenData;
   }
-  function exportCSV() {
+
+  const exportCSV = () => {
     const ws_Delivery = XLSX.utils.json_to_sheet(deliveryData);
-    const ws_Kitchen = XLSX.utils.json_to_sheet(kitchenData);
+    const ws_Kitchen = XLSX.utils.json_to_sheet(setKitchenData());
     const wb = {
       Sheets: { Delivery: ws_Delivery, Kitchen: ws_Kitchen },
       SheetNames: ["Delivery", "Kitchen"],
@@ -51,7 +111,7 @@ export function XSLExport({ orders, items, fileName }) {
     const excelBuffer = XLSX.write(wb, { bookType: "xlsx", type: "array" });
     const data = new Blob([excelBuffer], { type: fileType });
     FileSaver.saveAs(data, fileName + fileExtension);
-  }
+  };
 
   return (
     <div>

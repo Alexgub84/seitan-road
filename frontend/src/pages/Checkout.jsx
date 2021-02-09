@@ -38,8 +38,10 @@ class _Checkout extends Component {
       order.items = this.props.cart.map((item) => {
         const container = {};
         container.itemId = item._id;
+        container.name = item.name;
         container.souse = item.souse;
         container.quantity = item.quantity;
+        container.measure = item.measure;
         return container;
       });
       order.customerDetails = this.props.customerDetails;
