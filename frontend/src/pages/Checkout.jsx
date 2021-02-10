@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import _ from "lodash";
 
 import { Cart } from "../cmps/Cart";
 
@@ -14,6 +15,7 @@ import { saveOrder } from "../store/actions/orderActions";
 class _Checkout extends Component {
   state = {
     currStage: 0,
+    isCustDetValidated: false,
     customerDetails: {
       firstName: "",
       lastName: "",
@@ -29,8 +31,30 @@ class _Checkout extends Component {
       this.setState({ customerDetails: this.props.customerDetails });
     }
   }
+  onSaveDetails = (data) => {
+    this.setState((prevState) => {
+      return {
+        ...prevState,
+        customerDetails: {
+          ...data,
+        },
+      };
+    });
+    this.props.saveCustomerDetails(this.state.customerDetails);
+    this.onNextClick();
+  };
 
   onNextClick = async () => {
+    if (this.state.currStage === 1) {
+      console.log(this.props.supply);
+      if (_.isEmpty(this.props.supply)) {
+        return alert("בבקשה בחרו את שיטת המשלוח");
+      }
+      // if (!this.state.isCustDetValidated) {
+      //   return alert("בבקשה מלאו את כל הפרטיים האישיים");
+      // }
+    }
+
     const currStage = this.state.currStage + 1;
     this.setState({ currStage });
     if (this.state.currStage === 2) {
@@ -52,24 +76,37 @@ class _Checkout extends Component {
       this.props.emptyCart();
     }
   };
-  handleChange = ({ target }) => {
-    console.log(target.field, target.value);
-    const field = target.name;
-    if (target.type === "number") var value = +target.value;
-    else if (target.type === "checkbox") value = target.checked;
-    else value = target.value;
 
+  onSaveDetails = (data) => {
     this.setState((prevState) => {
       return {
         ...prevState,
         customerDetails: {
-          ...prevState.customerDetails,
-          [field]: value,
+          ...data,
         },
       };
     });
     this.props.saveCustomerDetails(this.state.customerDetails);
+    this.onNextClick();
   };
+
+  // handleChange = ({ target }) => {
+  //   const field = target.name;
+  //   if (target.type === "number") var value = +target.value;
+  //   else if (target.type === "checkbox") value = target.checked;
+  //   else value = target.value;
+
+  //   this.setState((prevState) => {
+  //     return {
+  //       ...prevState,
+  //       customerDetails: {
+  //         ...prevState.customerDetails,
+  //         [field]: value,
+  //       },
+  //     };
+  //   });
+  //   this.props.saveCustomerDetails(this.state.customerDetails);
+  // };
   render() {
     let checkoutSection;
     switch (this.state.currStage) {
@@ -78,8 +115,7 @@ class _Checkout extends Component {
       case 1:
         return (checkoutSection = (
           <CustomerDetails
-            onNextClick={this.onNextClick}
-            handleChange={this.handleChange}
+            onSaveDetails={this.onSaveDetails}
             customerDetails={this.state.customerDetails}
             settings={this.props.settings}
           />

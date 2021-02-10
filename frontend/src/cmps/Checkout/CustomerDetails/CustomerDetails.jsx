@@ -1,4 +1,7 @@
 import React from "react";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 
 import { TextField } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
@@ -14,113 +17,107 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export function CustomerDetails({
-  onNextClick,
-  handleChange,
-  customerDetails,
-}) {
+const schema = yup.object().shape({
+  firstName: yup.string().required(),
+  lastName: yup.string().required(),
+  phone: yup.string().required().min(9),
+  email: yup.string().required(),
+  town: yup.string().required(),
+  street: yup.string().required(),
+});
+
+export function CustomerDetails({ onSaveDetails, customerDetails }) {
   const classes = useStyles();
-
-  // const validate = () => {
-  //   let temp = {};
-  //   temp.firstName = values.firstName ? "" : "מלאו שם פרטי";
-  //   temp.lastName = values.lastName ? "" : "מלאו שם משפחה";
-  //   temp.phone = values.phone > 9 ? "" : "מלאו מספר טלפון תקני ";
-  //   temp.email = /$|.+@.+..+/.test(values.email) ? "" : "מלאו אימייל תקני ";
-  //   temp.town = values.town ? "" : "מלאו את העיר";
-  //   temp.street = values.street ? "" : "מלאו הכתובת";
-  // };
-
-  // const [errors, setErrors] = useState({});
+  const { register, handleSubmit, errors } = useForm({
+    resolver: yupResolver(schema),
+  });
+  const onSubmit = (data) => {
+    console.log("errors:", errors);
+    console.log(data);
+    onSaveDetails(data);
+  };
 
   return (
     <div className="main-container">
       <div className="details-container">
-        <form className={classes.root}>
+        <form className={classes.root} onSubmit={handleSubmit(onSubmit)}>
           <section>
             <TextField
-              required
-              error
               floatingLabelText="שם"
               type="text"
               id="name"
               name="firstName"
               label="שם פרטי"
               variant="outlined"
-              color="secondary"
-              value={customerDetails.firstName}
-              onChange={handleChange}
+              // color="secondary"
+              defaultValue={customerDetails.firstName}
+              inputRef={register}
             />
           </section>
           <section>
             <TextField
-              required
               type="text"
               id="lastname"
               name="lastName"
               label="שם משפחה"
               variant="outlined"
               color="secondary"
-              value={customerDetails.lastName}
-              onChange={handleChange}
+              defaultValue={customerDetails.lastName}
+              inputRef={register}
             />
           </section>
           <section>
             <TextField
-              required
               type="tel"
               id="phone"
               name="phone"
               label="מס' טלפון "
               variant="outlined"
               color="secondary"
-              value={customerDetails.phone}
-              onChange={handleChange}
+              defaultValue={customerDetails.phone}
+              inputRef={register}
             />
           </section>
           <section>
             <TextField
-              required
               type="email"
               id="email"
               name="email"
               label="אימייל "
               variant="outlined"
               color="secondary"
-              value={customerDetails.email}
-              onChange={handleChange}
+              defaultValue={customerDetails.email}
+              inputRef={register}
             />
           </section>
           <section>
             <TextField
-              required
               type="text"
               id="town"
               name="town"
               label="עיר"
               variant="outlined"
               color="secondary"
-              value={customerDetails.town}
-              onChange={handleChange}
+              defaultValue={customerDetails.town}
+              inputRef={register}
             />
           </section>
           <section>
             <TextField
-              required
               type="text"
               id="street"
               name="street"
               label="רחוב, בניין, דירה"
               variant="outlined"
               color="secondary"
-              value={customerDetails.street}
-              onChange={handleChange}
+              defaultValue={customerDetails.street}
+              inputRef={register}
             />
           </section>
         </form>
         <Supply />
       </div>
-      <button className="btn" onClick={onNextClick}>
+      <button className="btn" onClick={handleSubmit(onSubmit)}>
         המשך לתשלום
       </button>
     </div>
