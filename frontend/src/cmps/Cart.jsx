@@ -57,6 +57,7 @@ export class _Cart extends Component {
     }
     return (
       <div className="cart">
+        <section></section>
         <FreeShipmentBar
           min={this.props.settings.freeDeliveryPrice}
           total={this.props.total}

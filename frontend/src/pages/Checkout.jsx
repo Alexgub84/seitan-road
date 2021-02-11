@@ -90,6 +90,31 @@ class _Checkout extends Component {
     this.onNextClick();
   };
 
+  renderSwitch = (_) => {
+    switch (this.state.currStage) {
+      case 0:
+        return <Cart onNextClick={this.onNextClick} />;
+      case 1:
+        return (
+          <CustomerDetails
+            onSaveDetails={this.onSaveDetails}
+            customerDetails={this.state.customerDetails}
+            settings={this.props.settings}
+          />
+        );
+
+      case 2:
+        return (
+          <PaymentDetails
+            onNextClick={this.onNextClick}
+            total={this.props.total}
+            supply={this.props.supply}
+          />
+        );
+      case 3:
+        return <OrderCompleteMessage />;
+    }
+  };
   // handleChange = ({ target }) => {
   //   const field = target.name;
   //   if (target.type === "number") var value = +target.value;
@@ -108,33 +133,10 @@ class _Checkout extends Component {
   //   this.props.saveCustomerDetails(this.state.customerDetails);
   // };
   render() {
-    let checkoutSection;
-    switch (this.state.currStage) {
-      case 0:
-        return (checkoutSection = <Cart onNextClick={this.onNextClick} />);
-      case 1:
-        return (checkoutSection = (
-          <CustomerDetails
-            onSaveDetails={this.onSaveDetails}
-            customerDetails={this.state.customerDetails}
-            settings={this.props.settings}
-          />
-        ));
-      case 2:
-        return (checkoutSection = (
-          <PaymentDetails
-            onNextClick={this.onNextClick}
-            total={this.props.total}
-            supply={this.props.supply}
-          />
-        ));
-      case 3:
-        return (checkoutSection = <OrderCompleteMessage />);
-    }
-
     return (
-      <div className="checkout main-container">
-        <div>{checkoutSection}</div>
+      <div className="checkout-container main-container">
+        {console.log(this.state.currStage)}
+        {this.renderSwitch()}
       </div>
     );
   }

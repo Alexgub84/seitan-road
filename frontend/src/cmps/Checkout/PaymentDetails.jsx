@@ -2,7 +2,7 @@ import React from "react";
 
 export function PaymentDetails({ onNextClick, total, supply }) {
   return (
-    <div className="payment main-container">
+    <div className="payment">
       {/* <section>
         <div>
           <span>מוצרים:</span>
@@ -22,22 +22,29 @@ export function PaymentDetails({ onNextClick, total, supply }) {
       <section className="payment-options">
         <div>
           <h2>אפליקציית Bit או Paybox</h2>
-          <pre>נא להעביר את התשלום לאיה למספר 054-369-0088</pre>
+          <p>
+            <div> נא להעביר את התשלום לאיה </div>
+            <div> למספר 054-369-0088</div>
+          </p>
         </div>
         <div>
           <h2>מזומן</h2>
-          <pre>לא להעביר את התשלום במזומן בעת קבלת המשלוח</pre>
+          <p>
+            <div> לא להעביר את התשלום במזומן</div>
+            <div> בעת קבלת המשלוח</div>
+          </p>
         </div>
         <div>
           <h2>העברה בנקאית</h2>
-          <pre>
-            נא להעביר את התשלום לפי הפרטים הבאים: לפקודת: איה בנק: סניף: מספר
-            חשבון:
-          </pre>
+          <p>
+            <div> נא להעביר את התשלום לפי הפרטים הבאים:</div>
+            <div> לפקודת: איה בנק:</div>
+            <div> סניף: מספר חשבון:</div>
+          </p>
         </div>
       </section>
       <button className="btn" onClick={onNextClick}>
-        המשך
+        להשלמת הרכישה
       </button>
     </div>
   );
