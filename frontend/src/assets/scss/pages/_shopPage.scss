@@ -1,4 +1,13 @@
 .shop {
-  display: flex;
-  justify-content: space-between; 
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  // display: flex;
+  // flex-direction: row-reverse;
+
+  // justify-content: flex-start;
+  // > :first-child {
+  //   margin-right: 10px;
+  // }
+
+  // justify-content: space-between;
 }
