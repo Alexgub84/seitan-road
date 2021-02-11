@@ -10,7 +10,7 @@ export function SelectBox({ souses, sousePrice, onSouseClicked }) {
           value={souse}
           onClick={(ev) => onSouseClicked(ev, souse)}
         >
-          {souse} {idx !== 0 && `${sousePrice}+`}
+          {souse} {idx !== 0 && sousePrice !== 0 && `${sousePrice}+`}
         </div>
       ))}
     </div>
