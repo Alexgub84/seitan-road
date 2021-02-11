@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
+import _ from "lodash";
 
 import { loadItems } from "../store/actions/itemActions";
 import { loadSettings } from "../store/actions/settingsActions";
@@ -18,7 +19,7 @@ class _ShopApp extends Component {
 
   render() {
     const { items } = this.props;
-    if (!items) return <h1>Loading...</h1>;
+    if (_.isEmpty(items)) return <h1>Loading...</h1>;
     return (
       <div className="main-container">
         <div className="shop flex">

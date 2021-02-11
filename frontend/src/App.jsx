@@ -10,6 +10,7 @@ import { Checkout } from "./pages/Checkout";
 import { ItemDetails } from "./pages/ItemDetails";
 import { NavBar } from "./cmps/Header/NavBar";
 import { Banner } from "./cmps/Header/Banner";
+import { Footer } from "./cmps/Footer";
 
 function App() {
   return (
@@ -28,6 +29,9 @@ function App() {
           <Route component={Home} path="/" />
         </Switch>
       </div>
+      <footer>
+        <Footer />
+      </footer>
     </div>
   );
 }

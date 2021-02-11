@@ -1,3 +1,4 @@
 module.exports = {
-  "dbURL": "mongodb+srv://dimaAdmin:stariCajul20@cluster0.5u77n.mongodb.net/TOY_DB?retryWrites=true&w=majority",
-}
+  dbURL:
+    "mongodb+srv://AlexGub:jOSUFFWmrT9yFJnb@cluster0.deyek.mongodb.net/SEITAN_DB?retryWrites=true&w=majority",
+};

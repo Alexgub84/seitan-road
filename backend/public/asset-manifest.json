@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.66c24a58.chunk.css",
+    "main.js": "/static/js/main.d292024e.chunk.js",
+    "main.js.map": "/static/js/main.d292024e.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.f3b002b0.js",
+    "runtime-main.js.map": "/static/js/runtime-main.f3b002b0.js.map",
+    "static/js/2.4ac771df.chunk.js": "/static/js/2.4ac771df.chunk.js",
+    "static/js/2.4ac771df.chunk.js.map": "/static/js/2.4ac771df.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.6d0a6df94f9ff608ec7ced60a98ca310.js": "/precache-manifest.6d0a6df94f9ff608ec7ced60a98ca310.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.66c24a58.chunk.css.map": "/static/css/main.66c24a58.chunk.css.map",
+    "static/js/2.4ac771df.chunk.js.LICENSE.txt": "/static/js/2.4ac771df.chunk.js.LICENSE.txt",
+    "static/media/global.scss": "/static/media/Heebo-Regular.3f5fef64.ttf",
+    "static/media/cart.svg": "/static/media/cart.a4e67734.svg",
+    "static/media/delivery.svg": "/static/media/delivery.4a1173f4.svg",
+    "static/media/logo-navbar.png": "/static/media/logo-navbar.0f20537c.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f3b002b0.js",
+    "static/js/2.4ac771df.chunk.js",
+    "static/css/main.66c24a58.chunk.css",
+    "static/js/main.d292024e.chunk.js"
+  ]
+}
