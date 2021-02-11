@@ -1,0 +1,8 @@
+.payment {
+  .payment-options {
+    display: flex;
+    > * {
+      width: 33%;
+    }
+  }
+}

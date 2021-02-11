@@ -2,9 +2,38 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 420px;
+  width: 340px;
 
-  ul {
-    align-self: end;
+  .cart-items-list {
+    width: 100%;
+    background-color: $clr7;
+    font-size: 16px;
+  }
+  li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    img {
+      height: 40px;
+      border-radius: 10px;
+    }
+    .cart-items-info {
+      display: flex;
+      flex-direction: column;
+      .item-name {
+        font-size: 1em;
+      }
+      .item-souse {
+        font-size: 0.8em;
+      }
+      .item-size {
+        font-size: 0.6em;
+      }
+    }
+    .price-buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
   }
 }

@@ -3,7 +3,7 @@ import React from "react";
 export function PaymentDetails({ onNextClick, total, supply }) {
   return (
     <div className="payment main-container">
-      <section>
+      {/* <section>
         <div>
           <span>מוצרים:</span>
           <span>{total}</span>
@@ -16,7 +16,7 @@ export function PaymentDetails({ onNextClick, total, supply }) {
           <span>סיכום:</span>
           <span>{total + supply.price}</span>
         </div>
-      </section>
+      </section> */}
 
       <h2>ניתן לשלם בדרכים הבאות:</h2>
       <section className="payment-options">

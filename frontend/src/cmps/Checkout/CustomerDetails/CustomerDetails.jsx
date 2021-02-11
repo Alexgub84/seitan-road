@@ -11,7 +11,7 @@ import { Supply } from "../Supply/Supply";
 const useStyles = makeStyles((theme) => ({
   root: {
     "& .MuiTextField-root": {
-      margin: theme.spacing(2),
+      margin: theme.spacing(1),
       width: 200,
     },
   },

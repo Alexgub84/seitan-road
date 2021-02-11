@@ -132,7 +132,11 @@ class _Checkout extends Component {
         return (checkoutSection = <OrderCompleteMessage />);
     }
 
-    return <div>{checkoutSection}</div>;
+    return (
+      <div className="checkout main-container">
+        <div>{checkoutSection}</div>
+      </div>
+    );
   }
 }
 
