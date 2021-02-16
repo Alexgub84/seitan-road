@@ -5,7 +5,8 @@
     cursor: pointer;
     border-bottom: solid 2px $clr4;
   }
-  .active {
+
+  &.active {
     border-bottom: solid 2px $clr4;
   }
 }

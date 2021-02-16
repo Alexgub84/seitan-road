@@ -30,18 +30,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  svg {
-    height: 60%;
-    width: 60%;
-    // fill: $clr1;
-  }
+
   &:hover {
     background-color: $clr2;
     height: 100%;
     border: solid 1px $clr2;
-
-    &svg {
-      fill: $clr3 !important;
+    svg g > * {
+      stroke: $clr3;
+      fill: $clr3;
     }
   }
 }

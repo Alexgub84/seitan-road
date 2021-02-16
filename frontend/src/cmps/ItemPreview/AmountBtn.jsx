@@ -9,7 +9,7 @@ export function AmountBtn({ onAdd, onReduce, measure, quantity }) {
   return (
     <div className="amount-container flex">
       <div className="plus-btn amount-btn" onClick={onAdd}>
-        <AddLogo fill="red" stroke="red" />
+        <AddLogo />
       </div>
       <ItemQuantity measure={measure} quantity={quantity} />
       <div className="minus-btn amount-btn" onClick={onReduce}>

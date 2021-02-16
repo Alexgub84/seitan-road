@@ -27,8 +27,24 @@ class _Checkout extends Component {
   };
 
   componentDidMount() {
+    console.log({ locationState: this.props.location.state });
+
     if (this.props.customerDetails) {
       this.setState({ customerDetails: this.props.customerDetails });
+    }
+    if (this.props.location.state === "nav" && this.state.currStage !== 0) {
+      this.setState({ currStage: 0 });
+      console.log("cart clicked from nav");
+    }
+  }
+  componentDidUpdate(prevProps) {
+    console.log({ locationStateUpdate: this.props.location.state });
+    
+    if (prevProps !== this.props) {
+      if (this.props.location.state === "nav" && this.state.currStage !== 0) {
+        this.setState({ currStage: 0 });
+        console.log("cart clicked from nav");
+      }
     }
   }
   onSaveDetails = (data) => {
@@ -46,7 +62,6 @@ class _Checkout extends Component {
 
   onNextClick = async () => {
     if (this.state.currStage === 1) {
-      console.log(this.props.supply);
       if (_.isEmpty(this.props.supply)) {
         return alert("בבקשה בחרו את שיטת המשלוח");
       }
@@ -115,27 +130,10 @@ class _Checkout extends Component {
         return <OrderCompleteMessage />;
     }
   };
-  // handleChange = ({ target }) => {
-  //   const field = target.name;
-  //   if (target.type === "number") var value = +target.value;
-  //   else if (target.type === "checkbox") value = target.checked;
-  //   else value = target.value;
 
-  //   this.setState((prevState) => {
-  //     return {
-  //       ...prevState,
-  //       customerDetails: {
-  //         ...prevState.customerDetails,
-  //         [field]: value,
-  //       },
-  //     };
-  //   });
-  //   this.props.saveCustomerDetails(this.state.customerDetails);
-  // };
   render() {
     return (
       <div className="checkout-container main-container">
-        {console.log(this.state.currStage)}
         {this.renderSwitch()}
       </div>
     );

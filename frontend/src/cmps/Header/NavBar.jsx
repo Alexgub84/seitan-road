@@ -9,18 +9,17 @@ class _NavBar extends Component {
   state = {
     active: "",
   };
-  onNavBtnClicked = (ev) => {
-    // console.log(ev);
-  };
+
   render() {
     const cartBtnClass = this.props.total === 0 ? "empty" : "";
     return (
       <div className="main-container ">
         <div className="nav-bar flex justify-between">
           <NavLink
+            exact
             className="nav-bar-logo"
+            activeClassName="active"
             to="/"
-            onClick={() => this.onNavBtnClicked()}
           >
             <img
               src={require("../../assets/imgs/logo/logo-navbar.png")}
@@ -29,31 +28,20 @@ class _NavBar extends Component {
           </NavLink>
           <section className="main-buttons flex justify-between">
             <NavLink
+              exact
               className="nav-button"
+              activeClassName="active"
               to="/shop"
-              onClick={() => this.onNavBtnClicked()}
             >
               חנות
             </NavLink>
-            <NavLink
-              className="nav-button"
-              to="/"
-              onClick={() => this.onNavBtnClicked()}
-            >
+            <NavLink exact className="nav-button" to="/">
               הסיפור שלנו
             </NavLink>
-            <NavLink
-              className="nav-button"
-              to="/"
-              onClick={() => this.onNavBtnClicked()}
-            >
+            <NavLink exact className="nav-button" to="/">
               על הסייטן{" "}
             </NavLink>
-            <NavLink
-              className="nav-button"
-              to="/"
-              onClick={() => this.onNavBtnClicked()}
-            >
+            <NavLink className="nav-button" to="/">
               משלוחים{" "}
             </NavLink>
           </section>
@@ -61,7 +49,9 @@ class _NavBar extends Component {
             {(this.props.loggedInUser && (
               <button onClick={() => this.props.logout()}>התנתקי</button>
             )) || (
-              <NavLink to="/checkout">
+              <NavLink
+                to={{ pathname: "/checkout", state: { fromNavBar: true } }}
+              >
                 <div className={`cart-btn ${cartBtnClass} flex`}>
                   <span>{`₪${this.props.total}`}</span>
                   <img src={require("../../assets/icons/cart.svg")} alt="" />

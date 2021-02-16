@@ -25,11 +25,13 @@ function App() {
           <Route component={Login} path="/login" />
           <Route component={ItemDetails} path="/details/:id?" />
           <Route component={Checkout} path="/checkout" />
-          <Route component={ShopApp} path="/" />
-          {/* <Route component={Home} path="/" /> */}
+          <Route component={ShopApp} path="/shop" />
+          <Route component={Home} path="/" />
         </Switch>
       </div>
-      <footer>{/* <Footer /> */}</footer>
+      <footer>
+        <Footer />
+      </footer>
     </div>
   );
 }

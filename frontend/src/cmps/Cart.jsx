@@ -50,7 +50,7 @@ export class _Cart extends Component {
       );
     } else {
       nextStepButton = (
-        <NavLink to="/checkout">
+        <NavLink to={{ pathname: "/checkout", state: { fromNavBar: false } }}>
           <button>השלם את ההזמנה</button>
         </NavLink>
       );
