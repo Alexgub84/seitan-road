@@ -35,13 +35,13 @@ class _NavBar extends Component {
             >
               חנות
             </NavLink>
-            <NavLink exact className="nav-button" to="/">
+            <NavLink exact className="nav-button" to="/ourstory">
               הסיפור שלנו
             </NavLink>
-            <NavLink exact className="nav-button" to="/">
+            <NavLink exact className="nav-button" to="/about">
               על הסייטן{" "}
             </NavLink>
-            <NavLink className="nav-button" to="/">
+            <NavLink exact className="nav-button" to="/supply">
               משלוחים{" "}
             </NavLink>
           </section>

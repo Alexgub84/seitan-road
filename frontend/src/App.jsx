@@ -3,7 +3,9 @@ import { Switch, Route } from "react-router-dom";
 
 import { ShopApp } from "./pages/ShopApp";
 import { Control } from "./pages/Control";
-
+import { About } from "./pages/About";
+import { Supply } from "./pages/Supply";
+import { OurStory } from "./pages/OurStory";
 import { Home } from "./pages/Home";
 import { Login } from "./pages/Login";
 import { Checkout } from "./pages/Checkout";
@@ -21,12 +23,15 @@ function App() {
       </header>
       <div className="App">
         <Switch>
+          <Route component={Home} path="/" />
           <Route component={Control} path="/control" />
           <Route component={Login} path="/login" />
           <Route component={ItemDetails} path="/details/:id?" />
           <Route component={Checkout} path="/checkout" />
           <Route component={ShopApp} path="/shop" />
-          <Route component={Home} path="/" />
+          <Route component={OurStory} path="/ourstory" />
+          <Route component={About} path="/about" />
+          <Route component={Supply} path="/supply" />
         </Switch>
       </div>
       <footer>
