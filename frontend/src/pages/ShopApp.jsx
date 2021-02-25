@@ -8,7 +8,6 @@ import { loadSettings } from "../store/actions/settingsActions";
 
 import { ItemsList } from "../cmps/ItemsList";
 import { CartPreview } from "../cmps/CartPreview/CartPreview";
-import { Cart } from "../cmps/Cart";
 
 class _ShopApp extends Component {
   state = {};
@@ -24,8 +23,7 @@ class _ShopApp extends Component {
       <div className="main-container">
         <div className="shop flex">
           <ItemsList items={items} />
-          {/* <Cart /> */}
-          <CartPreview />
+          <CartPreview total={this.props.total} />
         </div>
       </div>
     );
@@ -33,6 +31,7 @@ class _ShopApp extends Component {
 }
 const mapStateToProps = (state) => {
   return {
+    total: state.userReducer.total,
     items: state.itemReducer.items,
     loggedInUser: state.userReducer.loggedInUser,
   };

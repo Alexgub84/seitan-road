@@ -24,7 +24,7 @@ export class _AddToCart extends Component {
   };
   onReduce = (ev) => {
     this.stopAndPrevent(ev);
-    if (this.state.quantity === 0) return;
+    if (this.state.quantity === 1) return;
     this.setState({ quantity: this.state.quantity - 1 });
   };
   onSouseChange = (souse) => {
@@ -32,8 +32,7 @@ export class _AddToCart extends Component {
   };
   onAddToCart = (ev) => {
     this.stopAndPrevent(ev);
-    if (this.state.quantity === 0) return;
-    this.setState({ quantity: 0 });
+    this.setState({ quantity: 1 });
     if (this.props.item.souses) this.setState({ souse: "ללא מרינדה" });
 
     let itemToAdd = {

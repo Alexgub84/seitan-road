@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import _ from "lodash";
 
-import { Cart } from "../cmps/Cart";
+import { Cart } from "../cmps/Checkout/Cart";
 
 import { CustomerDetails } from "../cmps/Checkout/CustomerDetails/CustomerDetails";
 import { PaymentDetails } from "../cmps/Checkout/PaymentDetails";
@@ -107,7 +107,7 @@ class _Checkout extends Component {
   renderSwitch = (_) => {
     switch (this.state.currStage) {
       case 0:
-        return <Cart onNextClick={this.onNextClick} />;
+        return <Cart onNextClick={this.onNextClick} total={this.props.total} />;
       case 1:
         return (
           <CustomerDetails

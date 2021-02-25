@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 
 import { CartItemPreview } from "./CartItemPreview";
 
-
 import {
   updateQuantity,
   deleteItem,
@@ -19,15 +18,9 @@ class _CartList extends Component {
 
   render() {
     const { cart } = this.props;
-    if (cart.length === 0) {
-      return (
-        <div className="cart">
-          <h2>העגלה ריקה</h2>
-        </div>
-      );
-    }
+
     return (
-      <div>
+      <section>
         {React.Children.toArray(
           cart.map((item) => {
             return (
@@ -41,7 +34,7 @@ class _CartList extends Component {
             );
           })
         )}
-      </div>
+      </section>
     );
   }
 }

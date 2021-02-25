@@ -13,7 +13,7 @@ export function CartItemPreview({ item, onUpdateQuantity, onDeleteItem }) {
         <div className="item-size">{item.size}</div>
       </section>
       <section className="price-buttons">
-        <h3>₪{item.price}</h3>
+        <h3>₪ {item.price}</h3>
         <section className="amount-container-temp flex">
           <button onClick={() => onUpdateQuantity(item, +1)}>+</button>
           <ItemQuantity measure={item.measure} quantity={item.quantity} />
