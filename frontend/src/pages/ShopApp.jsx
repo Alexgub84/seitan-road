@@ -24,7 +24,8 @@ class _ShopApp extends Component {
       <div className="main-container">
         <div className="shop flex">
           <ItemsList items={items} />
-          <Cart />
+          {/* <Cart /> */}
+          <CartPreview />
         </div>
       </div>
     );

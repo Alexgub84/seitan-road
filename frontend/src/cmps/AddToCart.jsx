@@ -9,7 +9,7 @@ import { MarinadaSelect } from "./ItemPreview/MarinadaSelect";
 
 export class _AddToCart extends Component {
   state = {
-    quantity: 0,
+    quantity: 1,
     cart: [],
     souse: null,
   };
@@ -71,27 +71,6 @@ export class _AddToCart extends Component {
             />
           )}
         </section>
-
-        {/* {item.souses && (
-          <section className="souses">
-            <label forname="souses">מרינדה</label>
-            <select
-              name="souses"
-              id="souses"
-              value={this.state.souse || ""}
-              onClick={this.stopAndPrevent}
-              onChange={this.onSouseChange}
-            >
-              {item.souses.map((souse, idx) => (
-                <option key={souse} value={souse}>
-                  {souse} {idx !== 0 && `${item.sousePrice}+`}
-                </option>
-              ))}
-            </select>
-          </section>
-        )} */}
-        {/* <button onClick={this.onAddToCart}>הוסף לעגלה</button> */}
-
         <AddToCartBtn onAddToCart={this.onAddToCart} />
       </div>
     );

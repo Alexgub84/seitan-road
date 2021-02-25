@@ -87,7 +87,7 @@ function sendBill(order) {
 
   transporter
     .sendMail(message)
-    .then(() => {
+    .then((res) => {
       return res
         .status(200)
         .json({ msg: "you should receive an email from us" });

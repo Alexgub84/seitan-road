@@ -4,9 +4,7 @@ import { ItemPreview } from "./ItemPreview";
 export function ItemsList({ items }) {
   return (
     <div className="items-list flex">
-      {items.map((item) => (
-        <ItemPreview item={item} key={item._id} />
-      ))}
+      {React.Children.toArray(items.map((item) => <ItemPreview item={item} />))}
     </div>
   );
 }

@@ -1,28 +1,41 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
-export class FreeShipmentBar extends Component {
+class _FreeShipmentBar extends Component {
   state = {
+    txt: "",
     innerStyle: {
-      width: `${(this.props.total / this.props.min) * 100}%`,
+      display: "none",
     },
-    txt: ` עוד ${this.props.min - this.props.total} והמשלוח עלינו!  `,
   };
-
+  componentDidMount() {
+    const { total } = this.props;
+    const { freeDeliveryPrice } = this.props.settings;
+    if (total !== 0) {
+      const innerStyle = {
+        width: `${(total / freeDeliveryPrice) * 100}%`,
+      };
+      const txt = ` עוד ${freeDeliveryPrice - total} והמשלוח עלינו!  `;
+      this.setState({ innerStyle, txt });
+    }
+  }
   componentDidUpdate(prev) {
     if (this.props === prev) return;
+    const { total } = this.props;
+    const { freeDeliveryPrice } = this.props.settings;
     const innerStyle = {};
-    let totalPercentage = (this.props.total / this.props.min) * 100;
-    this.setState({
-      txt: ` עוד ${this.props.min - this.props.total} והמשלוח עלינו!  `,
-    });
+    let totalPercentage = (total / freeDeliveryPrice) * 100;
+    const txt = ` עוד ${freeDeliveryPrice - total} והמשלוח עלינו!  `;
+
     if (totalPercentage >= 100) {
       this.setState({ txt: `משלוח חינם!` });
       innerStyle.backgroundColor = "green";
     }
     innerStyle.width = `${totalPercentage}%`;
-    this.setState({ innerStyle });
+    this.setState({ innerStyle, txt });
   }
   render() {
+    if (this.props.total === 0) return null;
     return (
       <div className="free-shipment-container flex align-center justify-around">
         <div className="free-shipment-txt1"> {this.state.txt}</div>
@@ -38,3 +51,12 @@ export class FreeShipmentBar extends Component {
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    total: state.userReducer.total,
+    settings: state.settingsReducer.settings,
+  };
+};
+
+export const FreeShipmentBar = connect(mapStateToProps)(_FreeShipmentBar);

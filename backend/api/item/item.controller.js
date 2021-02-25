@@ -12,6 +12,7 @@ module.exports = {
 async function getItems(req, res) {
   const filterBy = req.query;
   const items = await itemService.query(filterBy);
+  items.sort((item) => (item.measure === "gram" ? -1 : 1));
   logger.debug(items);
   res.send(items);
 }

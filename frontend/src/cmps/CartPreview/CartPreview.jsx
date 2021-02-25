@@ -1,10 +1,13 @@
 import React from "react";
-import { CartList } from "./CartList";
 
-export function CartPreview({ items }) {
+import { CartList } from "./CartList";
+import { FreeShipmentBar } from "../FreeShipmentBar";
+
+export function CartPreview() {
   return (
-    <div>
-      <CartList items={items} />
+    <div className="cart">
+      <FreeShipmentBar />
+      <CartList />
     </div>
   );
 }

@@ -39,7 +39,7 @@ class _Checkout extends Component {
   }
   componentDidUpdate(prevProps) {
     console.log({ locationStateUpdate: this.props.location.state });
-    
+
     if (prevProps !== this.props) {
       if (this.props.location.state === "nav" && this.state.currStage !== 0) {
         this.setState({ currStage: 0 });
@@ -60,36 +60,35 @@ class _Checkout extends Component {
     this.onNextClick();
   };
 
-  onNextClick = async () => {
+  onNextClick = () => {
     if (this.state.currStage === 1) {
       if (_.isEmpty(this.props.supply)) {
         return alert("בבקשה בחרו את שיטת המשלוח");
       }
-      // if (!this.state.isCustDetValidated) {
-      //   return alert("בבקשה מלאו את כל הפרטיים האישיים");
-      // }
     }
 
-    const currStage = this.state.currStage + 1;
-    this.setState({ currStage });
-    if (this.state.currStage === 2) {
-      const order = {};
-      order.items = this.props.cart.map((item) => {
-        const container = {};
-        container.itemId = item._id;
-        container.name = item.name;
-        container.souse = item.souse;
-        container.quantity = item.quantity;
-        container.measure = item.measure;
-        return container;
-      });
-      order.customerDetails = this.props.customerDetails;
-      order.supply = this.props.supply;
-      order.totalPayment = this.props.total + this.props.supply.price;
-      order.paymentType = "מזומן";
-      await this.props.saveOrder(order);
-      this.props.emptyCart();
-    }
+    // const currStage = this.state.currStage + 1;
+    this.setState({ currStage: this.state.currStage + 1 }, async () => {
+      console.log({ stageAfter: this.state.currStage });
+      if (this.state.currStage === 3) {
+        const order = {};
+        order.items = this.props.cart.map((item) => {
+          const container = {};
+          container.itemId = item._id;
+          container.name = item.name;
+          container.souse = item.souse;
+          container.quantity = item.quantity;
+          container.measure = item.measure;
+          return container;
+        });
+        order.customerDetails = this.props.customerDetails;
+        order.supply = this.props.supply;
+        order.totalPayment = this.props.total + this.props.supply.price;
+        order.paymentType = "מזומן";
+        await this.props.saveOrder(order);
+        this.props.emptyCart();
+      }
+    });
   };
 
   onSaveDetails = (data) => {

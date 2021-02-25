@@ -23,7 +23,6 @@ function App() {
       </header>
       <div className="App">
         <Switch>
-          <Route component={Home} path="/" />
           <Route component={Control} path="/control" />
           <Route component={Login} path="/login" />
           <Route component={ItemDetails} path="/details/:id?" />
@@ -32,6 +31,7 @@ function App() {
           <Route component={OurStory} path="/ourstory" />
           <Route component={About} path="/about" />
           <Route component={Supply} path="/supply" />
+          <Route component={Home} path="/" />
         </Switch>
       </div>
       <footer>

@@ -18,11 +18,11 @@ export class MarinadaSelect extends React.Component {
   render() {
     const { souses, sousePrice, chosenSouse, onSouseChange } = this.props;
     return (
-      <div className="marinada-select-container flex">
-        <div
-          className="marinada-select-btn"
-          onClick={(ev) => this.onToggleDropDown(ev)}
-        >
+      <div
+        className="marinada-select-container flex"
+        onClick={(ev) => this.onToggleDropDown(ev)}
+      >
+        <div className="marinada-select-btn">
           <div className="symbol">V</div>
         </div>
         <div className="marinada-select-selected">
