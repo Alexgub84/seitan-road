@@ -72,7 +72,7 @@ class _Control extends Component {
 
   _formatDate(date) {
     var d = new Date(date),
-      month = "" + (d.getMonth() + 1),
+      month = "" + (d.getMonth() +  1),
       day = "" + d.getDate(),
       year = d.getFullYear();
 
