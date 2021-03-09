@@ -4,9 +4,11 @@ import { connect } from "react-redux";
 import { loadSettings, saveSettings } from "../store/actions/settingsActions";
 import { loadOrders, removeOrder } from "../store/actions/orderActions";
 import { loadItems } from "../store/actions/itemActions";
+
 import { OrdersList } from "../cmps/BackOffice/OrdersList";
 import { OrdersTable } from "../cmps/BackOffice/OrdersTable";
 import { XSLExport } from "../cmps/BackOffice/XSLExport";
+import { ShowDate } from "../cmps/ShowDate";
 
 import { TextField, InputLabel } from "@material-ui/core";
 
@@ -23,9 +25,10 @@ class _Control extends Component {
   };
 
   async componentDidMount() {
-    await this.props.loadSettings(this.state.filterBy);
+    await this.props.loadSettings();
     this.setState({ settings: this.props.settings }, () => {
       this.setState({ date: this._formatDate(this.state.settings.supplyDate) });
+      console.log(this.state.settings);
     });
     await this.props.loadOrders();
     await this.props.loadItems();
@@ -72,7 +75,7 @@ class _Control extends Component {
 
   _formatDate(date) {
     var d = new Date(date),
-      month = "" + (d.getMonth() +  1),
+      month = "" + (d.getMonth() + 1),
       day = "" + d.getDate(),
       year = d.getFullYear();
 
@@ -82,7 +85,7 @@ class _Control extends Component {
   }
   render() {
     const { orders, items } = this.props;
-    console.log(items);
+
     window.orders = orders;
     window.items = items;
 

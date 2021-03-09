@@ -20,7 +20,6 @@ export function XSLExport({ orders, items, fileName }) {
       "Supply details": order.supply.name,
       Total: order.totalPayment,
     };
-    console.log("items:", items);
     order.items.map(async (item) => {
       obj[`${item.name}${item.souse ? "+" + item.souse : ""}`] = item.quantity;
     });
@@ -97,7 +96,6 @@ export function XSLExport({ orders, items, fileName }) {
         if (obj[key] == 0) obj[key] = null;
       }
     }
-    console.log(kitchenData);
     return kitchenData;
   }
 
