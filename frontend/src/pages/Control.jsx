@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import _ from "lodash";
 
 import { loadSettings, saveSettings } from "../store/actions/settingsActions";
 import { loadOrders, removeOrder } from "../store/actions/orderActions";
@@ -9,6 +10,7 @@ import { OrdersList } from "../cmps/BackOffice/OrdersList";
 import { OrdersTable } from "../cmps/BackOffice/OrdersTable";
 import { XSLExport } from "../cmps/BackOffice/XSLExport";
 import { ShowDate } from "../cmps/ShowDate";
+import { SupplySelect } from "../cmps/SupplySelect";
 
 import { TextField, InputLabel } from "@material-ui/core";
 
@@ -28,7 +30,7 @@ class _Control extends Component {
     await this.props.loadSettings();
     this.setState({ settings: this.props.settings }, () => {
       this.setState({ date: this._formatDate(this.state.settings.supplyDate) });
-      console.log(this.state.settings);
+      console.log({ settings: this.state.settings });
     });
     await this.props.loadOrders();
     await this.props.loadItems();
@@ -73,6 +75,10 @@ class _Control extends Component {
     });
   }
 
+  onSupplyMethodChange = (ev) => {
+    console.log({ supply: ev.target.value });
+  };
+
   _formatDate(date) {
     var d = new Date(date),
       month = "" + (d.getMonth() + 1),
@@ -85,12 +91,11 @@ class _Control extends Component {
   }
   render() {
     const { orders, items } = this.props;
-
-    window.orders = orders;
-    window.items = items;
+    const { settings } = this.state;
 
     if (!this.props.loggedInUser) return <div></div>;
-    if (!items[8] || !items[8].description[0]) return <div>Loading...</div>;
+    if (!items[8] || !items[8].description[0] || _.isEmpty(settings))
+      return <div>Loading...</div>;
     return (
       <div className="main-container">
         <form className="control-form">
@@ -151,6 +156,11 @@ class _Control extends Component {
             שמור שינויים
           </button>
         </form>
+        <SupplySelect
+          settings={settings}
+          onSupplyMethodChange={this.onSupplyMethodChange}
+        />
+
         <XSLExport items={items} orders={orders} fileName="Report for 10/2" />
 
         {orders.length !== 0 && (
