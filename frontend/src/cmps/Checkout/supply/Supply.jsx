@@ -55,7 +55,6 @@ class _Supply extends Component {
     switch (cmpName) {
       case "delivery":
         this.setState({ optionsCmp: deliveryCmp });
-
         break;
       case "pickup":
         this.setState({ optionsCmp: pickupCmp });

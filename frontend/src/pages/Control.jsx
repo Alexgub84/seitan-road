@@ -10,8 +10,8 @@ import { OrdersList } from "../cmps/BackOffice/OrdersList";
 import { OrdersTable } from "../cmps/BackOffice/OrdersTable";
 import { XSLExport } from "../cmps/BackOffice/XSLExport";
 import { ShowDate } from "../cmps/ShowDate";
-import { SupplySelect } from "../cmps/SupplySelect";
-
+import { SupplySelect } from "../cmps/BackOffice/SupplySelect";
+import { SupplyOptions } from "../cmps/BackOffice/SupplyOptions";
 import { TextField, InputLabel } from "@material-ui/core";
 
 class _Control extends Component {
@@ -23,6 +23,8 @@ class _Control extends Component {
       maxGrams: true,
     },
     settings: {},
+    supplyType: null,
+    supplyDate: null,
     filterBy: {},
   };
 
@@ -76,9 +78,12 @@ class _Control extends Component {
   }
 
   onSupplyMethodChange = (ev) => {
-    console.log({ supply: ev.target.value });
+    this.setState({ supplyType: ev.target.value });
+    console.log({ state: this.state });
   };
-
+  handleSupplyChosen = (ev) => {
+    this.setState({ supplyDate: ev.target.value });
+  };
   _formatDate(date) {
     var d = new Date(date),
       month = "" + (d.getMonth() + 1),
@@ -156,13 +161,16 @@ class _Control extends Component {
             שמור שינויים
           </button>
         </form>
-        <SupplySelect
-          settings={settings}
-          onSupplyMethodChange={this.onSupplyMethodChange}
-        />
+        <SupplySelect onSupplyMethodChange={this.onSupplyMethodChange} />
+        {this.state.supplyType && (
+          <SupplyOptions
+            settings={settings}
+            supplyType={this.state.supplyType}
+            handleSupplyChosen={this.handleSupplyChosen}
+          />
+        )}
 
         <XSLExport items={items} orders={orders} fileName="Report for 10/2" />
-
         {orders.length !== 0 && (
           <OrdersTable orders={orders} removeOrder={this.props.removeOrder} />
         )}
