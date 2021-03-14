@@ -5,6 +5,7 @@ import _ from "lodash";
 import { loadSettings, saveSettings } from "../store/actions/settingsActions";
 import { loadOrders, removeOrder } from "../store/actions/orderActions";
 import { loadItems } from "../store/actions/itemActions";
+import { utils } from "../services/utils";
 
 import { OrdersList } from "../cmps/BackOffice/OrdersList";
 import { OrdersTable } from "../cmps/BackOffice/OrdersTable";
@@ -31,7 +32,7 @@ class _Control extends Component {
   async componentDidMount() {
     await this.props.loadSettings();
     this.setState({ settings: this.props.settings }, () => {
-      this.setState({ date: this._formatDate(this.state.settings.supplyDate) });
+      this.setState({ date: utils.formatDate(this.state.settings.supplyDate) });
       console.log({ settings: this.state.settings });
     });
     await this.props.loadOrders();
@@ -84,16 +85,7 @@ class _Control extends Component {
   handleSupplyChosen = (ev) => {
     this.setState({ supplyDate: ev.target.value });
   };
-  _formatDate(date) {
-    var d = new Date(date),
-      month = "" + (d.getMonth() + 1),
-      day = "" + d.getDate(),
-      year = d.getFullYear();
 
-    if (month.length < 2) month = "0" + month;
-    if (day.length < 2) day = "0" + day;
-    return `${year}-${month}-${day}`;
-  }
   render() {
     const { orders, items } = this.props;
     const { settings } = this.state;

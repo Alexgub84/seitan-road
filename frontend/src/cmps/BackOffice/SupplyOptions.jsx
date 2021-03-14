@@ -1,16 +1,43 @@
 import React, { Component } from "react";
 import Select from "react-select";
-import { ShowDate } from "../ShowDate";
-export function SupplyOptions({ settings, supplyType, handleSupplyChosen }) {
-  const options = settings[supplyType].map((item) => ({
-    value: item.supplyDate,
-    // label: `${item.name} ${item.supplyDate} `,
-  }));
-  return (
-    <div>
-      <Select onChange={handleSupplyChosen} options={options} />
-    </div>
-  );
+
+import { utils } from "../../services/utils";
+export class SupplyOptions extends Component {
+  state = {
+    selectedOption: null,
+  };
+  setOptions() {
+    var options = [];
+    switch (supplyType) {
+      case "specialGroup":
+        options = settings[supplyType].map((item) => ({
+          value: item.supplyDate,
+          label: `${item.name} ${utils.formatDate(item.supplyDate)}`,
+        }));
+        break;
+      case "deliveryAndPickup":
+        options = [
+          {
+            value: settings.supplyDate,
+            label: `${utils.formatDate(settings.supplyDate)} `,
+          },
+        ];
+        break;
+      default:
+        break;
+    }
+  }
+  render() {
+    return (
+      <div>
+        <Select
+          value={this.state.selectedOption}
+          options={this.setOptions()}
+          onChange={this.props.handleSupplyChosen}
+        />
+      </div>
+    );
+  }
 }
 
 // export class SupplyOptions extends Component {
