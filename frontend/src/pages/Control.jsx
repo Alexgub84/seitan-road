@@ -80,10 +80,9 @@ class _Control extends Component {
 
   onSupplyMethodChange = (ev) => {
     this.setState({ supplyType: ev.target.value });
-    console.log({ state: this.state });
   };
-  handleSupplyChosen = (ev) => {
-    this.setState({ supplyDate: ev.target.value });
+  handleSupplyChosen = (supplyDate) => {
+    this.setState({ supplyDate });
   };
 
   render() {
