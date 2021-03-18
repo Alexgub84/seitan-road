@@ -38,7 +38,7 @@ export class SupplyOptions extends Component {
   };
   handleChange = (selectedOption) => {
     this.setState({ selectedOption });
-    this.props.saveSupplyMethod(selectedOption.value);
+    this.props.handleSupplyChosen(selectedOption.value);
   };
   //   setOptions() {
   //     var options = [];

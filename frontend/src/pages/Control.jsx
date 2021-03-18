@@ -10,7 +10,6 @@ import { utils } from "../services/utils";
 import { OrdersList } from "../cmps/BackOffice/OrdersList";
 import { OrdersTable } from "../cmps/BackOffice/OrdersTable";
 import { XSLExport } from "../cmps/BackOffice/XSLExport";
-import { ShowDate } from "../cmps/ShowDate";
 import { SupplySelect } from "../cmps/BackOffice/SupplySelect";
 import { SupplyOptions } from "../cmps/BackOffice/SupplyOptions";
 import { TextField, InputLabel } from "@material-ui/core";
@@ -24,18 +23,18 @@ class _Control extends Component {
       maxGrams: true,
     },
     settings: {},
-    supplyType: null,
+    supplyType: "all",
     supplyDate: null,
-    filterBy: {},
+    filterBy: { supplyDate: Date.now() },
   };
 
   async componentDidMount() {
     await this.props.loadSettings();
-    this.setState({ settings: this.props.settings }, () => {
-      this.setState({ date: utils.formatDate(this.state.settings.supplyDate) });
-      console.log({ settings: this.state.settings });
+    this.setState({
+      settings: this.props.settings,
+      date: utils.formatDate(this.props.settings.supplyDate, "picker"),
     });
-    await this.props.loadOrders();
+    await this.props.loadOrders(this.state.filterBy);
     await this.props.loadItems();
   }
 
@@ -153,7 +152,7 @@ class _Control extends Component {
           </button>
         </form>
         <SupplySelect onSupplyMethodChange={this.onSupplyMethodChange} />
-        {this.state.supplyType && (
+        {this.state.supplyType !== "all" && (
           <SupplyOptions
             settings={settings}
             supplyType={this.state.supplyType}

@@ -2,7 +2,7 @@ export const utils = {
   formatDate,
 };
 
-function formatDate(date) {
+function formatDate(date, purpose = "display") {
   console.log({ dateInUtils: date });
   var d = new Date(date),
     month = "" + (d.getMonth() + 1),
@@ -11,5 +11,9 @@ function formatDate(date) {
 
   if (month.length < 2) month = "0" + month;
   if (day.length < 2) day = "0" + day;
-  return `${day}-${month}-${year}`;
+  const result =
+    purpose === "display"
+      ? `${day}-${month}-${year}`
+      : `${year}-${month}-${day}`;
+  return result;
 }

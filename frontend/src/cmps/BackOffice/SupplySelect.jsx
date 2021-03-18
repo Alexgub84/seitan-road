@@ -18,6 +18,8 @@ export function SupplySelect({ onSupplyMethodChange }) {
         id="specialGroup"
       />
       <label htmlFor="specialGroup">קבוצת רכישה</label>
+      <input type="radio" name="supply" value="all" id="all" checked />
+      <label htmlFor="all">כל ההזמנות העתידיות</label>
     </div>
   );
 }

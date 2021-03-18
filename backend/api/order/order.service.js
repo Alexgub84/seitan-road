@@ -79,9 +79,5 @@ function _buildCriteria(filterBy) {
     criteria.type = filterBy.type;
   }
 
-  if (filterBy.type) {
-    criteria.type = filterBy.type;
-  }
-
   return criteria;
 }
