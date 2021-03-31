@@ -1,0 +1,13 @@
+@mixin primary-btn($w, $h) {
+  width: $w;
+  height: $h;
+  background-color: $clr2;
+  color: $clr3;
+  font-size: rem(16px);
+  border-radius: 10px;
+  @include flexcenterer;
+  :hover {
+    cursor: pointer;
+    background-color: $clr9;
+  }
+}
