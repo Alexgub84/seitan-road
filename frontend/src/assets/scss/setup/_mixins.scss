@@ -43,11 +43,9 @@
   white-space: nowrap;
 }
 
-
 //horizontal line
 
-@mixin horizontal-line($w){
-  
+@mixin line($horizontal: true, $vertical: false, $lenght, $color: #d8d8d8) {
 }
 /* Breakpoint mixins */
 
