@@ -54,16 +54,16 @@
   background-color: $color;
   @if $horizontal {
     width: $length;
-    height: 0px;
+    height: 1px;
   } @else {
     height: $length;
-    width: 0px;
+    width: 1px;
   }
 }
 /* Breakpoint mixins */
 
 @mixin for-mobile-layout {
-  @media (max-width: $mobile-breakpoint + 40) {
+  @media (max-width: $mobile-breakpoint) {
     @content;
   }
 }
