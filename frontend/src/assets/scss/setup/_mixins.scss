@@ -45,7 +45,15 @@
 
 //horizontal line
 
-@mixin line($horizontal: true, $vertical: false, $lenght, $color: #d8d8d8) {
+@mixin line($horizontal: true, $vertical: false, $length, $color: #d8d8d8) {
+  background-color: $color;
+  @if $horizontal {
+    width: $length;
+    height: 0px;
+  } @else {
+    height: $length;
+    width: 0px;
+  }
 }
 /* Breakpoint mixins */
 
