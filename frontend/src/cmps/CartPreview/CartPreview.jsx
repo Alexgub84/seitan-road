@@ -28,6 +28,7 @@ export function CartPreview({ total }) {
           <div className="checkout-btn">לרכישה</div>
         </NavLink>
       </section>
+      <div className="line"></div>
     </div>
   );
 }

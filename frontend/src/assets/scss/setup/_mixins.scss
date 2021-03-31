@@ -45,7 +45,12 @@
 
 //horizontal line
 
-@mixin line($horizontal: true, $vertical: false, $length, $color: #d8d8d8) {
+@mixin line(
+  $horizontal: true,
+  $vertical: false,
+  $length: 100%,
+  $color: #d8d8d8
+) {
   background-color: $color;
   @if $horizontal {
     width: $length;
@@ -64,19 +69,19 @@
 }
 
 @mixin for-narrow-layout {
-  @media (min-width: $mobile-breakpoint + 40) {
+  @media (max-width: $mobile-breakpoint) {
     @content;
   }
 }
 
 @mixin for-normal-layout {
-  @media (min-width: $narrow-breakpoint + 40) {
+  @media (max-width: $narrow-breakpoint) {
     @content;
   }
 }
 
 @mixin for-wide-layout {
-  @media (min-width: $normal-breakpoint + 40) {
+  @media (max-width: $normal-breakpoint) {
     @content;
   }
 }
