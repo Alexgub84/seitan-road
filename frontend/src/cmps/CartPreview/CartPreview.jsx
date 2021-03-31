@@ -19,13 +19,13 @@ export function CartPreview({ total }) {
         <h3>סיכום הזמנה</h3>
         <CartList />
       </section>
-      <section>
+      <section className="checkout-section">
         <div>
           <div>סך הכל:</div>
           <div>₪ {total}</div>
         </div>
         <NavLink to={{ pathname: "/checkout", state: { fromNavBar: false } }}>
-          <button>לרכישה</button>
+          <div className="checkout-btn">לרכישה</div>
         </NavLink>
       </section>
     </div>

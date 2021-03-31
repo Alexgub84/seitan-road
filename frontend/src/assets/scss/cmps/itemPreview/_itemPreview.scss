@@ -9,9 +9,7 @@
   text-align: center;
   flex-direction: column;
   justify-content: space-between;
-
   position: relative;
-
   img {
     height: 120px;
     border-radius: 32px 32px 0 0;
@@ -52,8 +50,21 @@
     .add-to-cart-otpions {
       width: 100%;
     }
+    .add-to-cart-btn {
+      @include add-to-cart-btn-desktop(100%, 40px);
+    }
   }
   &:hover {
     cursor: pointer;
+  }
+}
+
+@media (max-width: $mobile-breakpoint) {
+  .item-card {
+    .add-to-cart-container {
+      .add-to-cart-btn {
+        @include add-to-cart-btn-mobile;
+      }
+    }
   }
 }

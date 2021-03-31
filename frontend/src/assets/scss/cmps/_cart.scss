@@ -36,4 +36,13 @@
       align-items: center;
     }
   }
+  .checkout-section {
+    div {
+      display: flex;
+      justify-content: space-between;
+    }
+    a .checkout-btn {
+      @include primary-btn(260px, 45px);
+    }
+  }
 }

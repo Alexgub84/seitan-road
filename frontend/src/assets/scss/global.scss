@@ -11,6 +11,11 @@
 @import "basics/links.scss";
 @import "basics/buttons.scss";
 
+//buttons
+@import "cmps/buttons/basicBtn";
+@import "cmps/buttons/addToCardBtn";
+@import "cmps/buttons/primaryBtn";
+
 //pages
 @import "pages/homePage";
 @import "pages/shopPage";
@@ -23,7 +28,7 @@
 @import "cmps/freeShipmentBar.scss";
 @import "cmps/itemPreview/itemPreview.scss";
 @import "cmps/itemPreview/amountBtn";
-@import "cmps/itemPreview/addToCardBtn";
+
 @import "cmps/itemPreview/marinadaSelect";
 @import "cmps/itemQuantity.scss";
 @import "cmps/cart.scss";
