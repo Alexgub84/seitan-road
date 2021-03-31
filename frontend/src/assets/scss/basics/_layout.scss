@@ -9,12 +9,13 @@
     }
   }
 
-  // @include for-narrow-layout {
-  //   grid-template-columns:
-  //     minmax(20px, 1fr)
-  //     minmax(auto, $mobile-breakpoint)
-  //     minmax(20px, 1fr);
-  // }
+  @include for-mobile-layout {
+    grid-template-columns:
+      // minmax(20px, 1fr)
+      // minmax(auto, $mobile-breakpoint)
+      // minmax(20px, 1fr);
+      16px 1fr 16px;
+  }
   // @include for-normal-layout {
   //   grid-template-columns:
   //     minmax(20px, 1fr)

@@ -43,6 +43,12 @@
   white-space: nowrap;
 }
 
+
+//horizontal line
+
+@mixin horizontal-line($w){
+  
+}
 /* Breakpoint mixins */
 
 @mixin for-mobile-layout {
