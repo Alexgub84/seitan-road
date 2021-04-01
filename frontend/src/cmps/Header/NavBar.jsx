@@ -15,6 +15,11 @@ class _NavBar extends Component {
     return (
       <div className="main-container ">
         <div className="nav-bar flex justify-between">
+          <img
+            className="humburger"
+            src={require("../../assets/icons/hamburger.svg")}
+            alt="h"
+          />
           <NavLink
             exact
             className="nav-bar-logo"
