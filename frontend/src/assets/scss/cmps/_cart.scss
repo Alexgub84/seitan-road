@@ -47,7 +47,9 @@
   }
 }
 
-@media (max-width: $mobile-breakpoint) {
+@include for-mobile-layout {
   .cart {
+    position: fixed;
+    bottom: -1vh;
   }
 }
