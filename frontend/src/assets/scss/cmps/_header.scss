@@ -59,3 +59,17 @@ header {
     margin-bottom: 40px;
   }
 }
+
+@include for-mobile-layout {
+  .nav-bar .main-buttons {
+    width: 180px;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+    align-items: flex-end;
+    position: fixed;
+    top: 0;
+    right: -183px;
+    height: 100px;
+    background-color: #292929;
+  }
+}
