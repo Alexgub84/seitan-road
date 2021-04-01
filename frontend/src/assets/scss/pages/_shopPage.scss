@@ -13,8 +13,8 @@
 }
 
 @include for-mobile-layout {
-  .shop{
+  .shop {
     display: block;
-
+    position: relative;
   }
-} 
+}
