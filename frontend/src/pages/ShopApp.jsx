@@ -8,7 +8,7 @@ import { loadSettings } from "../store/actions/settingsActions";
 
 import { ItemsList } from "../cmps/ItemsList";
 import { CartPreview } from "../cmps/CartPreview/CartPreview";
-
+import { CartBtnMobile } from "../cmps/CartBtnMobile";
 class _ShopApp extends Component {
   state = {};
   async componentDidMount() {
@@ -24,6 +24,7 @@ class _ShopApp extends Component {
         <div className="shop flex">
           <ItemsList items={items} />
           <CartPreview total={this.props.total} />
+          <CartBtnMobile />
         </div>
       </div>
     );
