@@ -10,15 +10,8 @@
   .shop {
     display: block;
     position: relative;
-
     .cart-toggle-mobile {
       display: block;
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      height: 30px;
-      background-color: red;
-      z-index: 2;
     }
   }
 }

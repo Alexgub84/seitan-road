@@ -4,10 +4,13 @@
 
 html {
   font-family: Heebo-Regular;
+  width: 100vw;
 }
 
 body {
   margin: 0;
+  overflow: auto;
+  overflow: initial;
 }
 
 h1,

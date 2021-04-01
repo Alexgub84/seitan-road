@@ -1,0 +1,26 @@
+.cart-toggle-mobile {
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  z-index: 2;
+  .img-container {
+    height: 16px;
+    width: 32px;
+    margin: auto;
+    border-radius: 90px 90px 0 0;
+    background-color: $clr1;
+    img {
+      &.open {
+        src: url("../../../icons/cartUp.svg");
+      }
+    }
+  }
+  .white-block {
+    @include flexcenterer;
+    height: 40px;
+    background-color: $clr3;
+    border-radius: 45px 45px 0 0;
+    font-size: rem(16px);
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.17);
+  }
+}
