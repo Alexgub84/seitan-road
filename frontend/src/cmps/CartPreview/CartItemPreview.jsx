@@ -20,7 +20,7 @@ export function CartItemPreview({ item, onUpdateQuantity, onDeleteItem }) {
           <button onClick={() => onUpdateQuantity(item, -1)}>-</button>
         </section>
       </section>
-      <button onClick={() => onDeleteItem(item)}>X</button>
+      <div className="delete-btn" onClick={() => onDeleteItem(item)}></div>
     </li>
   );
 }
