@@ -18,7 +18,6 @@ export function ItemPreview({ item }) {
             <h3>₪{item.price}</h3>
             <h4>{item.size}</h4>
           </section>
-
           <AddToCart item={item} />
         </section>
       </div>
