@@ -52,6 +52,7 @@
     align-items: center;
     .add-to-cart-otpions {
       width: 100%;
+      @include amount-btn(80px, 24px, 11px);
     }
     .add-to-cart-btn {
       @include add-to-cart-btn-desktop(100%, 40px);
@@ -100,6 +101,10 @@
     .add-to-cart-container {
       flex-direction: row;
       align-items: center;
+      .add-to-cart-otpions {
+        // width: 100%;????
+        @include amount-btn(104px, 24px, 12px);
+      }
 
       .add-to-cart-btn {
         @include add-to-cart-btn-mobile;

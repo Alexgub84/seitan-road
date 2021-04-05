@@ -1,0 +1,46 @@
+@mixin amount-btn($w: 104px, $h: 24px, $fs: 12px) {
+  .amount-btn-container {
+    flex-direction: row-reverse;
+    background-color: $clr12;
+    height: $h;
+    width: $w;
+    font-size: $fs;
+    margin-bottom: 8px;
+    vertical-align: middle;
+    border-radius: 10px;
+
+    .plus-btn {
+      border: solid 1px $clr5;
+      border-radius: 10px 0 0 10px;
+      text-align: center;
+    }
+    .amount {
+      width: 44%;
+      //   line-height: 34px;
+      border-top: solid 1px $clr5;
+      border-bottom: solid 1px $clr5;
+      @include flexcenterer;
+    }
+    .minus-btn {
+      border: solid 1px $clr5;
+      border-radius: 0 10px 10px 0;
+    }
+  }
+
+  .amount-btn {
+    width: 28%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      background-color: $clr2;
+      height: 100%;
+      border: solid 1px $clr2;
+      svg g > * {
+        stroke: $clr3;
+        fill: $clr3;
+      }
+    }
+  }
+}
