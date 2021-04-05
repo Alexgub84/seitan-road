@@ -53,7 +53,12 @@ export class _AddToCart extends Component {
   render() {
     const { item } = this.props;
     return (
-      <div className="add-to-cart-container flex">
+      <div
+        className="add-to-cart-container flex"
+        onClick={(ev) => {
+          this.stopAndPrevent(ev);
+        }}
+      >
         <section className="add-to-cart-otpions flex justify-evenly ">
           <AmountBtn
             onAdd={this.onAdd}

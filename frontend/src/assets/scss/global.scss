@@ -16,6 +16,7 @@
 @import "cmps/buttons/primaryBtn";
 @import "cmps/buttons/amountBtn";
 @import "cmps/buttons/backBtn";
+@import "cmps/buttons/marinadaSelect";
 
 //pages
 @import "pages/homePage";
@@ -28,8 +29,6 @@
 @import "cmps/itemsList.scss";
 @import "cmps/freeShipmentBar.scss";
 @import "cmps/itemPreview/itemPreview.scss";
-@import "cmps/itemPreview/amountBtn";
-@import "cmps/itemPreview/marinadaSelect";
 @import "cmps/itemQuantity.scss";
 @import "cmps/cart.scss";
 @import "cmps/onlyMobile/cartToggleBtn";
