@@ -1,3 +1,13 @@
 .delete-btn{
-    background: url();
+    background-color: $clr2;
+    color: $clr3;
+    
+    width: 16px;
+    height: 16px;
+    border-radius: 45px;
+    &:hover{
+        cursor: pointer;
+        background-color: $clr1;
+
+    }
 }

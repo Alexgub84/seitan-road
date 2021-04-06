@@ -23,42 +23,66 @@
       font-size: 16px;
     }
     li {
+      position: relative;
       display: flex;
-      align-items: center;
       justify-content: space-between;
       padding-bottom: 24px;
       border-bottom: solid 1px $clr13;
+      margin-bottom: 24px;
       img {
         height: 88px;
         width: 88px;
         border-radius: 15px;
+        margin-left: 16px;
       }
-      .cart-items-info {
+      .item-info {
         display: flex;
         flex-direction: column;
-        .item-name {
-          font-size: 1em;
+        align-items: flex-start;
+        justify-content: space-between;
+        section {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          .item-name {
+            font-size: rem(14px);
+          }
+          .item-size {
+            font-size: rem(12px);
+          }
         }
         .item-souse {
-          font-size: 0.8em;
-        }
-        .item-size {
-          font-size: 0.6em;
+          font-size: rem(12px);
         }
       }
-      .price-buttons {
+      .price-amount {
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: flex-end;
+        justify-content: flex-end;
+        h3 {
+          margin-bottom: 17px;
+          margin-left: 15px;
+          font-size: rem(16px);
+          color: black;
+        }
+        @include amount-btn(80px, 24px, 11px);
+        .amount-btn-container{
+          margin-left: 8px;
+        }
       }
-    }
+    .delete-btn{
+      position: absolute;
+      left: 0px;
+    }}
     .checkout-container {
-      div {
+      .total {
         display: flex;
         justify-content: space-between;
+        margin-bottom: 32px
       }
       a .checkout-btn {
-        @include primary-btn(260px, 45px);
+        @include primary-btn(100%, 45px);
       }
     }
   }

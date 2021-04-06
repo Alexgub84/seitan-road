@@ -12,6 +12,7 @@
 /build
 
 #log
+/logs
 backend.log
 
 # misc

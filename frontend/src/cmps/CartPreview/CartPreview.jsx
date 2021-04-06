@@ -19,7 +19,7 @@ export function CartPreview({ total }) {
         <h3>סיכום הזמנה</h3>
         <CartList />
         <section className="checkout-container">
-          <div>
+          <div className="total">
             <div>סך הכל:</div>
             <div>₪ {total}</div>
           </div>

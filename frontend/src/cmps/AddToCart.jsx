@@ -4,7 +4,7 @@ import { withRouter } from "react-router-dom";
 
 import { addToCart } from "../store/actions/userActions.js";
 import { AmountBtn } from "./ItemPreview/AmountBtn";
-import { AddToCartBtn } from "./Buttons/AddToCartBtn";
+import { AddToCartBtn } from "./ItemPreview/AddToCartBtn";
 import { MarinadaSelect } from "./ItemPreview/MarinadaSelect";
 
 export class _AddToCart extends Component {

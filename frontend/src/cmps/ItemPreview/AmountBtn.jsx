@@ -14,7 +14,6 @@ export function AmountBtn({ onAdd, onReduce, measure, quantity }) {
       <ItemQuantity
         measure={measure}
         quantity={quantity}
-        
       />
       <div className="minus-btn amount-btn" onClick={onReduce}>
         <ReduceLogo />
