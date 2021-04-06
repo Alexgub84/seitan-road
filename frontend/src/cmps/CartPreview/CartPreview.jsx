@@ -15,20 +15,19 @@ export function CartPreview({ total }) {
   return (
     <div className="cart">
       <FreeShipmentBar />
-      <section>
+      <section className="items-container">
         <h3>סיכום הזמנה</h3>
         <CartList />
+        <section className="checkout-container">
+          <div className="total">
+            <div>סך הכל:</div>
+            <div>₪ {total}</div>
+          </div>
+          <NavLink to={{ pathname: "/checkout", state: { fromNavBar: false } }}>
+            <div className="checkout-btn">לרכישה</div>
+          </NavLink>
+        </section>
       </section>
-      <section className="checkout-section">
-        <div>
-          <div>סך הכל:</div>
-          <div>₪ {total}</div>
-        </div>
-        <NavLink to={{ pathname: "/checkout", state: { fromNavBar: false } }}>
-          <div className="checkout-btn">לרכישה</div>
-        </NavLink>
-      </section>
-      <div className="line"></div>
     </div>
   );
 }

@@ -6,7 +6,7 @@
   font-size: rem(16px);
   border-radius: 10px;
   @include flexcenterer;
-  :hover {
+  &:hover {
     cursor: pointer;
     background-color: $clr9;
   }

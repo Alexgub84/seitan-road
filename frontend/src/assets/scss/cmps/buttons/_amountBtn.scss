@@ -7,23 +7,23 @@
     font-size: $fs;
     margin-bottom: 8px;
     vertical-align: middle;
-    border-radius: 10px;
+    border-radius: 7px;
 
     .plus-btn {
       border: solid 1px $clr5;
-      border-radius: 10px 0 0 10px;
+      border-radius: 7px 0 0 7px;
       text-align: center;
     }
     .amount {
       width: 44%;
-      //   line-height: 34px;
+      
       border-top: solid 1px $clr5;
       border-bottom: solid 1px $clr5;
       @include flexcenterer;
     }
     .minus-btn {
       border: solid 1px $clr5;
-      border-radius: 0 10px 10px 0;
+      border-radius: 0 7px 7px 0;
     }
   }
 
@@ -32,8 +32,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
     &:hover {
+      cursor: pointer;
       background-color: $clr2;
       height: 100%;
       border: solid 1px $clr2;
