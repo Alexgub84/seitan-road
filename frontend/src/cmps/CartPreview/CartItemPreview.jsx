@@ -1,19 +1,21 @@
 import React from "react";
 
-import { ItemQuantity } from "../ItemQuantity";
 import { AmountBtn } from "../ItemPreview/AmountBtn";
 
 export function CartItemPreview({ item, onUpdateQuantity, onDeleteItem }) {
   return (
-    <li className="cart-item flex justify-between">
+    <li className="cart-item flex">
+      <section className="flex">
       <img src={item.imgUrl} alt="seitan-img" />
       <section className="item-info">
         <section>
           <div className="item-name">{item.name}</div>
           <div className="item-size">{item.size}</div>
         </section>
-        {item.souse && <div className="item-souse"> {item.souse}</div>}
+        {item.souse && <div className="item-souse"> מרינדה :{item.souse} / {item.sousePrice}₪</div>}
       </section>
+      </section>
+        
       <section className="price-amount">
         <h3>{item.price}₪</h3>
         <AmountBtn
