@@ -3,6 +3,9 @@
   flex-direction: column;
   align-items: center;
   width: 368px;
+  .cart-toggle-mobile {
+    display: none;
+  }
   .free-shipment-container {
     margin-bottom: 16px;
   }
@@ -13,7 +16,6 @@
     border: solid 1px $clr12;
     border-radius: 0 0 35px 35px;
     text-align: center;
-
     h3 {
       color: $clr1;
       margin-bottom: 17px;
@@ -40,7 +42,7 @@
         flex-direction: column;
         align-items: flex-start;
         justify-content: space-between;
-        padding-top:8px;
+        padding-top: 8px;
         padding-bottom: 3px;
         section {
           display: flex;
@@ -62,7 +64,7 @@
         flex-direction: column;
         align-items: flex-end;
         justify-content: flex-end;
-        
+
         h3 {
           // margin-bottom: 17px;
           // margin-left: 15px;
@@ -72,19 +74,20 @@
           color: black;
         }
         @include amount-btn(80px, 24px, 11px);
-        .amount-btn-container{
+        .amount-btn-container {
           margin-left: 8px;
         }
       }
-    .delete-btn{
-      position: absolute;
-      left: 0px;
-    }}
+      .delete-btn {
+        position: absolute;
+        left: 0px;
+      }
+    }
     .checkout-container {
       .total {
         display: flex;
         justify-content: space-between;
-        margin-bottom: 32px
+        margin-bottom: 32px;
       }
       a .checkout-btn {
         @include primary-btn(100%, 45px);
@@ -96,9 +99,36 @@
 @include for-mobile-layout {
   .cart {
     position: fixed;
-    bottom: -60vh;
-    transform: translateY(100%);
+    top: calc(100vh - 56px);
+    left: 50%;
+    z-index: 2;
+    transition: transform 500ms;
+    &.close {
+      transform: translate(-50%, 0);
 
-    transition: transform 0.8s;
+      .free-shipment-container,
+      .items-container {
+        display: none;
+      }
+    }
+    &.open {
+      transform: translate(-50%, calc(-100vh + 200px));
+      .free-shipment-container,
+      .items-container {
+        display: block;
+      }
+      .cart-toggle-mobile {
+        svg {
+          transform: rotate(0deg);
+        }
+      }
+    }
+
+    // transform: translateY(100%);
+    // transition: transform ;
+
+    .cart-toggle-mobile {
+      display: block;
+    }
   }
 }

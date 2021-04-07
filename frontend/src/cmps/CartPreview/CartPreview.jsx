@@ -1,19 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 
 import { CartList } from "./CartList";
 import { FreeShipmentBar } from "./FreeShipmentBar";
+import { CartBtnMobile } from "../CartBtnMobile";
 
 export function CartPreview({ total }) {
+  const [isOpen, setOpen] = useState("false");
+
+  const handleToggle = () => {
+    console.log('clicked');
+    setOpen(!isOpen);
+  };
+  function clicked(){
+    console.log('workinggg');
+  }
+
   if (total === 0) {
     return (
-      <div className="cart">
-        <h2>העגלה ריקה</h2>
+      <div className="cart close">
+        <CartBtnMobile />
+        <FreeShipmentBar />
+        <section className="items-container">
+          <h3>סיכום הזמנה</h3>
+          <div className="cart-items-list">
+            <h3>העגלה ריקה</h3>
+          </div>
+        </section>
       </div>
     );
   }
   return (
-    <div className="cart">
+    <div className={`cart ${isOpen ? "open" : "close"}`}>
+      <div onClick={()=>clicked()}>
+      <CartBtnMobile
+        onToggle={clicked()}
+      />
+      </div>
+      
       <FreeShipmentBar />
       <section className="items-container">
         <h3>סיכום הזמנה</h3>

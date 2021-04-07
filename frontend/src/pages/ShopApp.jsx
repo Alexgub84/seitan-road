@@ -24,7 +24,7 @@ class _ShopApp extends Component {
         <div className="shop flex">
           <ItemsList items={items} />
           <CartPreview total={this.props.total} />
-          <CartBtnMobile />
+          {/* <CartBtnMobile /> */}
         </div>
       </div>
     );

@@ -58,10 +58,14 @@
   font-size: rem(17px);
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);
   margin-bottom: 40px;
+  & > *:not(:last-child):after {
+    content: "  |  ";
+  }
 }
 
 @include for-mobile-layout {
   .nav-bar {
+    position: relative;
     height: 56px;
     .humburger {
       display: inline-block;
@@ -73,9 +77,12 @@
       align-items: flex-end;
       position: fixed;
       top: 0;
-      right: -183px;
+      right: -100vw;
       height: 100px;
       background-color: #292929;
+    }
+    .nav-bar-logo {
+      @include centerer();
     }
     .checkout {
       width: 64px;
@@ -108,5 +115,13 @@
     box-shadow: none;
     margin-bottom: 8px;
     font-size: rem(10px);
+    display: flex;
+    flex-direction: column;
+    & > *:not(:last-child){
+      margin-bottom: 10px;
+      &:after {
+
+      content: "";
+    }}
   }
 }

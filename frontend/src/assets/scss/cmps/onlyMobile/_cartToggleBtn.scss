@@ -1,19 +1,23 @@
 .cart-toggle-mobile {
-  position: sticky;
-  bottom: 0;
   width: 100%;
-  z-index: 2;
   .img-container {
     height: 16px;
     width: 32px;
     margin: auto;
     border-radius: 90px 90px 0 0;
     background-color: $clr1;
-    img {
-      &.open {
-        src: url("../../../icons/cartUp.svg");
+    display: flex;
+    align-items: center;
+    svg {
+      display: block;
+      margin: 0 auto;
+      transform: rotate(180deg);
+      g > * {
+        stroke: $clr3;
+        fill: $clr3;
       }
     }
+    
   }
   .white-block {
     @include flexcenterer;
