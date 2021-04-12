@@ -4,6 +4,7 @@
     position: relative;
     background-color: $clr12;
     border-radius: 45px;
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.06);
     height: $h;
     width: $w;
     font-size: rem($fs);
@@ -13,9 +14,20 @@
       width: 28%;
       border: solid 1px $clr5;
       border-radius: 45px 0 0 45px;
-      .symbol {
-        color: $clr1;
-        line-height: $h;
+      @include flexcenterer;
+      img {
+        height: 11px;
+        width: 11px;
+      }
+      @include hover-supported {
+        background-color: $clr2;
+        height: $h;
+        border-radius: 45px 0 0 45px;
+        border: solid 1px $clr2;
+        svg g > * {
+          stroke: $clr3;
+          fill: $clr3;
+        }
       }
     }
     .marinada-select-selected {
@@ -26,16 +38,7 @@
       border-bottom: solid 1px $clr5;
       border-radius: 0 45px 45px 0;
     }
-    .marinada-select-btn :hover {
-      background-color: $clr2;
-      height: $h;
-      border-radius: inherit;
-      border: solid 1px $clr2;
 
-      &.symbol {
-        color: $clr3;
-      }
-    }
     .select-box {
       width: $w;
       top: $h;

@@ -22,9 +22,11 @@
   .white-block {
     @include flexcenterer;
     height: 40px;
+    width: 100%;
     background-color: $clr3;
     border-radius: 45px 45px 0 0;
     font-size: rem(16px);
-    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.17);
+    box-shadow: 0 -2px 6px 0 rgba(0, 0, 0, 0.17);
   }
 }
+  

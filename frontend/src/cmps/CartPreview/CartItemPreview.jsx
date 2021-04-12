@@ -6,7 +6,7 @@ export function CartItemPreview({ item, onUpdateQuantity, onDeleteItem }) {
   return (
     <li className="cart-item flex">
       <section className="flex">
-      <img src={item.imgUrl} alt="seitan-img" />
+      <img className="item-img" src={item.imgUrl} alt="seitan-img" />
       <section className="item-info">
         <section>
           <div className="item-name">{item.name}</div>
@@ -25,7 +25,9 @@ export function CartItemPreview({ item, onUpdateQuantity, onDeleteItem }) {
           quantity={item.quantity}
         />
       </section>
-      <div className="delete-btn" onClick={() => onDeleteItem(item)}/>
+      <div className="delete-btn" onClick={() => onDeleteItem(item)}>
+        <img src={require("../../assets/icons/delete.svg")}/>
+        </div>
     </li>
   );
 }

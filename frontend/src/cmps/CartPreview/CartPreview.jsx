@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { NavLink } from "react-router-dom";
 
 import { CartList } from "./CartList";
@@ -9,35 +9,14 @@ export function CartPreview({ total }) {
   const [isOpen, setOpen] = useState("false");
 
   const handleToggle = () => {
-    console.log('clicked');
     setOpen(!isOpen);
-  };
-  function clicked(){
-    console.log('workinggg');
-  }
+   
 
-  if (total === 0) {
-    return (
-      <div className="cart close">
-        <CartBtnMobile />
-        <FreeShipmentBar />
-        <section className="items-container">
-          <h3>סיכום הזמנה</h3>
-          <div className="cart-items-list">
-            <h3>העגלה ריקה</h3>
-          </div>
-        </section>
-      </div>
-    );
-  }
+  };
+
   return (
     <div className={`cart ${isOpen ? "open" : "close"}`}>
-      <div onClick={()=>clicked()}>
-      <CartBtnMobile
-        onToggle={clicked()}
-      />
-      </div>
-      
+      <CartBtnMobile onToggle={handleToggle} />
       <FreeShipmentBar />
       <section className="items-container">
         <h3>סיכום הזמנה</h3>

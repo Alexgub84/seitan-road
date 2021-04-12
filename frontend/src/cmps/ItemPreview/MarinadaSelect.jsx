@@ -1,6 +1,8 @@
 import React from "react";
 import { SelectBox } from "./SelectBox";
-import { Component } from "react";
+
+import { ReactComponent as Arrow } from "../../assets/icons/arrow.svg";
+
 
 export class MarinadaSelect extends React.Component {
   state = {
@@ -23,7 +25,7 @@ export class MarinadaSelect extends React.Component {
         onClick={(ev) => this.onToggleDropDown(ev)}
       >
         <div className="marinada-select-btn">
-          <div className="symbol">V</div>
+         <Arrow/>
         </div>
         <div className="marinada-select-selected">
           {chosenSouse || "מרינדה"}
