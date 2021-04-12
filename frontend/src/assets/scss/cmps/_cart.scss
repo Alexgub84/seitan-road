@@ -100,10 +100,12 @@
   .cart {
     position: fixed;
     top: calc(100vh - 56px);
+    bottom: 0;
     left: 50%;
     z-index: 2;
     transition: transform 500ms;
-    overflow-y: scroll;
+    overflow-y:scroll;
+    overflow-x:hidden;
     background-color: $clr3;
     min-height: calc(100vh - 56px);
     

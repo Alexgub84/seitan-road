@@ -1,4 +1,5 @@
 import React, { useState,useEffect } from "react";
+
 import { NavLink } from "react-router-dom";
 
 import { CartList } from "./CartList";
@@ -6,13 +7,20 @@ import { FreeShipmentBar } from "./FreeShipmentBar";
 import { CartBtnMobile } from "../CartBtnMobile";
 
 export function CartPreview({ total }) {
-  const [isOpen, setOpen] = useState("false");
+  const [isOpen, setOpen] = useState(false);
 
   const handleToggle = () => {
     setOpen(!isOpen);
-   
 
   };
+useEffect(() => {
+  const style=isOpen?'position:fixed':'';
+  document.body.setAttribute('style',style);
+  console.log(document.body);
+  return () => {
+    document.body.setAttribute('style','');
+  }
+}, [isOpen])
 
   return (
     <div className={`cart ${isOpen ? "open" : "close"}`}>
