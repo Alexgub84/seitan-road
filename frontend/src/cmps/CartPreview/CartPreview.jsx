@@ -1,34 +1,48 @@
-import React from "react";
+import React, { useState,useEffect } from "react";
+
 import { NavLink } from "react-router-dom";
 
 import { CartList } from "./CartList";
 import { FreeShipmentBar } from "./FreeShipmentBar";
+import { CartBtnMobile } from "../CartBtnMobile";
 
 export function CartPreview({ total }) {
-  if (total === 0) {
-    return (
-      <div className="cart">
-        <h2>העגלה ריקה</h2>
-      </div>
-    );
+  const [isOpen, setOpen] = useState(false);
+
+  const handleToggle = () => {
+    setOpen(!isOpen);
+
+  };
+useEffect(() => {
+  const style=isOpen?'position:fixed':'';
+  document.body.setAttribute('style',style);
+  console.log(document.body);
+  return () => {
+    document.body.setAttribute('style','');
   }
+}, [isOpen])
+
   return (
-    <div className="cart">
+    <div className={`cart ${isOpen ? "open" : "close"}`}>
+      <CartBtnMobile onToggle={handleToggle} />
       <FreeShipmentBar />
-      <section>
+      <section className="items-container">
         <h3>סיכום הזמנה</h3>
         <CartList />
+        <section className="checkout-container">
+          <h3>סך הכל בסל הקניות</h3>
+          <div className="total">
+            <div>סך הכל:</div>
+            <div>₪ {total}</div>
+          </div>
+          <NavLink to={{ pathname: "/checkout", state: { fromNavBar: false } }}>
+            <div className="checkout-btn">
+              <span></span>
+              לרכישה
+              </div>
+          </NavLink>
+        </section>
       </section>
-      <section className="checkout-section">
-        <div>
-          <div>סך הכל:</div>
-          <div>₪ {total}</div>
-        </div>
-        <NavLink to={{ pathname: "/checkout", state: { fromNavBar: false } }}>
-          <div className="checkout-btn">לרכישה</div>
-        </NavLink>
-      </section>
-      <div className="line"></div>
     </div>
   );
 }

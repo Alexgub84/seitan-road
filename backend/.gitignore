@@ -13,6 +13,7 @@
 
 #log
 /logs
+backend.log
 
 # misc
 .DS_Store

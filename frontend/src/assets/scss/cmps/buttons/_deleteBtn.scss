@@ -1,0 +1,16 @@
+.delete-btn{
+    background-color: $clr2;    
+    width: 16px;
+    height: 16px;
+    border-radius: 45px;
+    @include flexcenterer;
+    img{
+        height: 10px;
+        width: 10px;
+    }
+    &:hover{
+        cursor: pointer;
+        background-color: $clr1;
+
+    }
+}

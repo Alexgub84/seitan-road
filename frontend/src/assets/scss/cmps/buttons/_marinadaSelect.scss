@@ -1,0 +1,59 @@
+@mixin marinada-select-btn($w: 80px, $h: 28px, $fs: 11px) {
+  .marinada-select-container {
+    flex-direction: row-reverse;
+    position: relative;
+    background-color: $clr12;
+    border-radius: 45px;
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.06);
+    height: $h;
+    width: $w;
+    font-size: rem($fs);
+    vertical-align: middle;
+    margin-top: 16px;
+
+    .marinada-select-btn {
+      width: 28%;
+      border: solid 1px $clr5;
+      border-radius: 45px 0 0 45px;
+      @include flexcenterer;
+      img {
+        height: 11px;
+        width: 11px;
+      }
+      @include hover-supported {
+        background-color: $clr2;
+        height: $h;
+        border-radius: 45px 0 0 45px;
+        border: solid 1px $clr2;
+        svg g > * {
+          stroke: $clr3;
+          fill: $clr3;
+        }
+      }
+    }
+    .marinada-select-selected {
+      width: 72%;
+      line-height: $h;
+      border-top: solid 1px $clr5;
+      border-right: solid 1px $clr5;
+      border-bottom: solid 1px $clr5;
+      border-radius: 0 45px 45px 0;
+    }
+
+    .select-box {
+      width: $w;
+      top: $h;
+      background-color: $clr3;
+      position: absolute;
+      border-radius: 0 0 25px 25px;
+      z-index: 1;
+      .select-box-item {
+        border: solid 1px rgba(216, 216, 216, 0.37);
+      }
+    }
+    .select-box-item:hover {
+      color: $clr3;
+      background-color: $clr2;
+    }
+  }
+}

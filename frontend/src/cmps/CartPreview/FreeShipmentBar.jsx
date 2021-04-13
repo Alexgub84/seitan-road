@@ -25,10 +25,10 @@ class _FreeShipmentBar extends Component {
     const { freeDeliveryPrice } = this.props.settings;
     const innerStyle = {};
     let totalPercentage = (total / freeDeliveryPrice) * 100;
-    const txt = ` עוד ₪${freeDeliveryPrice - total} והמשלוח עלינו!  `;
+    let txt = ` עוד ₪${freeDeliveryPrice - total} והמשלוח עלינו!  `;
 
     if (totalPercentage >= 100) {
-      this.setState({ txt: `משלוח חינם!` });
+      txt = `משלוח חינם!`;
       innerStyle.backgroundColor = "green";
     }
     innerStyle.width = `${totalPercentage}%`;
@@ -39,11 +39,13 @@ class _FreeShipmentBar extends Component {
       <section className="free-shipment-container flex align-center justify-around">
         <div className="free-shipment-txt1"> {this.state.txt}</div>
         <div className="free-shipment-bar ">
-          <div className="inner-container" style={this.state.innerStyle}>
-            <img
-              src={require("../../assets/icons/delivery.svg")}
-              alt="delivery"
-            />
+          <div className="inner-style">
+            <div className="inner-container" style={this.state.innerStyle}>
+              <img
+                src={require("../../assets/icons/delivery.svg")}
+                alt="delivery"
+              />
+            </div>
           </div>
         </div>
         <div className="free-shipment-txt2">

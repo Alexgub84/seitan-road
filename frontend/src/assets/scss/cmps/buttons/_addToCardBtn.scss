@@ -20,13 +20,6 @@
       object-fit: contain;
     }
   }
-  // .inner {
-  //   height: $height;
-  //   width: 40%;
-  //   display: flex;
-  //   justify-content: center;
-  //   align-items: center;
-  // }
 
   @include hover-supported() {
     background-color: $clr9;
@@ -36,12 +29,6 @@
   &:focus {
     background-color: $clr10;
     border-radius: 0 0 35px 35px;
-  }
-
-  &:active {
-    .img-container {
-      background: radial-gradient(circle at bottom, $clr1 60%, $clr10 40%);
-    }
   }
 }
 

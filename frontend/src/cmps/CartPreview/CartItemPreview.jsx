@@ -1,26 +1,33 @@
 import React from "react";
 
-import { ItemQuantity } from "../ItemQuantity";
 import { AmountBtn } from "../ItemPreview/AmountBtn";
 
 export function CartItemPreview({ item, onUpdateQuantity, onDeleteItem }) {
   return (
-    <li className="cart-item flex justify-between">
-      <img src={item.imgUrl} alt="seitan-img" />
-      <section className="cart-item-info">
-        <div className="item-name">{item.name}</div>
-        {item.souse && <div className="item-souse"> {item.souse}</div>}
-        <div className="item-size">{item.size}</div>
-      </section>
-      <section className="price-buttons">
-        <h3>₪ {item.price}</h3>
-        <section className="amount-container-temp flex">
-          <button onClick={() => onUpdateQuantity(item, +1)}>+</button>
-          <ItemQuantity measure={item.measure} quantity={item.quantity} />
-          <button onClick={() => onUpdateQuantity(item, -1)}>-</button>
+    <li className="cart-item flex">
+      <section className="flex">
+      <img className="item-img" src={item.imgUrl} alt="seitan-img" />
+      <section className="item-info">
+        <section>
+          <div className="item-name">{item.name}</div>
+          <div className="item-size">{item.size}</div>
         </section>
+        {item.souse && <div className="item-souse"> מרינדה :{item.souse} / {item.sousePrice}₪</div>}
       </section>
-      <button onClick={() => onDeleteItem(item)}>X</button>
+      </section>
+        
+      <section className="price-amount">
+        <h3>{item.price}₪</h3>
+        <AmountBtn
+          onAdd={() => onUpdateQuantity(item, +1)}
+          onReduce={() => onUpdateQuantity(item, -1)}
+          measure={item.measure}
+          quantity={item.quantity}
+        />
+      </section>
+      <div className="delete-btn" onClick={() => onDeleteItem(item)}>
+        <img src={require("../../assets/icons/delete.svg")}/>
+        </div>
     </li>
   );
 }

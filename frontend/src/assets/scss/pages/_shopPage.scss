@@ -1,20 +1,17 @@
 .shop {
   display: grid;
   grid-template-columns: 1fr 340px;
-  // display: flex;
-  // flex-direction: row-reverse;
-
-  // justify-content: flex-start;
-  // > :first-child {
-  //   margin-right: 10px;
-  // }
-
-  // justify-content: space-between;
+  .cart-toggle-mobile {
+    display: none;
+  }
 }
 
 @include for-mobile-layout {
-  .shop{
+  .shop {
     display: block;
-
+    position: relative;
+    .cart-toggle-mobile {
+      display: block;
+    }
   }
-} 
+}

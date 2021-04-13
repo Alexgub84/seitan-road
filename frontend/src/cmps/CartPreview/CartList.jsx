@@ -18,7 +18,12 @@ class _CartList extends Component {
 
   render() {
     const { cart } = this.props;
-
+    if (cart.length === 0)
+      return (
+        <div className="cart-items-list">
+          <h3>העגלה ריקה</h3>
+        </div>
+      );
     return (
       <section>
         {React.Children.toArray(

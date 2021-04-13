@@ -10,7 +10,7 @@
   flex-direction: column;
   justify-content: space-between;
   position: relative;
-  img {
+  .item-image {
     height: 120px;
     border-radius: 32px 32px 0 0;
     margin-bottom: 4px;
@@ -34,6 +34,9 @@
       height: 1.125em;
       overflow: hidden;
     }
+    h4 {
+      display: none;
+    }
   }
   h3 {
     margin: 4px 0 4px 0;
@@ -49,7 +52,10 @@
     align-items: center;
     .add-to-cart-otpions {
       width: 100%;
+      @include amount-btn(80px, 24px, 11px);
+      @include marinada-select-btn(80px, 24px, 11px);
     }
+
     .add-to-cart-btn {
       @include add-to-cart-btn-desktop(100%, 40px);
     }
@@ -61,7 +67,7 @@
 
 @include for-mobile-layout {
   .item-card {
-    width: 100%;
+    min-width: 340px;
     height: 176px;
     margin: 0;
     border-radius: 0;
@@ -76,12 +82,31 @@
       border-radius: 25px;
       margin-bottom: 0;
     }
+    section {
+      display: flex;
+      flex-direction: column;
+      section {
+        display: flex;
+      }
+    }
     .item-info {
       h3 {
         display: none;
       }
+      h4 {
+        display: block;
+      }
+    }
+    h4 {
+      display: none;
     }
     .add-to-cart-container {
+      flex-direction: row;
+      align-items: center;
+      .add-to-cart-otpions {
+        @include amount-btn(104px, 24px, 12px);
+        @include marinada-select-btn(104px, 24px, 12px);
+      }
       .add-to-cart-btn {
         @include add-to-cart-btn-mobile;
       }

@@ -1,0 +1,32 @@
+.cart-toggle-mobile {
+  width: 100%;
+  .img-container {
+    height: 16px;
+    width: 32px;
+    margin: auto;
+    border-radius: 90px 90px 0 0;
+    background-color: $clr1;
+    display: flex;
+    align-items: center;
+    svg {
+      display: block;
+      margin: 0 auto;
+      transform: rotate(180deg);
+      g > * {
+        stroke: $clr3;
+        fill: $clr3;
+      }
+    }
+    
+  }
+  .white-block {
+    @include flexcenterer;
+    height: 40px;
+    width: 100%;
+    background-color: $clr3;
+    border-radius: 45px 45px 0 0;
+    font-size: rem(16px);
+    box-shadow: 0 -2px 6px 0 rgba(0, 0, 0, 0.17);
+  }
+}
+  
