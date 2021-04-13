@@ -30,12 +30,16 @@ useEffect(() => {
         <h3>סיכום הזמנה</h3>
         <CartList />
         <section className="checkout-container">
+          <h3>סך הכל בסל הקניות</h3>
           <div className="total">
             <div>סך הכל:</div>
             <div>₪ {total}</div>
           </div>
           <NavLink to={{ pathname: "/checkout", state: { fromNavBar: false } }}>
-            <div className="checkout-btn">לרכישה</div>
+            <div className="checkout-btn">
+              <span></span>
+              לרכישה
+              </div>
           </NavLink>
         </section>
       </section>
