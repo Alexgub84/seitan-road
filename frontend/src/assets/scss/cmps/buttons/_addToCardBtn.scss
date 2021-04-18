@@ -4,12 +4,12 @@
   background-color: $clr1;
   color: $clr3;
   line-height: 1.5;
-  font-size: rem(16px);
-  border-radius: 0 0 35px 35px;
+  font-size: rem(12px);
+  border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
-
+  overflow: hidden;
   .img-container {
     width: 20px;
     height: 20px;
@@ -23,12 +23,10 @@
 
   @include hover-supported() {
     background-color: $clr9;
-    border-radius: 0 0 35px 35px;
   }
 
   &:focus {
     background-color: $clr10;
-    border-radius: 0 0 35px 35px;
   }
 }
 
@@ -48,8 +46,11 @@
     background-color: $clr1;
     border-radius: 45px;
     margin-right: 0;
+    @include flexcenterer;
     img {
       width: 60%;
+      height: 60%;
+      object-fit: contain;
     }
   }
   &:active {

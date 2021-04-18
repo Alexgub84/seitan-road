@@ -40,7 +40,10 @@ export class _AddToCart extends Component {
       quantity: this.state.quantity,
       souse: this.state.souse,
     };
-
+    console.log('item is',this.props.item);
+    if (this.state.souse==="ללא מרינדה" && this.props.item.name==="פולקע עוף"){
+      return alert("פולקע עוף לא הולך בלי מרינדה, אז תבחרו משהו מעניין")
+    }
     this.props.addToCart(itemToAdd);
     this.props.history.push("/shop");
   };

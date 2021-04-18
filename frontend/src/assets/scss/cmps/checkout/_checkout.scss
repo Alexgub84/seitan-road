@@ -1,6 +1,73 @@
 .checkout-container {
+  background-color: transparent;
+  margin: auto;
+  .cart {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    .back-button{
+        @include back-btn(120px,32px);
+        margin-right: auto;
+    }
+    .shipment-total {
+      width: 368px;
+      display: flex;
+      flex-direction: column;
+    }
+  }
 
-.cart{
-    margin: auto;
-}
+  .cart-items-list {
+    min-width: 656px;
+    font-size: rem(14px);
+    color: $clr8;
+    li {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 28px;
+      border-bottom: solid 1px $clr13;
+      margin-bottom: 28px;
+      .item-img {
+        height: 48px;
+        width: 48px;
+        border-radius: 15px;
+        margin-left: 16px;
+      }
+      .item-info {
+        display: flex;
+        align-items: center;
+        width: 280px;
+        justify-content: space-between;
+        section {
+          align-items: center;
+          .item-name {
+            font-size: rem(14px);
+          }
+          .item-size {
+            display: none;
+          }
+        }
+        .item-souse {
+          font-size: rem(14px);
+        }
+      }
+      .price-amount {
+        display: flex;
+        align-items: center;
+        width: 150px;
+        justify-content: space-between;
+        h4 {
+          //   margin: 22px 0 17px 15px;
+          font-size: rem(16px);
+          color: black;
+        }
+        @include amount-btn(80px, 24px, 11px);
+      }
+      .delete-btn {
+        position: relative;
+      }
+    }
+  }
 }

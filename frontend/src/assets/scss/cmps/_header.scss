@@ -59,7 +59,7 @@
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);
   margin-bottom: 40px;
   & > *:not(:last-child):after {
-    content: "  |  ";
+    content: "\a0 | \a0";
   }
 }
 

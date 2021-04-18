@@ -25,21 +25,22 @@ class _CartList extends Component {
         </div>
       );
     return (
-      <section>
-        {React.Children.toArray(
+      // <React.Fragment>
+      <ul className="cart-items-list">
+      {React.Children.toArray(
           cart.map((item) => {
             return (
-              <ul className="cart-items-list">
+            
                 <CartItemPreview
                   item={item}
                   onUpdateQuantity={this.onUpdateQuantity}
                   onDeleteItem={this.props.deleteItem}
                 />
-              </ul>
             );
           })
         )}
-      </section>
+      </ul>
+    // </React.Fragment>
     );
   }
 }

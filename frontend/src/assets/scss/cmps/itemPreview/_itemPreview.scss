@@ -1,19 +1,18 @@
 .item-card {
   width: 200px;
-  height: 340px;
-  font-size: 12px;
+  height: 312px;
   margin: 0 0 32px 32px;
-  border: solid 3px rgba(216, 216, 216, 0.37);
-  border-radius: 35px;
+  border: solid 1px $clr7;
+  border-radius: 15px;
   background-color: $clr3;
   text-align: center;
   flex-direction: column;
-  justify-content: space-between;
+  // justify-content: space-between;
   position: relative;
-  .item-image {
-    height: 120px;
-    border-radius: 32px 32px 0 0;
-    margin-bottom: 4px;
+  overflow: hidden;
+  .item-img {
+    height: 104px;
+    margin-bottom: 14px;
     object-fit: cover;
   }
 
@@ -22,16 +21,16 @@
     font-family: Heebo-Regular;
 
     h2 {
-      font-size: 1.375em;
+      font-size: rem(16px); 
       font-weight: 500;
-      margin: 4px 0 4px 0;
+      // margin: 4px 0 4px 0;
     }
     h3 {
-      margin: 4px 0 4px 0;
-      font-size: 1.125em;
+      // margin: 4px 0 4px 0;
+      font-size: rem(12px);
       font-weight: 100;
-      line-height: rem(20px);
-      height: 1.125em;
+      // line-height: rem(20px);
+      // height: 1.125em;
       overflow: hidden;
     }
     h4 {
@@ -40,24 +39,30 @@
   }
   h3 {
     margin: 4px 0 4px 0;
-    font-size: 1.25em;
+    font-size: rem(16px);
   }
   h4 {
     margin: 4px 0 4px 0;
-    font-size: 0.75em;
+    font-size: rem(10px);
   }
   .add-to-cart-container {
     width: 100%;
+    height: 88px;
+    margin: 0 auto 16px auto;
     flex-direction: column;
     align-items: center;
     .add-to-cart-otpions {
-      width: 100%;
+      
       @include amount-btn(80px, 24px, 11px);
       @include marinada-select-btn(80px, 24px, 11px);
+      width: 100%;
+      
+      margin-bottom: 16px;
+      margin-top: 16px;
     }
 
     .add-to-cart-btn {
-      @include add-to-cart-btn-desktop(100%, 40px);
+      @include add-to-cart-btn-desktop(176px, 32px);
     }
   }
   &:hover {
@@ -76,20 +81,27 @@
     border: none;
     flex-direction: row;
     border-bottom: 1px solid #e8e5e5;
-    img {
+    justify-content: flex-start;
+    .item-img {
       height: 128px;
       width: 128px;
       border-radius: 25px;
       margin-bottom: 0;
+      margin-left: 32px;
     }
-    section {
+    .info-and-buttons {
       display: flex;
       flex-direction: column;
-      section {
+      width: 100%;
+      .item-info-wrapper {
         display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
       }
     }
     .item-info {
+      text-align: start;
       h3 {
         display: none;
       }
@@ -103,9 +115,11 @@
     .add-to-cart-container {
       flex-direction: row;
       align-items: center;
+     
       .add-to-cart-otpions {
         @include amount-btn(104px, 24px, 12px);
         @include marinada-select-btn(104px, 24px, 12px);
+        flex-direction: column
       }
       .add-to-cart-btn {
         @include add-to-cart-btn-mobile;

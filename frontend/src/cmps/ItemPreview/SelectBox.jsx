@@ -8,9 +8,9 @@ export function SelectBox({ souses, sousePrice, onSouseClicked }) {
           className="select-box-item"
           key={idx}
           value={souse}
-          onClick={(ev) => onSouseClicked(ev, souse)}
+          onClick={(ev) => onSouseClicked(ev, souse,sousePrice)}
         >
-          {souse} {idx !== 0 && sousePrice !== 0 && `${sousePrice}+`}
+          {souse} {idx !== 0 && sousePrice !== 0 && `₪${sousePrice}`}
         </div>
       ))}
     </div>

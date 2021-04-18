@@ -6,12 +6,17 @@
   font-size: rem(16px);
   border-radius: 10px;
   @include flexcenterer;
-  &.disabled{
-    background-color: $clr14;
-    color:$clr15;
-  }
+  
   &:hover {
     cursor: pointer;
     background-color: $clr9;
+  }
+  &.disabled {
+    background-color: $clr14;
+    color:$clr15;
+    &:hover{
+      cursor: auto;
+      // background-color: $clr2;
+    }
   }
 }

@@ -22,7 +22,7 @@
     }
     .cart-items-list {
       width: 100%;
-      font-size: 16px;
+      font-size: rem(16px);
     }
     li {
       position: relative;
@@ -65,13 +65,14 @@
         align-items: flex-end;
         justify-content: flex-end;
 
-        h3 {
+        h4 {
           // margin-bottom: 17px;
           // margin-left: 15px;
           // margin-top: 22px;
           margin: 22px 0 17px 15px;
           font-size: rem(16px);
           color: black;
+          font-weight:400;
         }
         @include amount-btn(80px, 24px, 11px);
         .amount-btn-container {
@@ -83,28 +84,7 @@
         left: 0px;
       }
     }
-    .checkout-container {
-      background-color: $clr7;
-      color: $clr1;
-      border-radius: 0 0 35px 35px;
-      padding-top: 24px;
-      padding-bottom: 24px;
-      h3{
-        font-size: rem(16px);
-        margin-bottom:  18px ;
-      }
-      .total {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 32px;
-        padding: 16px;
-        border-top: solid 1px #e8e5e5;
-        border-bottom: solid 1px #e8e5e5;
-      }
-      a .checkout-btn {
-        @include primary-btn(100%, 45px);
-      }
-    }
+    
   }
 }
 
@@ -133,16 +113,7 @@
     }
     .items-container {
       background-color: $clr3;
-      .checkout-container{
-        border-radius: 0 0 35px 35px;
-        padding-top: 24px;
-        padding-bottom: 24px;    
-        a .checkout-btn {
-          @include primary-btn(184px, 40px);
-          margin-left: auto;
-          margin-right: auto;
-        }
-      }
+      
     }
     
     &.close {

@@ -3,11 +3,11 @@
   height: $h;
   background-color: $clr3;
   color: $clr1;
-  font-size: rem(16px);
+  font-size: rem(12px);
   border-radius: 10px;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.17);
   @include flexcenterer;
-  :hover {
+  @include hover-supported() {
     cursor: pointer;
     background-color: $clr11;
   }

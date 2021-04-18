@@ -11,13 +11,27 @@ class _FreeShipmentBar extends Component {
   componentDidMount() {
     const { total } = this.props;
     const { freeDeliveryPrice } = this.props.settings;
-    if (total !== 0) {
-      const innerStyle = {
-        width: `${(total / freeDeliveryPrice) * 100}%`,
-      };
-      const txt = ` עוד ₪ ${freeDeliveryPrice - total} והמשלוח עלינו!  `;
-      this.setState({ innerStyle, txt });
+    const innerStyle = {};
+    let totalPercentage = (total / freeDeliveryPrice) * 100;
+    let txt = ` עוד ₪${freeDeliveryPrice - total} והמשלוח עלינו!  `;
+
+    if (totalPercentage >= 100) {
+      txt = `משלוח חינם!`;
+      innerStyle.backgroundColor = "green";
     }
+    innerStyle.width = `${totalPercentage}%`;
+    this.setState({ innerStyle, txt });
+    // if (total !== 0) {
+    //   innerStyle = {
+    //     width: `${(total / freeDeliveryPrice) * 100}%`,
+    //   };
+    // } else {
+    //   innerStyle = {
+    //     width: `${totalPercentage}%`,
+    //   };
+    //   const txt = ` עוד ₪ ${freeDeliveryPrice - total} והמשלוח עלינו!  `;
+    //   this.setState({ innerStyle, txt });
+    //}
   }
   componentDidUpdate(prev) {
     if (this.props === prev) return;

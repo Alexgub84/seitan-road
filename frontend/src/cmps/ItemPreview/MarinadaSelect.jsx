@@ -13,7 +13,7 @@ export class MarinadaSelect extends React.Component {
     ev.preventDefault();
     this.setState({ isDropDownShown: !this.state.isDropDownShown });
   };
-  onSouseClicked = (ev, souse) => {
+  onSouseClicked = (ev, souse,sousePrice) => {
     this.onToggleDropDown(ev);
     this.props.onSouseChange(souse);
   };

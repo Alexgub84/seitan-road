@@ -116,7 +116,7 @@ class _Checkout extends Component {
             settings={this.props.settings}
           />
         );
-
+          
       case 2:
         return (
           <PaymentDetails

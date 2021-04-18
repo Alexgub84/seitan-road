@@ -8,8 +8,8 @@ export function ItemPreview({ item }) {
     <Link to={`/details/${item._id}`} style={{ textDecoration: "none" }}>
       <div className="item-card flex ">
         <img className="item-img" src={item.imgUrl} alt="seitan-img" />
-        <section>
-          <section>
+        <section className="info-and-buttons">
+          <section className="item-info-wrapper">
             <section className="item-info ">
               <h2>{item.name}</h2>
               <h3>{item.miniDescription}</h3>
