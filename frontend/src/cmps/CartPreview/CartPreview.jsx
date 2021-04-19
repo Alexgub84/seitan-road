@@ -6,7 +6,7 @@ import { FreeShipmentBar } from "./FreeShipmentBar";
 import { CartBtnMobile } from "../CartBtnMobile";
 import {TotalAndNextAction} from "./TotalAndNextAction"
 
-export function CartPreview({ total }) {
+export function CartPreview({ total,settings }) {
   const [isOpen, setOpen] = useState(false);
 
   const handleToggle = () => {
@@ -29,7 +29,7 @@ useEffect(() => {
       <section className="items-container">
         <h3>סיכום הזמנה</h3>
         <CartList />
-        <TotalAndNextAction total={total}/>
+        <TotalAndNextAction total={total} minTotal={settings.minTotal}/>
 
       </section>
     </div>

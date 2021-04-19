@@ -23,7 +23,7 @@ class _ShopApp extends Component {
       <div className="main-container">
         <div className="shop flex">
           <ItemsList items={items} />
-          <CartPreview total={this.props.total} />
+          <CartPreview total={this.props.total} settings={this.props.settings}/>
           {/* <CartBtnMobile /> */}
         </div>
       </div>
@@ -35,6 +35,7 @@ const mapStateToProps = (state) => {
     total: state.userReducer.total,
     items: state.itemReducer.items,
     loggedInUser: state.userReducer.loggedInUser,
+    settings: state.settingsReducer.settings,
   };
 };
 const mapDispatchToProps = {

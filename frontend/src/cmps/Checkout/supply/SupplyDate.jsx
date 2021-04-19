@@ -23,9 +23,9 @@ export function SupplyDate({ supplyDate }) {
     return dateToDisplay;
   }
   return (
-    <div>
-      <div>ההזמנה תהיה מוכנה ב:</div>
-      <div>{getSupplyDate()}</div>
-    </div>
+    <React.Fragment>
+      <p>המשלוח יהיה מוכן בתאריך {getSupplyDate()}</p>
+    </React.Fragment>
   );
 }
+  

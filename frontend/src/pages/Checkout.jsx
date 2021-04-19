@@ -67,7 +67,7 @@ class _Checkout extends Component {
       }
     }
 
-    // const currStage = this.state.currStage + 1;
+    const currStage = this.state.currStage + 1;
     this.setState({ currStage: this.state.currStage + 1 }, async () => {
       console.log({ stageAfter: this.state.currStage });
       if (this.state.currStage === 3) {

@@ -15,7 +15,6 @@
       display: flex;
       flex-direction: column;
       text-align: center;
-
     }
   }
 
@@ -74,7 +73,7 @@
   }
 
   .total-next-action{
-    a .checkout-btn {
+     .checkout-btn {
         @include primary-btn(320px, 40px);
         margin: auto;
       }

@@ -5,7 +5,7 @@ import { FreeShipmentBar } from "../CartPreview//FreeShipmentBar";
 import { CartList } from "../CartPreview/CartList";
 import { TotalAndNextAction } from "../CartPreview/TotalAndNextAction";
 
-export function Cart({ total }) {
+export function Cart({ total,onNextClick }) {
   if (total === 0) {
     return (
       <div className="cart">
@@ -23,7 +23,7 @@ export function Cart({ total }) {
       </section>
       <section className="shipment-total">
         <FreeShipmentBar />
-        <TotalAndNextAction total={total} />
+        <TotalAndNextAction total={total} onNextClick={onNextClick}/>
       </section>
     </div>
   );
