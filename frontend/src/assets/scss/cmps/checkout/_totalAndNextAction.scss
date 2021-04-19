@@ -1,4 +1,4 @@
-.checkout-container {
+.total-next-action {
     background-color: $clr7;
     color: $clr1;
     border-radius: 0 0 35px 35px;
@@ -22,7 +22,7 @@
   }
 
   @include for-mobile-layout {
-    .checkout-container{
+    .total-next-action{
         border-radius: 0 0 35px 35px;
         padding-top: 24px;
         padding-bottom: 24px;    

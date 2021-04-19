@@ -6,7 +6,7 @@ export  function TotalAndNextAction({total}) {
     if (total===0) ev.preventDefault();
   }
     return (
-        <section className="checkout-container">
+        <section className="total-next-action">
         <h3>סך הכל בסל הקניות</h3>
         <div className="total">
           <div>סך הכל:</div>
