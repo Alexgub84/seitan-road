@@ -32,6 +32,8 @@ export function CustomerDetails({
   customerDetails,
   onSavePayment,
   settings,
+  total,
+  supply,
   onNextClick,
 }) {
   const classes = useStyles();
@@ -46,14 +48,34 @@ export function CustomerDetails({
 
   return (
     <div className="details-container">
-       <section className="total-payment">
-      {/* <h3>סיכום ההזמנה</h3> */}
-      <h3>אפשרויות תשלום</h3>
-
-        <Payment onSavePayment={onSavePayment} settings={settings} />
-        <button className="btn" onClick={onNextClick}>
-          המשך לתשלום
-        </button>
+      <section className="total-payment">
+        <section className="total">
+          <h3>סיכום ההזמנה</h3>
+          <div>
+            <h4>סך הכל בסל הקניות</h4>
+            <div>
+              <div>
+                <span>מוצרים</span>
+                <span>₪ {total}</span>
+              </div>
+             {supply.type &&<div>
+                <span>דמי משלוח</span>
+                <span>₪ {supply.price}</span>
+              </div>}
+              <div>
+                <span>סך הכל לתשלום</span>
+                <span>₪ {supply.price+total}</span>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section className="payment">
+          <h3>אפשרויות תשלום</h3>
+          <Payment onSavePayment={onSavePayment} settings={settings} />
+          <button className="btn" onClick={onNextClick}>
+            המשך לתשלום
+          </button>
+        </section>
       </section>
       <section className="details">
         <h3>פרטים אישיים</h3>
@@ -134,12 +156,9 @@ export function CustomerDetails({
         </form>
       </section>
       <section className="supply">
-      <h3>סוג המשלוח</h3>
-
+        <h3>סוג המשלוח</h3>
         <Supply />
       </section>
-
-     
     </div>
   );
 }

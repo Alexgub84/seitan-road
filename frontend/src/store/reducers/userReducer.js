@@ -6,7 +6,7 @@ const initialState = {
   customerDetails: null,
   paymentType:'',
   cart: [],
-  supply: null,
+  supply: {price:0,supplyDate:null},
   total: 0,
 };
 

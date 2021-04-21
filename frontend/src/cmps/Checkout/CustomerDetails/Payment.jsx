@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 
-export function Payment({ onSavePayment,settings }) {
-  const handleChange=(e)=>{
-    console.log(e.target.value);
-    onSavePayment(e.target.value)
-  }
- 
+export function Payment({ onSavePayment, settings }) {
+  const [payment, setPayment] = useState("");
+
+  const handleChange = (e) => {
+    setPayment(e.target.value);
+    onSavePayment(e.target.value);
+  };
+
   return (
-    <div className="payment">
+    <React.Fragment>
       <p>ניתן לשלם בדרכים הבאות</p>
       <input
         type="radio"
@@ -16,17 +18,17 @@ export function Payment({ onSavePayment,settings }) {
         id="app"
         onChange={handleChange}
       />
-      <label for="app">אפליקציית Bit או Paybox</label>
+      <label htmlFor="app">אפליקציית Bit או Paybox</label>
       <br />
 
       <input
-        type="radio"    
+        type="radio"
         name="payment"
         value="Bank"
         id="bank"
         onChange={handleChange}
       />
-      <label for="bank">העברה בנקאית</label>
+      <label htmlFor="bank">העברה בנקאית</label>
       <br />
 
       <input
@@ -36,8 +38,9 @@ export function Payment({ onSavePayment,settings }) {
         id="cash"
         onChange={handleChange}
       />
-      <label for="cash">מזומן</label>
+      <label htmlFor="cash">מזומן</label>
       <br />
-    </div>
+      {payment && <p>{settings.payment[payment]}</p>}
+    </React.Fragment>
   );
 }

@@ -5,7 +5,6 @@ import _ from "lodash";
 import { Cart } from "../cmps/Checkout/Cart";
 
 import { CustomerDetails } from "../cmps/Checkout/CustomerDetails/CustomerDetails";
-import { PaymentDetails } from "../cmps/Checkout/PaymentDetails";
 import { OrderCompleteMessage } from "../cmps/Checkout/OrderCompleteMessage";
 
 import { saveCustomerDetails,savePaymentMethod, emptyCart } from "../store/actions/userActions";
@@ -82,7 +81,7 @@ class _Checkout extends Component {
 
     this.setState({ currStage: this.state.currStage + 1 }, async () => {
       console.log({ stageAfter: this.state.currStage });
-      if (this.state.currStage === 3) {
+      if (this.state.currStage === 2) {
         const order = {};
         order.items = this.props.cart.map((item) => {
           const container = {};
@@ -117,19 +116,12 @@ class _Checkout extends Component {
             onNextClick={this.onNextClick}
             customerDetails={this.state.customerDetails}
             settings={this.props.settings}
-            
-          />
-        );
-          
-      case 2:
-        return (
-          <PaymentDetails
-            onNextClick={this.onNextClick}
             total={this.props.total}
             supply={this.props.supply}
           />
         );
-      case 3:
+        
+      case 2:
         return <OrderCompleteMessage />;
     }
   };

@@ -48,7 +48,7 @@ export class Delivery extends Component {
             <div className="cities-list">
               {this.state.selectedOption.value.citiesList.map((city, idx) => (
                 
-                <span>{idx !== this.state.selectedOption.value.citiesList.length-1 ? `${city}, ` : city}</span>
+                <span key={city}>{idx !== this.state.selectedOption.value.citiesList.length-1 ? `${city}, ` : city}</span>
               ))}
             </div>
           )}
