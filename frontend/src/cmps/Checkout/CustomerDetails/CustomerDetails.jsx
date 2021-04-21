@@ -48,35 +48,6 @@ export function CustomerDetails({
 
   return (
     <div className="details-container">
-      <section className="total-payment">
-        <section className="total">
-          <h3>סיכום ההזמנה</h3>
-          <div>
-            <h4>סך הכל בסל הקניות</h4>
-            <div>
-              <div>
-                <span>מוצרים</span>
-                <span>₪ {total}</span>
-              </div>
-             {supply.type &&<div>
-                <span>דמי משלוח</span>
-                <span>₪ {supply.price}</span>
-              </div>}
-              <div>
-                <span>סך הכל לתשלום</span>
-                <span>₪ {supply.price+total}</span>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section className="payment">
-          <h3>אפשרויות תשלום</h3>
-          <Payment onSavePayment={onSavePayment} settings={settings} />
-          <button className="btn" onClick={onNextClick}>
-            המשך לתשלום
-          </button>
-        </section>
-      </section>
       <section className="details">
         <h3>פרטים אישיים</h3>
         <form className={classes.root} onSubmit={handleSubmit(onSubmit)}>
@@ -158,6 +129,38 @@ export function CustomerDetails({
       <section className="supply">
         <h3>סוג המשלוח</h3>
         <Supply />
+      </section>
+      <section className="total-payment">
+        <h3>סיכום ההזמנה</h3>
+        <section className="total">
+          <h4>סך הכל בסל הקניות</h4>
+          <div className="total-numbers">
+            <section className="numbers">
+              <div>
+                <span>מוצרים</span>
+                <span> {total}₪</span>
+              </div>
+              {supply.type && (
+                <div>
+                  <span>דמי משלוח</span>
+                  <span>{supply.price}₪</span>
+                </div>
+              )}
+            </section>
+
+            <section className="numbers-summary">
+              <span>סך הכל לתשלום</span>
+              <span>{supply.price + total}₪ </span>
+            </section>
+          </div>
+        </section>
+        <section className="payment">
+          <h3>אפשרויות תשלום</h3>
+          <Payment onSavePayment={onSavePayment} settings={settings} />
+          <button className="purchase-button" onClick={onNextClick}>
+            אישור הזמנה
+          </button>
+        </section>
       </section>
     </div>
   );

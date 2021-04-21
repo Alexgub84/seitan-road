@@ -10,7 +10,8 @@ export function Payment({ onSavePayment, settings }) {
 
   return (
     <React.Fragment>
-      <p>ניתן לשלם בדרכים הבאות</p>
+      <h4>ניתן לשלם בדרכים הבאות</h4>
+      <section>
       <input
         type="radio"
         name="payment"
@@ -40,6 +41,7 @@ export function Payment({ onSavePayment, settings }) {
       />
       <label htmlFor="cash">מזומן</label>
       <br />
+      </section>
       {payment && <p>{settings.payment[payment]}</p>}
     </React.Fragment>
   );
