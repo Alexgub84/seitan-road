@@ -19,6 +19,7 @@ export function XSLExport({ orders, items, fileName }) {
       "Supply type": order.supply.type,
       "Supply details": order.supply.name,
       Total: order.totalPayment,
+      Payment:order.paymentType
     };
     console.log("items:", items);
     order.items.map(async (item) => {

@@ -39,6 +39,9 @@ export function saveCustomerDetails(details) {
 export function saveSupplyMethod(supply) {
   return (dispatch) => dispatch({ type: "SAVE_SUPPLYֹֹֹ_METHOD", supply });
 }
+export function savePaymentMethod(payment) {
+  return (dispatch) => dispatch({ type: "SAVE_PAYMENT_METHOD", payment });
+}
 
 //Login
 export function login(userCreds) {

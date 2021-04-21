@@ -8,7 +8,7 @@ import { CustomerDetails } from "../cmps/Checkout/CustomerDetails/CustomerDetail
 import { PaymentDetails } from "../cmps/Checkout/PaymentDetails";
 import { OrderCompleteMessage } from "../cmps/Checkout/OrderCompleteMessage";
 
-import { saveCustomerDetails, emptyCart } from "../store/actions/userActions";
+import { saveCustomerDetails,savePaymentMethod, emptyCart } from "../store/actions/userActions";
 import { loadSettings } from "../store/actions/settingsActions";
 import { saveOrder } from "../store/actions/orderActions";
 
@@ -24,6 +24,7 @@ class _Checkout extends Component {
       town: "",
       street: "",
     },
+    paymentType:''
   };
 
   componentDidMount() {
@@ -57,17 +58,28 @@ class _Checkout extends Component {
       };
     });
     this.props.saveCustomerDetails(this.state.customerDetails);
-    this.onNextClick();
+  };
+  onSavePayment = (data) => {
+  
+    this.setState((prevState) => {
+      return {
+        ...prevState,
+        paymentType: data,
+      };
+    });
+    this.props.savePaymentMethod(this.state.paymentType);
+    console.log({state:this.state});
   };
 
   onNextClick = () => {
     if (this.state.currStage === 1) {
       if (_.isEmpty(this.props.supply)) {
         return alert("בבקשה בחרו את שיטת המשלוח");
+      }else if(this.props.paymentType===''){
+        return alert("בבקשה בחרו את שיטת התשלום");
       }
     }
 
-    const currStage = this.state.currStage + 1;
     this.setState({ currStage: this.state.currStage + 1 }, async () => {
       console.log({ stageAfter: this.state.currStage });
       if (this.state.currStage === 3) {
@@ -84,25 +96,14 @@ class _Checkout extends Component {
         order.customerDetails = this.props.customerDetails;
         order.supply = this.props.supply;
         order.totalPayment = this.props.total + this.props.supply.price;
-        order.paymentType = "מזומן";
+        order.paymentType = this.props.paymentType;
         await this.props.saveOrder(order);
         this.props.emptyCart();
       }
     });
   };
 
-  onSaveDetails = (data) => {
-    this.setState((prevState) => {
-      return {
-        ...prevState,
-        customerDetails: {
-          ...data,
-        },
-      };
-    });
-    this.props.saveCustomerDetails(this.state.customerDetails);
-    this.onNextClick();
-  };
+  
 
   renderSwitch = (_) => {
     switch (this.state.currStage) {
@@ -112,8 +113,11 @@ class _Checkout extends Component {
         return (
           <CustomerDetails
             onSaveDetails={this.onSaveDetails}
+            onSavePayment={this.onSavePayment}
+            onNextClick={this.onNextClick}
             customerDetails={this.state.customerDetails}
             settings={this.props.settings}
+            
           />
         );
           
@@ -142,6 +146,7 @@ class _Checkout extends Component {
 const mapStateToProps = (state) => {
   return {
     customerDetails: state.userReducer.customerDetails,
+    paymentType:state.userReducer.paymentType,
     cart: state.userReducer.cart,
     total: state.userReducer.total,
     supply: state.userReducer.supply,
@@ -151,6 +156,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = {
   saveCustomerDetails,
+  savePaymentMethod,
   loadSettings,
   saveOrder,
   emptyCart,

@@ -4,6 +4,7 @@ if (sessionStorage.user) localLoggedinUser = JSON.parse(sessionStorage.user);
 const initialState = {
   loggedInUser: localLoggedinUser,
   customerDetails: null,
+  paymentType:'',
   cart: [],
   supply: null,
   total: 0,
@@ -78,6 +79,11 @@ export function userReducer(state = initialState, action) {
       return {
         ...state,
         supply: { ...action.supply },
+      };
+    case "SAVE_PAYMENT_METHOD":
+      return {
+        ...state,
+        paymentType: { ...action.payment },
       };
 
     default:

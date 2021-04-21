@@ -15,9 +15,25 @@
   }
 }
 .delivery-container {
+  width: 280px;
+  text-align: center;
   .delivery-btns {
     display: flex;
     justify-content: space-around;
     height: 30px;
+    margin-bottom: 10px;
+  }
+  .delivery-options{
+    width: 95%;
+    margin: auto;
+    font-size: rem(12px);
+    // padding-bottom: 10px;
+    // border-bottom: 1px solid $clr16;
+  }
+  p{
+    margin-top: 10px;
+    background-color: $clr17;
+    padding: 11px 16px 11px 17px;
+    border-radius: 10px;
   }
 }

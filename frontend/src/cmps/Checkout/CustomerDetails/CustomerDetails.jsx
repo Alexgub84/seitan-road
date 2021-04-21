@@ -7,6 +7,7 @@ import { TextField } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 import { Supply } from "../Supply/Supply";
+import { Payment } from "./Payment";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -26,7 +27,13 @@ const schema = yup.object().shape({
   street: yup.string().required(),
 });
 
-export function CustomerDetails({ onSaveDetails, customerDetails }) {
+export function CustomerDetails({
+  onSaveDetails,
+  customerDetails,
+  onSavePayment,
+  settings,
+  onNextClick,
+}) {
   const classes = useStyles();
   const { register, handleSubmit, errors } = useForm({
     resolver: yupResolver(schema),
@@ -38,8 +45,18 @@ export function CustomerDetails({ onSaveDetails, customerDetails }) {
   };
 
   return (
-    <div className="main-container">
-      <div className="details-container">
+    <div className="details-container">
+       <section className="total-payment">
+      {/* <h3>סיכום ההזמנה</h3> */}
+      <h3>אפשרויות תשלום</h3>
+
+        <Payment onSavePayment={onSavePayment} settings={settings} />
+        <button className="btn" onClick={onNextClick}>
+          המשך לתשלום
+        </button>
+      </section>
+      <section className="details">
+        <h3>פרטים אישיים</h3>
         <form className={classes.root} onSubmit={handleSubmit(onSubmit)}>
           <section>
             <TextField
@@ -115,11 +132,14 @@ export function CustomerDetails({ onSaveDetails, customerDetails }) {
             />
           </section>
         </form>
+      </section>
+      <section className="supply">
+      <h3>סוג המשלוח</h3>
+
         <Supply />
-      </div>
-      <button className="btn" onClick={handleSubmit(onSubmit)}>
-        המשך לתשלום
-      </button>
+      </section>
+
+     
     </div>
   );
 }

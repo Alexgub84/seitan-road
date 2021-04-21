@@ -35,8 +35,9 @@ export class Delivery extends Component {
       value: item,
       label: `${item.name} (${item.price}ש"ח) `,
     }));
+   
     return (
-      <div>
+      <div className="delivery-options">
         <Select
           value={this.state.selectedOption}
           onChange={this.handleChange}
@@ -44,10 +45,10 @@ export class Delivery extends Component {
         />
         {this.state.selectedOption &&
           this.state.selectedOption.value.citiesList && (
-            <div>
-              הישובים בקטגוריה הנ"ל:
+            <div className="cities-list">
               {this.state.selectedOption.value.citiesList.map((city, idx) => (
-                <span>{idx === 0 ? `${city}, ` : city}</span>
+                
+                <span>{idx !== this.state.selectedOption.value.citiesList.length-1 ? `${city}, ` : city}</span>
               ))}
             </div>
           )}

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="18.655" height="18.046" viewBox="0 0 18.655 18.046">
+  <g id="Group_984" data-name="Group 984" transform="translate(0.75 1)">
+    <g id="Icon_feather-shopping-cart" data-name="Icon feather-shopping-cart" transform="translate(0 0.226)">
+      <path id="Path_63" data-name="Path 63" d="M13.849,30.924A.924.924,0,1,1,12.924,30,.924.924,0,0,1,13.849,30.924Z" transform="translate(-6.643 -15.779)" fill="#fff" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+      <path id="Path_64" data-name="Path 64" d="M30.349,30.924A.924.924,0,1,1,29.424,30,.924.924,0,0,1,30.349,30.924Z" transform="translate(-15.042 -15.779)" fill="#fff" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+      <path id="Path_65" data-name="Path 65" d="M1.5,1.5H4.619l2.09,9.668a1.537,1.537,0,0,0,1.56,1.162h7.579a1.537,1.537,0,0,0,1.56-1.162L18.655,5.11H5.4" transform="translate(-1.5 -1.5)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+    </g>
+    <g id="Group_983" data-name="Group 983" transform="translate(6.604 -1)">
+      <g id="Ellipse_130" data-name="Ellipse 130" fill="#fff" stroke="#267240" stroke-width="1">
+        <circle cx="4" cy="4" r="4" stroke="none"/>
+        <circle cx="4" cy="4" r="3.5" fill="none"/>
+      </g>
+      <g id="Group_604" data-name="Group 604" transform="translate(2.914 2.914)">
+        <line id="Line_4" data-name="Line 4" x2="2.173" transform="translate(2.173 1.086) rotate(180)" fill="none" stroke="#267240" stroke-linecap="round" stroke-width="0.7"/>
+        <line id="Line_5" data-name="Line 5" x2="2.173" transform="translate(1.086 2.173) rotate(-90)" fill="none" stroke="#267240" stroke-linecap="round" stroke-width="0.7"/>
+      </g>
+    </g>
+  </g>
+</svg>
