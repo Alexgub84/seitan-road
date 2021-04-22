@@ -35,7 +35,7 @@ function App() {
         </Switch>
       </div>
       <footer>
-        {/* <Footer /> */}
+        <Footer />
       </footer>
     </div>
   );

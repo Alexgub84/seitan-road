@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.6abddf19.chunk.css",
-    "main.js": "/static/js/main.c665bedd.chunk.js",
-    "main.js.map": "/static/js/main.c665bedd.chunk.js.map",
+    "main.css": "/static/css/main.8987868c.chunk.css",
+    "main.js": "/static/js/main.116d6bc5.chunk.js",
+    "main.js.map": "/static/js/main.116d6bc5.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.f3b002b0.js",
     "runtime-main.js.map": "/static/js/runtime-main.f3b002b0.js.map",
-    "static/js/2.4ddf0900.chunk.js": "/static/js/2.4ddf0900.chunk.js",
-    "static/js/2.4ddf0900.chunk.js.map": "/static/js/2.4ddf0900.chunk.js.map",
+    "static/js/2.ceb0d311.chunk.js": "/static/js/2.ceb0d311.chunk.js",
+    "static/js/2.ceb0d311.chunk.js.map": "/static/js/2.ceb0d311.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.f2329372f79275cc0f209339b096edd0.js": "/precache-manifest.f2329372f79275cc0f209339b096edd0.js",
+    "precache-manifest.cd49102fb330697d2edf6e7006416c67.js": "/precache-manifest.cd49102fb330697d2edf6e7006416c67.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/main.6abddf19.chunk.css.map": "/static/css/main.6abddf19.chunk.css.map",
-    "static/js/2.4ddf0900.chunk.js.LICENSE.txt": "/static/js/2.4ddf0900.chunk.js.LICENSE.txt",
+    "static/css/main.8987868c.chunk.css.map": "/static/css/main.8987868c.chunk.css.map",
+    "static/js/2.ceb0d311.chunk.js.LICENSE.txt": "/static/js/2.ceb0d311.chunk.js.LICENSE.txt",
     "static/media/global.scss": "/static/media/Heebo-Regular.3f5fef64.ttf",
     "static/media/add.97586079.svg": "/static/media/add.97586079.svg",
     "static/media/addToCart.svg": "/static/media/addToCart.bfc5bd9a.svg",
@@ -20,13 +20,14 @@
     "static/media/delete.svg": "/static/media/delete.b34ac6d2.svg",
     "static/media/delivery.svg": "/static/media/delivery.4a1173f4.svg",
     "static/media/hamburger.svg": "/static/media/hamburger.9c0774f1.svg",
+    "static/media/heart.png": "/static/media/heart.2d68405c.png",
     "static/media/logo-navbar.png": "/static/media/logo-navbar.8e7b1a3b.png",
     "static/media/reduce.61e50b9d.svg": "/static/media/reduce.61e50b9d.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.f3b002b0.js",
-    "static/js/2.4ddf0900.chunk.js",
-    "static/css/main.6abddf19.chunk.css",
-    "static/js/main.c665bedd.chunk.js"
+    "static/js/2.ceb0d311.chunk.js",
+    "static/css/main.8987868c.chunk.css",
+    "static/js/main.116d6bc5.chunk.js"
   ]
 }
