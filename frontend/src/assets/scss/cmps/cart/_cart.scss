@@ -9,7 +9,7 @@
   .free-shipment-container {
     margin-bottom: 16px;
   }
-  
+
 }
 
 @include for-mobile-layout {
@@ -37,14 +37,13 @@
       border-bottom: solid 1px #a3a3a3;
       margin-bottom: 0;
     }
-    
+
     &.close {
       transform: translate(-50%, 0);
-    
     }
     &.open {
       transform: translate(-50%, calc(-100vh + 146px));
-  
+
       .cart-toggle-mobile {
         svg {
           transform: rotate(0deg);

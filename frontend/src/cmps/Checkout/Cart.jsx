@@ -8,8 +8,11 @@ import { TotalAndNextAction } from "../CartPreview/TotalAndNextAction";
 export function Cart({ total, onNextClick }) {
   if (total === 0) {
     return (
-      <div className="cart">
+      <div className="cart empty">
         <h2>העגלה ריקה</h2>
+        <NavLink to="/shop">
+          <div className="back-button">חזרה לחנות</div>
+        </NavLink>
       </div>
     );
   }

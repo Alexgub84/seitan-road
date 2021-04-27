@@ -113,10 +113,7 @@
   .payment {
     position: relative;
     font-size: rem(14px);
-    input[type="radio"]:checked + label {
-      background-color: black;
-      border-color: black;
-    }
+    
     section {
       margin-bottom: 18px;
     }
@@ -136,12 +133,39 @@
     }
   }
 }
-
-
+//      .purchase-button {
+  //transform:none;
+// }
+//
+//
 @include for-mobile-layout {
   .details-container {
-  
+    height: auto;
     flex-direction: column;
-    height: 688px;
+    >*{
+      padding-bottom: 10px;
+      padding-top: 25px;
+      border-bottom: solid 1px $clr16;
+
+    }
+    .details{
+      width: 100%;
+    }
+    .supply{
+      width: 100%;
+      border-left:none; 
+      border-right:none;
+
+    }
+    .total-payment{
+      width: 100%;
+
+      .purchase-button {
+
+      position: static;
+      margin-bottom: 20px;
+      transform:none;
+      }
+    }
   }
-}
+} 

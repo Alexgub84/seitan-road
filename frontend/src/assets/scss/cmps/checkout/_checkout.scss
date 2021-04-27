@@ -78,19 +78,34 @@
       margin: auto;
     }
   }
+  .empty {
+    flex-direction: column;
+    align-items: center;
+    > * {
+      margin-bottom: 10px;
+    }
+  }
 }
-@include for-mobile-layout{
+@include for-mobile-layout {
   .checkout-container {
     .cart {
+      min-height: 100px;
       position: static;
       flex-direction: column-reverse;
-      >*{
+      > * {
         width: 100%;
       }
       .shipment-total {
         width: 100%;
       }
+      
+    }
+    .empty {
+      flex-direction: column;
+      align-items: center;
+      > * {
+        margin-bottom: 10px;
+      }
     }
   }
 }
-
