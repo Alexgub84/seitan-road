@@ -106,7 +106,7 @@ class _Checkout extends Component {
 
   renderSwitch = (_) => {
     switch (this.state.currStage) {
-      case 0:
+      case 0: 
         return <Cart onNextClick={this.onNextClick} total={this.props.total} />;
       case 1:
         return (

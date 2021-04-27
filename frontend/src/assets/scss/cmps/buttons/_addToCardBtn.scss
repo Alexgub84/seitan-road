@@ -24,10 +24,6 @@
   @include hover-supported() {
     background-color: $clr9;
   }
-
-  &:focus {
-    background-color: $clr10;
-  }
 }
 
 @mixin add-to-cart-btn-mobile {
@@ -47,13 +43,13 @@
     border-radius: 45px;
     margin-right: 0;
     @include flexcenterer;
-    img {
+    img { 
       width: 60%;
       height: 60%;
       object-fit: contain;
     }
   }
-  &:active {
+  &:active {  
     .img-container {
       background: radial-gradient(circle at bottom, $clr1 60%, $clr10 40%);
     }

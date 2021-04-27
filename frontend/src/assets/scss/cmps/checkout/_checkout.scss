@@ -1,14 +1,14 @@
 .checkout-container {
   background-color: transparent;
-  
+
   .cart {
     width: 100%;
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
-    .back-button{
-        @include back-btn(120px,32px);
-        margin-right: auto;
+    .back-button {
+      @include back-btn(120px, 32px);
+      margin-right: auto;
     }
     .shipment-total {
       width: 368px;
@@ -18,8 +18,8 @@
     }
   }
 
-  .cart-items-list {
-    min-width: 656px;
+  .only-desktop .cart-items-list {
+    width: 656px;
     font-size: rem(14px);
     color: $clr8;
     li {
@@ -72,10 +72,25 @@
     }
   }
 
-  .total-next-action{
-     .checkout-btn {
-        @include primary-btn(320px, 40px);
-        margin: auto;
-      }
+  .total-next-action {
+    .checkout-btn {
+      @include primary-btn(320px, 40px);
+      margin: auto;
+    }
   }
 }
+@include for-mobile-layout{
+  .checkout-container {
+    .cart {
+      position: static;
+      flex-direction: column-reverse;
+      >*{
+        width: 100%;
+      }
+      .shipment-total {
+        width: 100%;
+      }
+    }
+  }
+}
+

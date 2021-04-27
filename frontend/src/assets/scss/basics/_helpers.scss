@@ -57,3 +57,18 @@
 .portrait-ratio {
   @include aspect-ratio(9, 16);
 }
+
+//mobile/desktop
+
+.only-mobile{
+  display:none;
+  @include for-mobile-layout{
+    display: block;
+  }
+}
+.only-desktop{
+  display:block;
+  @include for-mobile-layout{
+    display: none;
+  }
+}

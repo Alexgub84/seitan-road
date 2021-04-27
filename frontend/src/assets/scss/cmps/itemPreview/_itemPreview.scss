@@ -56,9 +56,9 @@
       @include amount-btn(80px, 24px, 11px);
       @include marinada-select-btn(80px, 24px, 11px);
       width: 100%;
-      
-      margin-bottom: 16px;
-      margin-top: 16px;
+      height: 100%;
+      margin:auto;
+      align-items: center;
     }
 
     .add-to-cart-btn {
@@ -119,7 +119,8 @@
       .add-to-cart-otpions {
         @include amount-btn(104px, 24px, 12px);
         @include marinada-select-btn(104px, 24px, 12px);
-        flex-direction: column
+        flex-direction: column;
+        align-items: flex-start;
       }
       .add-to-cart-btn {
         @include add-to-cart-btn-mobile;

@@ -1,10 +1,18 @@
 .footer{
     height: 400px;
-
+    background-color: $clr2;
+    display: flex;
 .footer-info{
     img{
         height: 141px;
         width: 143px;
     }
 }
+}
+
+
+@include for-mobile-layout{
+    .footer{
+        flex-direction: column;
+    }
 }
