@@ -26,7 +26,7 @@ useEffect(() => {
       <CartBtnMobile onToggle={handleToggle} />
       <FreeShipmentBar />
       <section className="items-container">
-        <h3>סיכום הזמנה</h3>
+      {total!==0 && <h3>סיכום ההזמנה</h3>}
         <CartList />
         <TotalAndNextAction total={total} minTotal={settings.minTotal}/>
 

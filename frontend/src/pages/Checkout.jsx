@@ -39,11 +39,11 @@ class _Checkout extends Component {
   }
   componentDidUpdate(prevProps) {
 
-    if (prevProps !== this.props) {
-      if (this.props.location.pathname === "/checkout" && this.state.currStage !== 0) {
-        this.setState({ currStage: 0 });
-      }
-    }
+    // if (prevProps !== this.props) {
+    //   if (this.props.location.pathname === "/checkout" && this.state.currStage !== 0) {
+    //     this.setState({ currStage: 0 });
+    //   }
+    // }
   }
   onSaveDetails = (data) => {
     this.setState((prevState) => {

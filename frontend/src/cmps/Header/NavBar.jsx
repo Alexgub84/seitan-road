@@ -25,7 +25,7 @@ class _NavBar extends Component {
             exact
             className="nav-bar-logo"
             activeClassName="active"
-            to="/"
+            to="/shop"
           >
             <img
               src={require("../../assets/imgs/logo/logo-navbar.png")}

@@ -42,7 +42,12 @@ export function Payment({ onSavePayment, settings }) {
       <label htmlFor="cash">מזומן</label>
       <br />
       </section>
+      
+      <section className="payment-info">
       {payment && <p>{settings.payment[payment]}</p>}
+
+      </section>
+      
     </React.Fragment>
   );
 }
