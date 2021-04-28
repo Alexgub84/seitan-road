@@ -5,7 +5,7 @@ import { AddToCart } from "./AddToCart";
 
 export function ItemPreview({ item }) {
   return (
-    <Link to={`/details/${item._id}`} style={{ textDecoration: "none" }}>
+    // <Link to={`/details/${item._id}`} style={{ textDecoration: "none" }}>
       <div className="item-card flex ">
         <img className="item-img" src={item.imgUrl} alt="seitan-img" />
         <section className="info-and-buttons">
@@ -21,6 +21,6 @@ export function ItemPreview({ item }) {
           <AddToCart item={item} />
         </section>
       </div>
-    </Link>
+    // </Link>
   );
 }

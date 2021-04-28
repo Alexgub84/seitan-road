@@ -9,7 +9,7 @@ export class MarinadaSelect extends React.Component {
     isDropDownShown: false,
   };
   onToggleDropDown = (ev) => {
-    ev.stopPropagation();
+    // ev.stopPropagation();
     ev.preventDefault();
     this.setState({ isDropDownShown: !this.state.isDropDownShown });
   };

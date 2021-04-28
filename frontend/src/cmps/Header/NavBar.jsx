@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import { NavLink } from "react-router-dom";
+import { NavLink,withRouter } from "react-router-dom";
 
 import { logout } from "../../store/actions/userActions";
 
 class _NavBar extends Component {
+
   state = {
     active: "",
   };
@@ -55,7 +56,11 @@ class _NavBar extends Component {
               <button onClick={() => this.props.logout()}>התנתקי</button>
             )) || (
               <NavLink
-                to={{ pathname: "/checkout", state: { fromNavBar: true } }}
+                to={{
+                  pathname: "/checkout",
+                  source: { fromNavBar: true },
+                  state: { fromNavBar: true },
+                }}
               >
                 <div className={`cart-btn ${cartBtnClass} flex`}>
                   <span>{`₪${this.props.total}`}</span>
@@ -77,4 +82,6 @@ const mapStateToProps = (state) => {
 };
 const mapDispatchToProps = { logout };
 
-export const NavBar = connect(mapStateToProps, mapDispatchToProps)(_NavBar);
+ const NavBar2 = connect(mapStateToProps, mapDispatchToProps)(_NavBar);
+
+ export const NavBar = withRouter(props => <NavBar2 {...props}/>);

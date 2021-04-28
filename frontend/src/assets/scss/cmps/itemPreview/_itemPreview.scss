@@ -7,9 +7,10 @@
   background-color: $clr3;
   text-align: center;
   flex-direction: column;
-  // justify-content: space-between;
   position: relative;
-  overflow: hidden;
+ &:focus-visible{
+   background-color: red;
+ }
   .item-img {
     height: 104px;
     margin-bottom: 14px;
@@ -26,11 +27,8 @@
       // margin: 4px 0 4px 0;
     }
     h3 {
-      // margin: 4px 0 4px 0;
       font-size: rem(12px);
       font-weight: 100;
-      // line-height: rem(20px);
-      // height: 1.125em;
       overflow: hidden;
     }
     h4 {

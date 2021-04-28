@@ -18,7 +18,7 @@ export  function TotalAndNextAction({total,onNextClick,minTotal}) {
         </div>
         {onNextClick?<div className="checkout-btn" onClick={onNextClick}>
             לבחירת משלוח
-            </div>: <NavLink onClick={(ev)=>handleClick(ev)} to={{ pathname: "/checkout", state: { fromNavBar: false } }}>
+            </div>: <NavLink onClick={(ev)=>handleClick(ev)} to={{ pathname: "/checkout",source:{fromNavBar: false}, state: { fromNavBar: false } }}>
           <div className={`checkout-btn ${total===0?'disabled':''}`}>
             לרכישה
             </div>

@@ -27,7 +27,7 @@ class _Checkout extends Component {
   };
 
   componentDidMount() {
-    console.log({ locationState: this.props.location.state });
+    console.log({ locationState: this.props.location.source });
 
     if (this.props.customerDetails) {
       this.setState({ customerDetails: this.props.customerDetails });
@@ -38,12 +38,10 @@ class _Checkout extends Component {
     }
   }
   componentDidUpdate(prevProps) {
-    console.log({ locationStateUpdate: this.props.location.state });
 
     if (prevProps !== this.props) {
-      if (this.props.location.state === "nav" && this.state.currStage !== 0) {
+      if (this.props.location.pathname === "/checkout" && this.state.currStage !== 0) {
         this.setState({ currStage: 0 });
-        console.log("cart clicked from nav");
       }
     }
   }

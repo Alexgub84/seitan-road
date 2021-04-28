@@ -63,12 +63,7 @@ export class _AddToCart extends Component {
         }}
       >
         <section className="add-to-cart-otpions flex justify-evenly ">
-          <AmountBtn
-            onAdd={this.onAdd}
-            onReduce={this.onReduce}
-            measure={this.props.item.measure}
-            quantity={this.state.quantity}
-          />
+         
           {item.souses && (
             <MarinadaSelect
               chosenSouse={this.state.souse}
@@ -77,6 +72,12 @@ export class _AddToCart extends Component {
               onSouseChange={this.onSouseChange}
             />
           )}
+           <AmountBtn
+            onAdd={this.onAdd}
+            onReduce={this.onReduce}
+            measure={this.props.item.measure}
+            quantity={this.state.quantity}
+          />
         </section>
         <AddToCartBtn onAddToCart={this.onAddToCart} />
       </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
 
 import { ShopApp } from "./pages/ShopApp";
 import { Control } from "./pages/Control";
@@ -17,26 +17,28 @@ import { Footer } from "./cmps/Footer";
 function App() {
   return (
     <div>
-      <header>
-        <NavBar />
-        <Banner />
-      </header>
-      <div className="App">
-        <Switch>
-          <Route component={Control} path="/control" />
-          <Route component={Login} path="/login" />
-          <Route component={ItemDetails} path="/details/:id?" />
-          <Route component={Checkout} path="/checkout" />
-          <Route component={ShopApp} path="/shop" />
-          <Route component={OurStory} path="/ourstory" />
-          <Route component={About} path="/about" />
-          <Route component={Supply} path="/supply" />
-          <Route component={Home} path="/" />
-        </Switch>
-      </div>
-      <footer>
-        <Footer />
-      </footer>
+      <Router>
+        <header>
+          <NavBar />
+          <Banner />
+        </header>
+        <div className="App">
+          <Switch>
+            <Route component={Control} path="/control" />
+            <Route component={Login} path="/login" />
+            <Route component={ItemDetails} path="/details/:id?" />
+            <Route component={Checkout} path="/checkout" />
+            <Route component={ShopApp} path="/shop" />
+            <Route component={OurStory} path="/ourstory" />
+            <Route component={About} path="/about" />
+            <Route component={Supply} path="/supply" />
+            <Route component={Home} path="/" />
+          </Switch>
+        </div>
+        <footer>
+          <Footer />
+        </footer>
+      </Router>
     </div>
   );
 }

@@ -16,7 +16,6 @@ export function CartPreview({ total,settings }) {
 useEffect(() => {
   const style=isOpen?'position:fixed':'';
   document.body.setAttribute('style',style);
-  console.log(document.body);
   return () => {
     document.body.setAttribute('style','');
   }
