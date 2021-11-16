@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.ccaf2dda.chunk.css",
-    "main.js": "/static/js/main.288b18c0.chunk.js",
-    "main.js.map": "/static/js/main.288b18c0.chunk.js.map",
+    "main.css": "/static/css/main.9c94393b.chunk.css",
+    "main.js": "/static/js/main.d2569e06.chunk.js",
+    "main.js.map": "/static/js/main.d2569e06.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.f3b002b0.js",
     "runtime-main.js.map": "/static/js/runtime-main.f3b002b0.js.map",
     "static/js/2.efd43ee2.chunk.js": "/static/js/2.efd43ee2.chunk.js",
     "static/js/2.efd43ee2.chunk.js.map": "/static/js/2.efd43ee2.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.2c85efe10f9dcc24ec5bcf94694bdba5.js": "/precache-manifest.2c85efe10f9dcc24ec5bcf94694bdba5.js",
+    "precache-manifest.8cbe1a9c8a5a0f0ac65bd667343c0835.js": "/precache-manifest.8cbe1a9c8a5a0f0ac65bd667343c0835.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/main.ccaf2dda.chunk.css.map": "/static/css/main.ccaf2dda.chunk.css.map",
+    "static/css/main.9c94393b.chunk.css.map": "/static/css/main.9c94393b.chunk.css.map",
     "static/js/2.efd43ee2.chunk.js.LICENSE.txt": "/static/js/2.efd43ee2.chunk.js.LICENSE.txt",
     "static/media/global.scss": "/static/media/Heebo-Regular.3f5fef64.ttf",
     "static/media/add.97586079.svg": "/static/media/add.97586079.svg",
@@ -27,7 +27,7 @@
   "entrypoints": [
     "static/js/runtime-main.f3b002b0.js",
     "static/js/2.efd43ee2.chunk.js",
-    "static/css/main.ccaf2dda.chunk.css",
-    "static/js/main.288b18c0.chunk.js"
+    "static/css/main.9c94393b.chunk.css",
+    "static/js/main.d2569e06.chunk.js"
   ]
 }
