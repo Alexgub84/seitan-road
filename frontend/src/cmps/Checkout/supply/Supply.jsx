@@ -28,7 +28,6 @@ class _Supply extends Component {
   onButtonClicked = (cmpName) => {
     const { delivery, pickup, specialGroup } = this.props.settings;
 
-  
     const deliveryCmp = (
       <Delivery
         delivery={delivery}
@@ -75,6 +74,7 @@ class _Supply extends Component {
     return (
       <div className="delivery-container">
         <section className="delivery-btns">
+    
           <div
             className={
               `${btnClass}` +
@@ -103,9 +103,7 @@ class _Supply extends Component {
             קבוצת רכישה
           </div>
         </section>
-        <section className="supply-option">
         {this.state.optionsCmp}
-        </section>
         {this.props.supply.supplyDate && (
           <SupplyDate supplyDate={this.props.supply.supplyDate} />
         )}

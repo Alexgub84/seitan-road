@@ -98,15 +98,11 @@
       .shipment-total {
         width: 100%;
       }
-      .back-button {
-        @include back-btn(120px, 32px);
-        margin-right: auto;
-        margin-bottom: 10px;
-      }
+      
     }
     .empty {
       flex-direction: column;
-     text-align: center;
+      align-items: center;
       > * {
         margin-bottom: 10px;
       }

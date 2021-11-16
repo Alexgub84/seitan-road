@@ -14,10 +14,6 @@ const useStyles = makeStyles((theme) => ({
     "& .MuiTextField-root": {
       margin: theme.spacing(1),
       width: 200,
-      [theme.breakpoints.down("sm")]: {
-        width: "100%",
-      
-      },
     },
   },
 }));
@@ -63,7 +59,7 @@ export function CustomerDetails({
               name="firstName"
               label="שם פרטי"
               variant="outlined"
-              style={{ direction: "rtl" }}
+              // color="secondary"
               defaultValue={customerDetails.firstName}
               inputRef={register}
             />
