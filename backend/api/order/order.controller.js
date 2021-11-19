@@ -37,6 +37,23 @@ async function deleteOrder(req, res) {
   res.end("Order Deleted Well!");
 }
 
+async function createSummaryHTML(supplyType, supplydate) {
+  // stamp = new Date().setHours(0,0,0,0)
+  // 
+  //order:{
+  //     supply:{
+  //       type: specialGroup || delivery || pickup
+  //       name
+  //       supplyDate:
+  //       price
+  //     }
+  //   }
+  // order.supply.type
+  // order.supplyDate
+
+  const orders = await getOrders();
+  console.log(orders);
+}
 // let transporter = nodemailer.createTransport({
 //   service: "Yahoo",
 //   secure: true,

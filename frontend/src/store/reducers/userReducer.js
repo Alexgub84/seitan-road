@@ -4,9 +4,11 @@ if (sessionStorage.user) localLoggedinUser = JSON.parse(sessionStorage.user);
 const initialState = {
   loggedInUser: localLoggedinUser,
   customerDetails: null,
-  paymentType:'',
+  paymentType: "",
   cart: [],
-  supply: {price:0,supplyDate:null},
+  // supplyPrice:0,
+  // supplyDate:null,
+  supply: { price: 0, supplyDate: null },
   total: 0,
 };
 

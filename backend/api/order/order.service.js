@@ -75,8 +75,13 @@ async function save(order) {
 
 function _buildCriteria(filterBy) {
   const criteria = {};
-  if (filterBy.type) {
-    criteria.type = filterBy.type;
+  if (filterBy.type === "supply") {
+    // db.getCollection("order").find({
+    // "supply.type": "delivery",
+    // "supply.supplyDate": 1622160000000,
+    // });
+    criteria.type = "supply.type";
+    criteria.value = filterBy.value;
   }
 
   if (filterBy.type) {

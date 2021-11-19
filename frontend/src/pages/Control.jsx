@@ -7,8 +7,9 @@ import { loadItems } from "../store/actions/itemActions";
 import { OrdersList } from "../cmps/BackOffice/OrdersList";
 import { OrdersTable } from "../cmps/BackOffice/OrdersTable";
 import { XSLExport } from "../cmps/BackOffice/XSLExport";
-
+import { fromTimeStampToDisplay } from "../services/utils";
 import { TextField, InputLabel } from "@material-ui/core";
+import { ManageSpecialGroups } from "../cmps/BackOffice/specialGroups";
 
 class _Control extends Component {
   state = {
@@ -25,7 +26,9 @@ class _Control extends Component {
   async componentDidMount() {
     await this.props.loadSettings(this.state.filterBy);
     this.setState({ settings: this.props.settings }, () => {
-      this.setState({ date: this._formatDate(this.state.settings.supplyDate) });
+      this.setState({
+        date: fromTimeStampToDisplay(this.state.settings.supplyDate),
+      });
     });
     await this.props.loadOrders();
     await this.props.loadItems();
@@ -70,16 +73,10 @@ class _Control extends Component {
     });
   }
 
-  _formatDate(date) {
-    var d = new Date(date),
-      month = "" + (d.getMonth() +  1),
-      day = "" + d.getDate(),
-      year = d.getFullYear();
+  onDelete = (id = 11) => {
+    console.log("deleting special group");
+  };
 
-    if (month.length < 2) month = "0" + month;
-    if (day.length < 2) day = "0" + day;
-    return `${year}-${month}-${day}`;
-  }
   render() {
     const { orders, items } = this.props;
     console.log(items);
@@ -153,6 +150,10 @@ class _Control extends Component {
         {orders.length !== 0 && (
           <OrdersTable orders={orders} removeOrder={this.props.removeOrder} />
         )}
+        <ManageSpecialGroups
+          specialGroups={this.props.settings.specialGroup}
+          onDelete={this.onDelete}
+        />
       </div>
     );
   }
