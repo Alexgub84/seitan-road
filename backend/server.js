@@ -42,12 +42,14 @@ const itemRoutes = require("./api/item/item.routes");
 const settingsRoutes = require("./api/settings/settings.routes");
 const orderRoutes = require("./api/order/order.routes");
 const userRoutes = require("./api/user/user.routes");
+const groupRoutes = require("./api/group/group.routes");
 const authRoutes = require("./api/auth/auth.routes");
 
 app.use("/api/item", itemRoutes);
 app.use("/api/settings", settingsRoutes);
 app.use("/api/order", orderRoutes);
 app.use("/api/user", userRoutes);
+app.use("/api/group", groupRoutes);
 app.use("/api/auth", authRoutes);
 
 const port = process.env.PORT || devPort;
