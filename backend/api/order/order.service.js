@@ -3,6 +3,7 @@ const dbService = require("../../services/db.service");
 const { Logger } = require("mongodb");
 const ObjectId = require("mongodb").ObjectId;
 const logger = require("../../services/logger.service");
+const { mainModule } = require("process");
 
 module.exports = {
   query,
@@ -80,8 +81,8 @@ function _buildCriteria(filterBy) {
     // "supply.type": "delivery",
     // "supply.supplyDate": 1622160000000,
     // });
-    criteria.type = "supply.type";
-    criteria.value = filterBy.value;
+    criteria["supply.type"] = filterBy.value;
+    return criteria;
   }
 
   if (filterBy.type) {

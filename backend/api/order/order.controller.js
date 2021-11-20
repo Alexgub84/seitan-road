@@ -114,4 +114,4 @@ function sendBill(order) {
   //     })
   //     .catch((error) => console.error(error));
 }
-createSummaryHTML();
+// createSummaryHTML();
