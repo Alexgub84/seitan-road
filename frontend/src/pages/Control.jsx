@@ -73,13 +73,40 @@ class _Control extends Component {
     });
   }
 
-  onDelete = (id = 11) => {
-    console.log("deleting special group");
+  removeGroup = (id) => {
+    console.log("deleting special group id:" + id);
   };
+  addSpecialGroup = async (ev) => {
+    ev.preventDefault();
+    if (ev.target.name.value === "") {
+      return alert("Please enter the name of the group");
+    }
+    const newGroup = { name: ev.target.name.value, date: ev.target.date.value };
 
+    // const settings = {
+    //   ...this.state,
+    //   specialGroup: [...this.state.settings.specialGroup, ...newGroup],
+    // };
+    this.setState(
+      (prevState) => {
+        return {
+          ...prevState,
+          settings: {
+            ...prevState.settings,
+            specialGroup: [...this.state.settings.specialGroup, newGroup],
+          },
+        };
+      },
+      async () => {
+        await this.props.saveSettings(this.state.settings);
+        await this.props.loadSettings(this.state.filterBy);
+      }
+    );
+  };
   render() {
     const { orders, items } = this.props;
-    console.log(items);
+
+    console.log(items); //@@@Alex
     window.orders = orders;
     window.items = items;
 
@@ -151,8 +178,9 @@ class _Control extends Component {
           <OrdersTable orders={orders} removeOrder={this.props.removeOrder} />
         )}
         <ManageSpecialGroups
-          specialGroups={this.props.settings.specialGroup}
-          onDelete={this.onDelete}
+          specialGroups={this.state.settings.specialGroup}
+          removeGroup={this.removeGroup}
+          addSpecialGroup={this.addSpecialGroup}
         />
       </div>
     );
