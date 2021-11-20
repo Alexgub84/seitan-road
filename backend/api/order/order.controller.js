@@ -37,9 +37,9 @@ async function deleteOrder(req, res) {
   res.end("Order Deleted Well!");
 }
 
-async function createSummaryHTML(supplyType, supplydate) {
+async function createSummaryHTML() {
   // stamp = new Date().setHours(0,0,0,0)
-  // 
+  //
   //order:{
   //     supply:{
   //       type: specialGroup || delivery || pickup
@@ -50,9 +50,12 @@ async function createSummaryHTML(supplyType, supplydate) {
   //   }
   // order.supply.type
   // order.supplyDate
+  const order = await orderService.getById("60a2995ca4513a0015c9fe51");
 
-  const orders = await getOrders();
-  console.log(orders);
+  const itemsTable = order.items.map((item) => {
+    return `<td>${item.name}</td>`;
+  });
+  console.log(itemsTable);
 }
 // let transporter = nodemailer.createTransport({
 //   service: "Yahoo",
@@ -71,43 +74,44 @@ async function createSummaryHTML(supplyType, supplydate) {
 //   },
 // });
 
-// function sendBill(order) {
-//   const { firstName, lastName, email } = order.customerDetails;
-//   const customerEmail = email;
-//   const name = firstName + lastName;
+function sendBill(order) {
+  const { firstName, lastName, email } = order.customerDetails;
+  const customerEmail = email;
+  const name = firstName + lastName;
 
-//   let response = {
-//     body: {
-//       name,
-//       intro: "Your bill has arrived!",
-//       table: {
-//         data: [
-//           {
-//             item: "MERN stack book",
-//             description: "A mern stack book",
-//             price: "$10.99",
-//           },
-//         ],
-//       },
-//       outro: "מקווה שיהיה לכם טעים!",
-//     },
-//   };
+  createSummaryHTML(order);
 
-//   let mail = MailGenerator.generate(response);
-
-//   let message = {
-//     from: EMAIL,
-//     to: customerEmail,
-//     subject: "transaction",
-//     html: mail,
-//   };
-
-//   transporter
-//     .sendMail(message)
-//     .then((res) => {
-//       return res
-//         .status(200)
-//         .json({ msg: "you should receive an email from us" });
-//     })
-//     .catch((error) => console.error(error));
-// }
+  //
+  //   let response = {
+  //     body: {
+  //       name,
+  //       intro: "Your bill has arrived!",
+  //       table: {
+  //         data: [
+  //           {
+  //             item: "MERN stack book",
+  //             description: "A mern stack book",
+  //             price: "$10.99",
+  //           },
+  //         ],
+  //       },
+  //       outro: "מקווה שיהיה לכם טעים!",
+  //     },
+  //   };
+  //   let mail = MailGenerator.generate(response);
+  //   let message = {
+  //     from: EMAIL,
+  //     to: customerEmail,
+  //     subject: "transaction",
+  //     html: mail,
+  //   };
+  //   transporter
+  //     .sendMail(message)
+  //     .then((res) => {
+  //       return res
+  //         .status(200)
+  //         .json({ msg: "you should receive an email from us" });
+  //     })
+  //     .catch((error) => console.error(error));
+}
+createSummaryHTML();
