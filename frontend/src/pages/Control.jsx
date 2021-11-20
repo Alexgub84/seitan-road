@@ -82,11 +82,8 @@ class _Control extends Component {
       return alert("Please enter the name of the group");
     }
     const newGroup = { name: ev.target.name.value, date: ev.target.date.value };
+    ev.target.reset();
 
-    // const settings = {
-    //   ...this.state,
-    //   specialGroup: [...this.state.settings.specialGroup, ...newGroup],
-    // };
     this.setState(
       (prevState) => {
         return {
@@ -105,7 +102,7 @@ class _Control extends Component {
   };
   render() {
     const { orders, items } = this.props;
-
+    const { specialGroup } = this.state.settings;
     console.log(items); //@@@Alex
     window.orders = orders;
     window.items = items;
@@ -173,15 +170,16 @@ class _Control extends Component {
           </button>
         </form>
         <XSLExport items={items} orders={orders} fileName="Report for 10/2" />
-
         {orders.length !== 0 && (
           <OrdersTable orders={orders} removeOrder={this.props.removeOrder} />
         )}
-        <ManageSpecialGroups
-          specialGroups={this.state.settings.specialGroup}
-          removeGroup={this.removeGroup}
-          addSpecialGroup={this.addSpecialGroup}
-        />
+        {specialGroup && (
+          <ManageSpecialGroups
+            specialGroups={specialGroup}
+            removeGroup={this.removeGroup}
+            addSpecialGroup={this.addSpecialGroup}
+          />
+        )}
       </div>
     );
   }
