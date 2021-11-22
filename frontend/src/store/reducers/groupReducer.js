@@ -15,17 +15,12 @@ export function groupReducer(state = initialState, action) {
         groups: state.groups.filter((group) => group._id !== action.groupId),
       };
     case "SAVE_GROUP":
+      console.log("state:\n" + JSON.stringify(state));
+      console.log("groupToSave:\n" + JSON.stringify(action.groupToSave));
       return {
         ...state,
-        groups: [...state.groups, action.group],
+        groups: [...state.groups, action.groupToSave],
       };
-
-    case "SET_SETTINGS":
-      return {
-        ...state,
-        settings: action.settings,
-      };
-
     default:
       return state;
   }

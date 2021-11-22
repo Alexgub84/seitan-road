@@ -1,4 +1,4 @@
-const settingsService = require("./group.service");
+const groupService = require("./group.service");
 const logger = require("../../services/logger.service");
 
 module.exports = {

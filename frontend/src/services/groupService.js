@@ -7,7 +7,9 @@ export const groupService = {
 };
 
 async function query(filterBy) {
-  const res = await httpService.get(`${BASE_URL}`);
+  let queryStr = "";
+  console.log("query");
+  const res = await httpService.get(`${BASE_URL}${queryStr}`);
   return res[0];
 }
 

@@ -8,3 +8,11 @@ export function fromTimeStampToDisplay(date) {
   if (day.length < 2) day = "0" + day;
   return `${year}-${month}-${day}`;
 }
+
+export function getDateNowTimeZero() {
+  return new Date().setHours(0, 0, 0, 0);
+}
+
+function log(name) {
+  console.log();
+}

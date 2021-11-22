@@ -3,11 +3,16 @@ import { connect } from "react-redux";
 
 import { loadSettings, saveSettings } from "../store/actions/settingsActions";
 import { loadOrders, removeOrder } from "../store/actions/orderActions";
+import {
+  loadGroups,
+  removeGroup,
+  saveGroup,
+} from "../store/actions/groupActions";
 import { loadItems } from "../store/actions/itemActions";
 import { OrdersList } from "../cmps/BackOffice/OrdersList";
 import { OrdersTable } from "../cmps/BackOffice/OrdersTable";
 import { XSLExport } from "../cmps/BackOffice/XSLExport";
-import { fromTimeStampToDisplay } from "../services/utils";
+import { fromTimeStampToDisplay, getDateNowTimeZero } from "../services/utils";
 import { TextField, InputLabel } from "@material-ui/core";
 import { ManageSpecialGroups } from "../cmps/BackOffice/specialGroups";
 
@@ -20,16 +25,21 @@ class _Control extends Component {
       maxGrams: true,
     },
     settings: {},
+    groups: [],
     filterBy: {},
   };
 
   async componentDidMount() {
-    await this.props.loadSettings(this.state.filterBy);
-    this.setState({ settings: this.props.settings }, () => {
-      this.setState({
-        date: fromTimeStampToDisplay(this.state.settings.supplyDate),
-      });
-    });
+    await this.props.loadSettings();
+    await this.props.loadGroups();
+    this.setState(
+      { settings: this.props.settings, groups: this.props.groups || [] },
+      () => {
+        this.setState({
+          date: fromTimeStampToDisplay(this.state.settings.supplyDate),
+        });
+      }
+    );
     await this.props.loadOrders();
     await this.props.loadItems();
   }
@@ -75,35 +85,43 @@ class _Control extends Component {
 
   removeGroup = (id) => {
     console.log("deleting special group id:" + id);
+    this.setState(
+      (prevState) => {
+        return {
+          prevState,
+          groups: this.state.groups.filter((group) => group.id !== id),
+        };
+      },
+      () => this.props.removeGroup(id)
+    );
   };
+
   addSpecialGroup = async (ev) => {
     ev.preventDefault();
     if (ev.target.name.value === "") {
       return alert("Please enter the name of the group");
     }
-    const newGroup = { name: ev.target.name.value, date: ev.target.date.value };
+    const newGroup = { name: ev.target.name.value, date: getDateNowTimeZero() };
     ev.target.reset();
+    console.log("new group:\n" + newGroup);
 
     this.setState(
       (prevState) => {
         return {
           ...prevState,
-          settings: {
-            ...prevState.settings,
-            specialGroup: [...this.state.settings.specialGroup, newGroup],
-          },
+          groups: [...this.state.groups, newGroup],
         };
       },
       async () => {
-        await this.props.saveSettings(this.state.settings);
+        await this.props.saveGroup(this.state.groups.pop());
         await this.props.loadSettings(this.state.filterBy);
       }
     );
   };
   render() {
-    const { orders, items } = this.props;
-    const { specialGroup } = this.state.settings;
-    console.log(items); //@@@Alex
+    const { items, orders } = this.props;
+    const { settings, groups } = this.state;
+    console.log("groups:\n" + groups); //@@@Alex
     window.orders = orders;
     window.items = items;
 
@@ -121,7 +139,7 @@ class _Control extends Component {
               name="freeDeliveryPrice"
               id="freeDeliveryPrice"
               onChange={(ev) => this.handleChange(ev)}
-              value={this.state.settings.freeDeliveryPrice}
+              value={settings.freeDeliveryPrice}
               disabled={this.state.readOnly.freeDeliveryPrice}
             />
             <button onClick={(ev) => this.toggleEdit(ev, "freeDeliveryPrice")}>
@@ -157,7 +175,7 @@ class _Control extends Component {
               name="maxGrams"
               id="maxGrams"
               onChange={(ev) => this.handleChange(ev)}
-              value={this.state.settings.maxGrams}
+              value={settings.maxGrams}
               disabled={this.state.readOnly.maxGrams}
             />
             <button onClick={(ev) => this.toggleEdit(ev, "maxGrams")}>
@@ -173,13 +191,13 @@ class _Control extends Component {
         {orders.length !== 0 && (
           <OrdersTable orders={orders} removeOrder={this.props.removeOrder} />
         )}
-        {specialGroup && (
+        {
           <ManageSpecialGroups
-            specialGroups={specialGroup}
+            specialGroups={groups}
             removeGroup={this.removeGroup}
             addSpecialGroup={this.addSpecialGroup}
           />
-        )}
+        }
       </div>
     );
   }
@@ -191,6 +209,7 @@ const mapStateToProps = (state) => {
     loggedInUser: state.userReducer.loggedInUser,
     orders: state.orderReducer.orders,
     items: state.itemReducer.items,
+    groups: state.groupReducer.groups,
   };
 };
 
@@ -200,6 +219,9 @@ const mapDispatchToProps = {
   loadOrders,
   removeOrder,
   loadItems,
+  loadGroups,
+  removeGroup,
+  saveGroup,
 };
 
 export const Control = connect(mapStateToProps, mapDispatchToProps)(_Control);

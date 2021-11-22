@@ -12,8 +12,8 @@ module.exports = {
 async function query() {
   const collection = await dbService.getCollection("group");
   try {
-    const settings = await collection.find().toArray();
-    return settings;
+    const groups = await collection.find().toArray();
+    return groups;
   } catch (err) {
     logger.error(`ERROR: cannot get group list, err: ${err}`);
     throw err;
