@@ -7,6 +7,7 @@ const logger = require("../../services/logger.service");
 module.exports = {
   query,
   remove,
+  save,
 };
 
 async function query(filterBy) {
@@ -27,5 +28,31 @@ async function remove(_id) {
   } catch (err) {
     logger.error(`ERROR: cannot remove group ${_id}, err: ${err}`);
     throw err;
+  }
+}
+
+async function save(group) {
+  const collection = await dbService.getCollection("group");
+  if (group._id) {
+    group._id = ObjectId(group._id);
+    try {
+      await collection.updateOne({ _id: group._id }, { $set: group });
+      logger.info(`group ${group._id} was updated well!`);
+      return group;
+    } catch (err) {
+      logger.error(`ERROR: cannot update group ${group._id}, err: ${err}`);
+      throw err;
+    }
+  } else {
+    try {
+      await collection.insertOne(group);
+      logger.info(`group ${group._id} was creted well!`);
+      return group;
+    } catch (err) {
+      logger.error(
+        `ERROR: cannot insert group ${group._id} to DB, err: ${err}`
+      );
+      throw err;
+    }
   }
 }

@@ -3,19 +3,22 @@ const logger = require("../../services/logger.service");
 
 module.exports = {
   getGroups,
-  updateGroups,
+  createGroup,
   deleteGroup,
 };
 
 async function getGroups(req, res) {
-  const filterBy = req.query || [];
-  const groups = await groupService.query(filterBy);
+  const filterBy = req.query;
+  const criteria = "";
+  if (filterBy) {
+  }
+  const groups = await groupService.query(criteria);
   return res.json(groups);
 }
 
-async function updateGroups(req, res) {
+async function createGroup(req, res) {
   const groups = req.body;
-  const savedGroups = await groupService.update(groups);
+  const savedGroups = await groupService.save(groups);
   return res.json(savedGroups);
 }
 

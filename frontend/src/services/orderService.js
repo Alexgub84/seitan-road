@@ -25,7 +25,6 @@ async function getById(id) {
 
 async function save(order) {
   order.createdAt = new Date(Date.now()).toLocaleString();
-  console.log();
   const res = await httpService.post(`${BASE_URL}`, order);
   return res;
 }

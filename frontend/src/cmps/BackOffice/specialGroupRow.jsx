@@ -12,7 +12,8 @@ export function SpecialGroupRow({ specialGroup, removeGroup }) {
     <div>
       <div>
         <div>
-          {specialGroup.name} {fromTimeStampToDisplay(specialGroup.date)}{" "}
+          {specialGroup.name}
+          {fromTimeStampToDisplay(specialGroup.date, "user")}
           <button onClick={onDelete}> מחקי </button>
         </div>
       </div>

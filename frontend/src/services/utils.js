@@ -1,4 +1,4 @@
-export function fromTimeStampToDisplay(date) {
+export function fromTimeStampToDisplay(date, typeOfDisplay = "not user") {
   var d = new Date(date),
     month = "" + (d.getMonth() + 1),
     day = "" + d.getDate(),
@@ -6,7 +6,9 @@ export function fromTimeStampToDisplay(date) {
 
   if (month.length < 2) month = "0" + month;
   if (day.length < 2) day = "0" + day;
-  return `${year}-${month}-${day}`;
+  return typeOfDisplay === "user"
+    ? `${day}-${month}-${year}`
+    : `${year}-${month}-${day}`;
 }
 
 export function getDateNowTimeZero() {

@@ -13,6 +13,7 @@ export function ManageSpecialGroups({
       <div>
         {groups.length > 0 &&
           groups.map((group) => {
+            console.log(group._id);
             return (
               <SpecialGroupRow
                 specialGroup={group}

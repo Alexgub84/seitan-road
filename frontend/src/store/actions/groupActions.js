@@ -1,4 +1,4 @@
-import { groupService } from "../../services/groupService.js";
+  import { groupService } from "../../services/groupService.js";
 
 export function loadGroups(filterBy, filterName) {
   return async (dispatch) => {

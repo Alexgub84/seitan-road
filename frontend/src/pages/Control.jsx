@@ -95,27 +95,22 @@ class _Control extends Component {
     );
   };
 
-  addSpecialGroup = async (ev) => {
+  addGroup = async (ev) => {
     ev.preventDefault();
     if (ev.target.name.value === "") {
       return alert("Please enter the name of the group");
     }
-
     const newGroup = { name: ev.target.name.value, date: getDateNowTimeZero() };
     ev.target.reset();
-
-    this.setState(
-      (prevState) => {
-        return {
-          ...prevState,
-          groups: [...this.state.groups, newGroup],
-        };
-      },
-      async () => {
-        await this.props.saveGroup(this.state.groups.pop());
-      }
-    );
+    await this.props.saveGroup(newGroup);
+    this.setState((prevState) => {
+      return {
+        ...prevState,
+        groups: this.props.groups,
+      };
+    });
   };
+
   render() {
     const { items, orders } = this.props;
     const { settings, groups } = this.state;
@@ -193,7 +188,7 @@ class _Control extends Component {
           <ManageSpecialGroups
             groups={groups}
             removeGroup={this.removeGroup}
-            addSpecialGroup={this.addSpecialGroup}
+            addSpecialGroup={this.addGroup}
           />
         }
       </div>

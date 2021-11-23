@@ -7,6 +7,6 @@ const { requireAuth } = require("../../middlewares/requireAuth.middleware");
 
 router.get("/", getSettings);
 router.put("/", requireAuth, updateSettings);
-router.put("/", updateSettings);
+router.put("/", requireAuth, updateSettings);
 
 module.exports = router;
