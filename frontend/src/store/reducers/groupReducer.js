@@ -7,7 +7,7 @@ export function groupReducer(state = initialState, action) {
     case "LOAD_GROUPS":
       return {
         ...state,
-        groups: action.groups,
+        groups: action.groups.filter((group) => group.date > Date.now()),
       };
     case "REMOVE_GROUP":
       return {

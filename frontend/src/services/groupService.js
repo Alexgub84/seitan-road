@@ -7,13 +7,14 @@ export const groupService = {
   remove,
 };
 
-async function query(filterBy = {}) {
+async function query(filterBy = "") {
   let queryStr = "";
   const res = await httpService.get(`${BASE_URL}${queryStr}`);
   return res;
 }
 
 async function save(group) {
+  console.log(group);
   const res = await httpService.put(`${BASE_URL}`, group);
   return res;
 }

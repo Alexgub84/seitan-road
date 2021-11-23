@@ -12,7 +12,10 @@ import { loadItems } from "../store/actions/itemActions";
 import { OrdersList } from "../cmps/BackOffice/OrdersList";
 import { OrdersTable } from "../cmps/BackOffice/OrdersTable";
 import { XSLExport } from "../cmps/BackOffice/XSLExport";
-import { fromTimeStampToDisplay, getDateNowTimeZero } from "../services/utils";
+import {
+  fromTimeStampToDisplay,
+  getTimeStampFromDate,
+} from "../services/utils";
 import { TextField, InputLabel } from "@material-ui/core";
 import { ManageSpecialGroups } from "../cmps/BackOffice/specialGroups";
 
@@ -100,7 +103,10 @@ class _Control extends Component {
     if (ev.target.name.value === "") {
       return alert("Please enter the name of the group");
     }
-    const newGroup = { name: ev.target.name.value, date: getDateNowTimeZero() };
+    const newGroup = {
+      name: ev.target.name.value,
+      date: getTimeStampFromDate(ev.target.date.value),
+    };
     ev.target.reset();
     await this.props.saveGroup(newGroup);
     this.setState((prevState) => {

@@ -1,9 +1,8 @@
-  import { groupService } from "../../services/groupService.js";
+import { groupService } from "../../services/groupService.js";
 
-export function loadGroups(filterBy, filterName) {
+export function loadGroups(filterBy) {
   return async (dispatch) => {
-    const groups = await groupService.query(filterBy, filterName);
-    console.log("groups \n" + JSON.stringify(groups));
+    const groups = await groupService.query(filterBy);
     dispatch({ type: "LOAD_GROUPS", groups });
   };
 }

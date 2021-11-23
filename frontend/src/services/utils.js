@@ -15,6 +15,10 @@ export function getDateNowTimeZero() {
   return new Date().setHours(0, 0, 0, 0);
 }
 
+export function getTimeStampFromDate(dateStr) {
+  return new Date(dateStr).setHours(0, 0, 0, 0);
+}
+
 function log(name) {
   console.log();
 }
