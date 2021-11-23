@@ -3,7 +3,7 @@ import React from "react";
 import { SpecialGroupRow } from "./specialGroupRow";
 import { AddNewSpecialGroup } from "./AddNewSpecialGroup";
 export function ManageSpecialGroups({
-  specialGroups,
+  groups = [],
   removeGroup,
   addSpecialGroup,
 }) {
@@ -11,8 +11,9 @@ export function ManageSpecialGroups({
     <div>
       <h2>קבוצות רכישה</h2>
       <div>
-        {specialGroups?.length > 0 &&
-          specialGroups.map((group) => {
+        {groups.length > 0 &&
+          groups.map((group) => {
+            console.log(group);
             return (
               <SpecialGroupRow
                 specialGroup={group}

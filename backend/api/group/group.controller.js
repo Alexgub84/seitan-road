@@ -7,7 +7,9 @@ module.exports = {
 };
 
 async function getGroups(req, res) {
-  const groups = await groupService.query();
+  const filterBy = req.query;
+  const groups = await groupService.query(filterBy);
+  console.log("groups from controller:" + groups);
   return res.json(groups);
 }
 

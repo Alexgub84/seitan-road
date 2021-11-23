@@ -13,6 +13,7 @@ async function query() {
   const collection = await dbService.getCollection("group");
   try {
     const groups = await collection.find().toArray();
+    console.log("groups return in query\n" + JSON.stringify(groups));
     return groups;
   } catch (err) {
     logger.error(`ERROR: cannot get group list, err: ${err}`);
@@ -25,10 +26,9 @@ async function update(group) {
 
   const collection = await dbService.getCollection("group");
   try {
-    group._id = ObjectId(group._id);
-    await collection.replaceOne({ _id: group._id }, group);
-    logger.info(`group was updated well!`);
-    return group;
+    await collection.insertOne(group);
+    logger.info(`order ${group._id} was creted well!`);
+    return order;
   } catch (err) {
     logger.error(`ERROR: cannot update group ${group}, err: ${err}`);
     throw err;

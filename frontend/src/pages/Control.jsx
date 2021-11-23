@@ -123,6 +123,7 @@ class _Control extends Component {
     const { settings, groups } = this.state;
     console.log("groups:\n" + groups); //@@@Alex
     window.orders = orders;
+    window.groups = groups;
     window.items = items;
 
     if (!this.props.loggedInUser) return <div></div>;
@@ -193,7 +194,7 @@ class _Control extends Component {
         )}
         {
           <ManageSpecialGroups
-            specialGroups={groups}
+            groups={groups}
             removeGroup={this.removeGroup}
             addSpecialGroup={this.addSpecialGroup}
           />
