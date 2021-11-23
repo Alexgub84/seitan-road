@@ -84,12 +84,11 @@ class _Control extends Component {
   }
 
   removeGroup = (id) => {
-    console.log("deleting special group id:" + id);
     this.setState(
       (prevState) => {
         return {
           prevState,
-          groups: this.state.groups.filter((group) => group.id !== id),
+          groups: this.state.groups.filter((group) => group._id !== id),
         };
       },
       () => this.props.removeGroup(id)
@@ -101,9 +100,9 @@ class _Control extends Component {
     if (ev.target.name.value === "") {
       return alert("Please enter the name of the group");
     }
+
     const newGroup = { name: ev.target.name.value, date: getDateNowTimeZero() };
     ev.target.reset();
-    console.log("new group:\n" + newGroup);
 
     this.setState(
       (prevState) => {
@@ -114,14 +113,12 @@ class _Control extends Component {
       },
       async () => {
         await this.props.saveGroup(this.state.groups.pop());
-        await this.props.loadSettings(this.state.filterBy);
       }
     );
   };
   render() {
     const { items, orders } = this.props;
     const { settings, groups } = this.state;
-    console.log("groups:\n" + groups); //@@@Alex
     window.orders = orders;
     window.groups = groups;
     window.items = items;

@@ -24,7 +24,6 @@ class _Login extends Component {
   };
   doLogin = async (ev) => {
     ev.preventDefault();
-    console.log("Login:", this.state.loginCred);
     const { userName, password } = this.state.loginCred;
     if (!userName || !password) {
       return this.setState({ msg: "אנא הכניסו שם משתמש וסיסמא" });

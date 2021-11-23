@@ -13,12 +13,11 @@ export function ManageSpecialGroups({
       <div>
         {groups.length > 0 &&
           groups.map((group) => {
-            console.log(group);
             return (
               <SpecialGroupRow
                 specialGroup={group}
                 removeGroup={removeGroup}
-                key={group.date}
+                key={group._id}
               />
             );
           })}

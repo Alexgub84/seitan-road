@@ -16,7 +16,6 @@ const useStyles = makeStyles((theme) => ({
       width: 200,
       [theme.breakpoints.down("sm")]: {
         width: "100%",
-      
       },
     },
   },
@@ -46,7 +45,6 @@ export function CustomerDetails({
   });
   const onSubmit = (data) => {
     console.log("errors:", errors);
-    console.log(data);
     onSaveDetails(data);
   };
 

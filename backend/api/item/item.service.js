@@ -41,7 +41,7 @@ async function remove(_id) {
     await collection.deleteOne({ _id: ObjectId(_id) });
     logger.info(`Item ${_id} was removed well!`);
   } catch (err) {
-    logger.error(`ERROR: cannot remove item ${item._id}, err: ${err}`);
+    logger.error(`ERROR: cannot remove item ${_id}, err: ${err}`);
     throw err;
   }
 }

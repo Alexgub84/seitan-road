@@ -5,7 +5,7 @@ export function SpecialGroupRow({ specialGroup, removeGroup }) {
   function onDelete() {
     const res = window.confirm("Are you sure you want to delete this group?");
     if (res) {
-      removeGroup(specialGroup.name);
+      removeGroup(specialGroup._id);
     }
   }
   return (

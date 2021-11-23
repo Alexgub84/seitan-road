@@ -6,31 +6,26 @@ const logger = require("../../services/logger.service");
 
 module.exports = {
   query,
-  update,
+  remove,
 };
 
-async function query() {
+async function query(filterBy) {
   const collection = await dbService.getCollection("group");
   try {
-    const groups = await collection.find().toArray();
-    console.log("groups return in query\n" + JSON.stringify(groups));
+    const groups = await collection.find(filterBy).toArray();
     return groups;
   } catch (err) {
     logger.error(`ERROR: cannot get group list, err: ${err}`);
     throw err;
   }
 }
-
-async function update(group) {
-  console.dir(group, { depth: Infinity });
-
+async function remove(_id) {
   const collection = await dbService.getCollection("group");
   try {
-    await collection.insertOne(group);
-    logger.info(`order ${group._id} was creted well!`);
-    return order;
+    await collection.deleteOne({ _id: ObjectId(_id) });
+    logger.info(`Group ${_id} was removed well!`);
   } catch (err) {
-    logger.error(`ERROR: cannot update group ${group}, err: ${err}`);
+    logger.error(`ERROR: cannot remove group ${_id}, err: ${err}`);
     throw err;
   }
 }

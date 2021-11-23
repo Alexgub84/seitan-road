@@ -25,7 +25,6 @@ async function getOrder(req, res) {
 
 async function createOrder(req, res) {
   const order = req.body;
-  console.log(order);
   const savedOrder = await orderService.save(order);
   // sendBill(order);
   return res.json(savedOrder);

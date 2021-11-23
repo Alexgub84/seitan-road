@@ -40,9 +40,11 @@ export class _AddToCart extends Component {
       quantity: this.state.quantity,
       souse: this.state.souse,
     };
-    console.log('item is',this.props.item);
-    if (this.state.souse==="ללא מרינדה" && this.props.item.name==="פולקע עוף"){
-      return alert("פולקע עוף לא הולך בלי מרינדה, אז תבחרו משהו מעניין")
+    if (
+      this.state.souse === "ללא מרינדה" &&
+      this.props.item.name === "פולקע עוף"
+    ) {
+      return alert("פולקע עוף לא הולך בלי מרינדה, אז תבחרו משהו מעניין");
     }
     this.props.addToCart(itemToAdd);
     this.props.history.push("/shop");
@@ -63,7 +65,6 @@ export class _AddToCart extends Component {
         }}
       >
         <section className="add-to-cart-otpions flex justify-evenly ">
-         
           {item.souses && (
             <MarinadaSelect
               chosenSouse={this.state.souse}
@@ -72,7 +73,7 @@ export class _AddToCart extends Component {
               onSouseChange={this.onSouseChange}
             />
           )}
-           <AmountBtn
+          <AmountBtn
             onAdd={this.onAdd}
             onReduce={this.onReduce}
             measure={this.props.item.measure}
