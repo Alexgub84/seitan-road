@@ -19,6 +19,14 @@ export function getTimeStampFromDate(dateStr) {
   return new Date(dateStr).setHours(0, 0, 0, 0);
 }
 
-function log(name) {
-  console.log();
+export function saveToLocalStorage(key, data) {
+  localStorage.setItem(key, data);
+}
+
+export function getFromLocalStorage(key) {
+  return localStorage.getItem(key);
+}
+
+export function clearLocalStorage(key) {
+  localStorage.clear(key);
 }

@@ -1,5 +1,6 @@
 import { loadFromStorage, saveToStorage } from "../../services/storageService";
 import userService from "../../services/userService";
+import clearLocalStorage from "../../services/utils";
 
 export function addToCart(item) {
   return (dispatch, getState) => {
@@ -31,6 +32,7 @@ export function deleteItem(item) {
   };
 }
 export function emptyCart() {
+  clearLocalStorage("cart");
   return (dispatch) => dispatch({ type: "EMPTY_CART" });
 }
 export function saveCustomerDetails(details) {
