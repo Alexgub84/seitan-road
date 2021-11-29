@@ -1,6 +1,6 @@
 import { loadFromStorage, saveToStorage } from "../../services/storageService";
 import userService from "../../services/userService";
-import clearLocalStorage from "../../services/utils";
+import { clearLocalStorage } from "../../services/utils";
 
 export function addToCart(item) {
   return (dispatch, getState) => {

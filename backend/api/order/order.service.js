@@ -75,6 +75,7 @@ async function save(order) {
 }
 
 function _buildCriteria(filterBy) {
+  console.log("filter by: " + JSON.stringify(filterBy));
   const criteria = {};
   if (filterBy.type === "supply") {
     // db.getCollection("order").find({
@@ -85,8 +86,8 @@ function _buildCriteria(filterBy) {
     return criteria;
   }
 
-  if (filterBy.type) {
-    criteria.type = filterBy.type;
+  if (filterBy.date) {
+    criteria["supply.date"] = filterBy.date;
   }
 
   return criteria;
